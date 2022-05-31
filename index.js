@@ -5301,8 +5301,8 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$application = _Browser_application;
-var $author$project$Main$Desktop = {$: 'Desktop'};
-var $author$project$Main$Landscape = {$: 'Landscape'};
+var $mdgriffith$elm_ui$Element$Desktop = {$: 'Desktop'};
+var $mdgriffith$elm_ui$Element$Landscape = {$: 'Landscape'};
 var $author$project$Main$ListBySubject = {$: 'ListBySubject'};
 var $author$project$Routes$About = {$: 'About'};
 var $author$project$Routes$Home = {$: 'Home'};
@@ -7113,7 +7113,7 @@ var $author$project$Radicals$radicals = _List_fromArray(
 var $author$project$Main$init = F3(
 	function (_v0, url, key) {
 		var model = {
-			device: {_class: $author$project$Main$Desktop, orientation: $author$project$Main$Landscape},
+			device: {_class: $mdgriffith$elm_ui$Element$Desktop, orientation: $mdgriffith$elm_ui$Element$Landscape},
 			display: $author$project$Main$ListBySubject,
 			key: key,
 			radicals: $author$project$Radicals$radicals,
@@ -7560,16 +7560,26 @@ var $author$project$Main$subscriptions = function (_v0) {
 				$elm$browser$Browser$Events$onResize($author$project$Main$WindowResized)
 			]));
 };
-var $author$project$Main$BigDesktop = {$: 'BigDesktop'};
-var $author$project$Main$Phone = {$: 'Phone'};
-var $author$project$Main$Portrait = {$: 'Portrait'};
-var $author$project$Main$Tablet = {$: 'Tablet'};
+var $mdgriffith$elm_ui$Element$BigDesktop = {$: 'BigDesktop'};
+var $mdgriffith$elm_ui$Element$Phone = {$: 'Phone'};
+var $mdgriffith$elm_ui$Element$Portrait = {$: 'Portrait'};
+var $mdgriffith$elm_ui$Element$Tablet = {$: 'Tablet'};
+var $elm$core$Basics$min = F2(
+	function (x, y) {
+		return (_Utils_cmp(x, y) < 0) ? x : y;
+	});
+var $mdgriffith$elm_ui$Element$classifyDevice = function (window) {
+	return {
+		_class: function () {
+			var shortSide = A2($elm$core$Basics$min, window.width, window.height);
+			var longSide = A2($elm$core$Basics$max, window.width, window.height);
+			return (shortSide < 600) ? $mdgriffith$elm_ui$Element$Phone : ((longSide <= 1200) ? $mdgriffith$elm_ui$Element$Tablet : (((longSide > 1200) && (longSide <= 1920)) ? $mdgriffith$elm_ui$Element$Desktop : $mdgriffith$elm_ui$Element$BigDesktop));
+		}(),
+		orientation: (_Utils_cmp(window.width, window.height) < 0) ? $mdgriffith$elm_ui$Element$Portrait : $mdgriffith$elm_ui$Element$Landscape
+	};
+};
 var $author$project$Main$classifyDevice = function (window) {
-	var width = window.width;
-	var height = window.height;
-	var orientation = (_Utils_cmp(height, width) < 0) ? $author$project$Main$Landscape : $author$project$Main$Portrait;
-	var _class = _Utils_eq(orientation, $author$project$Main$Landscape) ? ((width < 768) ? $author$project$Main$Phone : ((width < 1024) ? $author$project$Main$Tablet : $author$project$Main$Desktop)) : (_Utils_eq(orientation, $author$project$Main$Portrait) ? ((height < 768) ? $author$project$Main$Phone : ((height < 1024) ? $author$project$Main$Tablet : $author$project$Main$Desktop)) : $author$project$Main$BigDesktop);
-	return {_class: _class, orientation: orientation};
+	return $mdgriffith$elm_ui$Element$classifyDevice(window);
 };
 var $author$project$Main$deselectRadical = function (model) {
 	return _Utils_Tuple2(
@@ -10427,10 +10437,6 @@ var $mdgriffith$elm_ui$Internal$Model$hasSmallCaps = function (typeface) {
 		return false;
 	}
 };
-var $elm$core$Basics$min = F2(
-	function (x, y) {
-		return (_Utils_cmp(x, y) < 0) ? x : y;
-	});
 var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
@@ -14456,7 +14462,7 @@ var $author$project$Main$viewHeader = F2(
 		var content = _List_fromArray(
 			[
 				$author$project$Main$viewFilterButtons(display),
-				_Utils_eq(device, $author$project$Main$Desktop) ? $author$project$Main$viewSiteTitle : $mdgriffith$elm_ui$Element$none,
+				_Utils_eq(device, $mdgriffith$elm_ui$Element$Desktop) ? $author$project$Main$viewSiteTitle : $mdgriffith$elm_ui$Element$none,
 				$author$project$Main$viewHeaderLinks
 			]);
 		switch (device.$) {

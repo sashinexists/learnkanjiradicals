@@ -113,53 +113,9 @@ type Msg
     | WindowResized Int Int
 
 
-type alias Device =
-    { class : DeviceClass
-    , orientation : Orientation
-    }
-
-
-type DeviceClass
-    = Phone
-    | Tablet
-    | Desktop
-    | BigDesktop
-
-
-type Orientation
-    = Portrait
-    | Landscape
-
-
 classifyDevice : { window | height : Int, width : Int } -> Device
 classifyDevice window =
-    let
-        height =
-            window.height
-
-        width =
-            window.width
-
-        orientation =
-            if width > height then
-                Landscape
-
-            else
-                Portrait
-
-        class =
-            if width < 768 then
-                Phone
-
-            else if width < 1024 then
-                Tablet
-
-            else
-                Desktop
-    in
-    { class = class
-    , orientation = orientation
-    }
+    Element.classifyDevice window
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
