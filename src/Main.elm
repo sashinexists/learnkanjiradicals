@@ -315,7 +315,7 @@ viewFilterButtons display =
 
 viewHeaderLinks : Element Msg
 viewHeaderLinks =
-    Element.row [ spacing 20, alpha 0.3 ]
+    Element.row [ spacing 20, alpha 0 ]
         (List.map
             (\p -> viewHeaderLink p.title (Routes.getUrlFromRoute p.route))
             pages
