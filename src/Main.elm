@@ -141,35 +141,21 @@ classifyDevice window =
             window.width
 
         orientation =
-            if height < width then
+            if width > height then
                 Landscape
 
             else
                 Portrait
 
         class =
-            if orientation == Landscape then
-                if width < 768 then
-                    Phone
+            if width < 768 then
+                Phone
 
-                else if width < 1024 then
-                    Tablet
-
-                else
-                    Desktop
-
-            else if orientation == Portrait then
-                if height < 768 then
-                    Phone
-
-                else if height < 1024 then
-                    Tablet
-
-                else
-                    Desktop
+            else if width < 1024 then
+                Tablet
 
             else
-                BigDesktop
+                Desktop
     in
     { class = class
     , orientation = orientation
