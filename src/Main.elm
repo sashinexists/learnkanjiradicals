@@ -55,7 +55,7 @@ init _ url key =
             , selected = Nothing
             , display = ListBySubject
             , route = getRouteFromPath url.path
-            , device = { class = Desktop, orientation = Landscape }
+            , device = { class = Phone, orientation = Portrait }
             }
     in
     ( model, Cmd.none )
