@@ -147,5 +147,9 @@ view model =
         Phone ->
             Phone.view model
 
+        Tablet ->
+            Phone.view model
+
+        -- later you might want to make a view for tablets
         _ ->
             Desktop.view model
