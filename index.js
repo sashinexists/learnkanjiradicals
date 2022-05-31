@@ -5301,6 +5301,8 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$application = _Browser_application;
+var $author$project$Main$Desktop = {$: 'Desktop'};
+var $author$project$Main$Landscape = {$: 'Landscape'};
 var $author$project$Main$ListBySubject = {$: 'ListBySubject'};
 var $author$project$Routes$About = {$: 'About'};
 var $author$project$Routes$Home = {$: 'Home'};
@@ -5536,7 +5538,7 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('冫'),
 		'にすい',
-		$author$project$Meaning$Different('氷・二つの水度'),
+		$author$project$Meaning$Different('氷・二つの水敵'),
 		_List_Nil,
 		$author$project$Part$Left,
 		_List_Nil,
@@ -7111,6 +7113,7 @@ var $author$project$Radicals$radicals = _List_fromArray(
 var $author$project$Main$init = F3(
 	function (_v0, url, key) {
 		var model = {
+			device: {_class: $author$project$Main$Desktop, orientation: $author$project$Main$Landscape},
 			display: $author$project$Main$ListBySubject,
 			key: key,
 			radicals: $author$project$Radicals$radicals,
@@ -7119,6 +7122,10 @@ var $author$project$Main$init = F3(
 			url: url
 		};
 		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+	});
+var $author$project$Main$WindowResized = F2(
+	function (a, b) {
+		return {$: 'WindowResized', a: a, b: b};
 	});
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $author$project$Main$KeyDown = function (a) {
@@ -7529,12 +7536,40 @@ var $elm$browser$Browser$Events$on = F3(
 			A3($elm$browser$Browser$Events$MySub, node, name, decoder));
 	});
 var $elm$browser$Browser$Events$onKeyDown = A2($elm$browser$Browser$Events$on, $elm$browser$Browser$Events$Document, 'keydown');
+var $elm$browser$Browser$Events$Window = {$: 'Window'};
+var $elm$json$Json$Decode$int = _Json_decodeInt;
+var $elm$browser$Browser$Events$onResize = function (func) {
+	return A3(
+		$elm$browser$Browser$Events$on,
+		$elm$browser$Browser$Events$Window,
+		'resize',
+		A2(
+			$elm$json$Json$Decode$field,
+			'target',
+			A3(
+				$elm$json$Json$Decode$map2,
+				func,
+				A2($elm$json$Json$Decode$field, 'innerWidth', $elm$json$Json$Decode$int),
+				A2($elm$json$Json$Decode$field, 'innerHeight', $elm$json$Json$Decode$int))));
+};
 var $author$project$Main$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$batch(
 		_List_fromArray(
 			[
-				$elm$browser$Browser$Events$onKeyDown($author$project$Main$keyDownListener)
+				$elm$browser$Browser$Events$onKeyDown($author$project$Main$keyDownListener),
+				$elm$browser$Browser$Events$onResize($author$project$Main$WindowResized)
 			]));
+};
+var $author$project$Main$BigDesktop = {$: 'BigDesktop'};
+var $author$project$Main$Phone = {$: 'Phone'};
+var $author$project$Main$Portrait = {$: 'Portrait'};
+var $author$project$Main$Tablet = {$: 'Tablet'};
+var $author$project$Main$classifyDevice = function (window) {
+	var width = window.width;
+	var height = window.height;
+	var orientation = (_Utils_cmp(height, width) < 0) ? $author$project$Main$Landscape : $author$project$Main$Portrait;
+	var _class = _Utils_eq(orientation, $author$project$Main$Landscape) ? ((width < 768) ? $author$project$Main$Phone : ((width < 1024) ? $author$project$Main$Tablet : $author$project$Main$Desktop)) : (_Utils_eq(orientation, $author$project$Main$Portrait) ? ((height < 768) ? $author$project$Main$Phone : ((height < 1024) ? $author$project$Main$Tablet : $author$project$Main$Desktop)) : $author$project$Main$BigDesktop);
+	return {_class: _class, orientation: orientation};
 };
 var $author$project$Main$deselectRadical = function (model) {
 	return _Utils_Tuple2(
@@ -7637,12 +7672,23 @@ var $author$project$Main$update = F2(
 			case 'KeyDown':
 				var key = msg.a;
 				return A2($author$project$Main$handleKeyDown, key, model);
-			default:
+			case 'DisplayBy':
 				var option = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{display: option, route: $author$project$Routes$Home}),
+					$elm$core$Platform$Cmd$none);
+			default:
+				var height = msg.a;
+				var width = msg.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							device: $author$project$Main$classifyDevice(
+								{height: height, width: width})
+						}),
 					$elm$core$Platform$Cmd$none);
 		}
 	});
@@ -7650,8 +7696,8 @@ var $mdgriffith$elm_ui$Element$FocusStyle = F3(
 	function (borderColor, backgroundColor, shadow) {
 		return {backgroundColor: backgroundColor, borderColor: borderColor, shadow: shadow};
 	});
-var $author$project$Pages$aboutCopy = '\n\n# TestKanji and functional components\n- All kanji are made up of what are called functional components\n- Basically they are made up of smaller parts - or components - and understanding what they are made up of can tell you how the Kanji is pronounced and what they mean\n- Every component has a meaning associated with it as well as a pronunciation\n- In most kanji there is one component within it that tells you how it is pronounced, it’s “sound component” as well as one or more that tell you what it means, the “semantic components”\n- Semantic components in turn are divided into form components and meaning components\n\t- with form components how the component looks like will inform the meaning of the kanji, with meaning it will be what the component means\n- empty components are components that do neither of these things they tend to be “differentiators” or “corruptions”\n\t- 王\n\t- 玉\n\t- so above is “king” and “ball” the little dash is a “differentiator” it doesn’t mean anything by itself, it simply differentiates the kanji from king\n\t- corruptions are like the chinese whispers of kanji, it’s when the original component was misinterpreted when adapted to modern kanji - so it no longer is meaningful in its current form\n- Understanding the functional components helps create meaningful mnemonics and as the components are reused it makes it progressively easier to learn new kanji\n- Actually understanding how kanji works is supposed to make them easier to remember\n';
-var $author$project$Pages$about = {content: $author$project$Pages$aboutCopy, route: $author$project$Routes$About, title: 'このアプリでついて'};
+var $author$project$Pages$aboutCopy = '\nこんにちは、サシンです。僕がこのアプリの作者です。\n漢字の部首を学ぶためにこのアプリを作りました。\n\n## 部首とは何でしょうか？\n部首は漢字の部分です。\n\n例えば、\n\n休みの「休」は人と木でできています。\n\n> 休\n\n木の近くに座っている人の姿から漢字が作られました。\n\nそして、人と木はこの漢字の部首になります。\n\n部首を知っていれば、新しい漢字を学ぶのは簡単です。\n\n';
+var $author$project$Pages$about = {content: $author$project$Pages$aboutCopy, route: $author$project$Routes$About, title: 'このアプリについて'};
 var $mdgriffith$elm_ui$Internal$Model$Colored = F3(
 	function (a, b, c) {
 		return {$: 'Colored', a: a, b: b, c: c};
@@ -13449,7 +13495,7 @@ var $mdgriffith$elm_ui$Internal$Model$CenterY = {$: 'CenterY'};
 var $mdgriffith$elm_ui$Element$centerY = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$CenterY);
 var $author$project$Meaning$displayMeaning = function (meaning) {
 	if (meaning.$ === 'Same') {
-		return '名前の同じ';
+		return '名前と同じ';
 	} else {
 		var m = meaning.a;
 		return m;
@@ -14183,6 +14229,7 @@ var $author$project$Pages$supportCopy = '# About Learning Japanese\n        \n<a
 var $author$project$Pages$support = {content: $author$project$Pages$supportCopy, route: $author$project$Routes$Support, title: '❤'};
 var $mdgriffith$elm_ui$Element$Font$typeface = $mdgriffith$elm_ui$Internal$Model$Typeface;
 var $mdgriffith$elm_ui$Element$Font$light = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.textLight);
+var $mdgriffith$elm_ui$Element$none = $mdgriffith$elm_ui$Internal$Model$Empty;
 var $mdgriffith$elm_ui$Internal$Model$Px = function (a) {
 	return {$: 'Px', a: a};
 };
@@ -14380,7 +14427,7 @@ var $author$project$Main$viewHeaderLinks = A2(
 	_List_fromArray(
 		[
 			$mdgriffith$elm_ui$Element$spacing(20),
-			$mdgriffith$elm_ui$Element$alpha(0.3)
+			$mdgriffith$elm_ui$Element$alpha(0)
 		]),
 	A2(
 		$elm$core$List$map,
@@ -14392,10 +14439,9 @@ var $author$project$Main$viewHeaderLinks = A2(
 		},
 		$author$project$Pages$pages));
 var $author$project$Main$viewSiteTitle = $mdgriffith$elm_ui$Element$text('漢字の部首学ぶ教室へようこそ！！');
-var $author$project$Main$viewHeader = function (display) {
-	return A2(
-		$mdgriffith$elm_ui$Element$row,
-		_List_fromArray(
+var $author$project$Main$viewHeader = F2(
+	function (device, display) {
+		var styles = _List_fromArray(
 			[
 				$mdgriffith$elm_ui$Element$centerY,
 				$mdgriffith$elm_ui$Element$Font$size(25),
@@ -14406,14 +14452,22 @@ var $author$project$Main$viewHeader = function (display) {
 				$mdgriffith$elm_ui$Element$alignRight,
 				$mdgriffith$elm_ui$Element$height(
 				$mdgriffith$elm_ui$Element$px(70))
-			]),
-		_List_fromArray(
+			]);
+		var content = _List_fromArray(
 			[
 				$author$project$Main$viewFilterButtons(display),
-				$author$project$Main$viewSiteTitle,
+				_Utils_eq(device, $author$project$Main$Desktop) ? $author$project$Main$viewSiteTitle : $mdgriffith$elm_ui$Element$none,
 				$author$project$Main$viewHeaderLinks
-			]));
-};
+			]);
+		switch (device.$) {
+			case 'Desktop':
+				return A2($mdgriffith$elm_ui$Element$row, styles, content);
+			case 'Phone':
+				return A2($mdgriffith$elm_ui$Element$column, styles, content);
+			default:
+				return A2($mdgriffith$elm_ui$Element$row, styles, content);
+		}
+	});
 var $author$project$Main$SelectRadical = function (a) {
 	return {$: 'SelectRadical', a: a};
 };
@@ -14661,16 +14715,29 @@ var $mdgriffith$elm_ui$Element$wrappedRow = F2(
 			}
 		}
 	});
-var $author$project$Main$viewRadicals = function (radicals) {
-	return A2(
-		$mdgriffith$elm_ui$Element$wrappedRow,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$spacing(20),
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-			]),
-		A2($elm$core$List$map, $author$project$Main$viewRadical, radicals));
-};
+var $author$project$Main$viewRadicals = F2(
+	function (device, radicals) {
+		var content = A2($elm$core$List$map, $author$project$Main$viewRadical, radicals);
+		if (device.$ === 'Phone') {
+			return A2(
+				$mdgriffith$elm_ui$Element$column,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$spacing(20),
+						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+					]),
+				content);
+		} else {
+			return A2(
+				$mdgriffith$elm_ui$Element$wrappedRow,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$spacing(20),
+						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+					]),
+				content);
+		}
+	});
 var $author$project$Part$all = _List_fromArray(
 	[$author$project$Part$Left, $author$project$Part$Right, $author$project$Part$Top, $author$project$Part$Bottom, $author$project$Part$Enclose, $author$project$Part$Hang, $author$project$Part$Wrap, $author$project$Part$None]);
 var $author$project$Main$viewTitle = function (title) {
@@ -14685,8 +14752,8 @@ var $author$project$Main$viewTitle = function (title) {
 			]),
 		$mdgriffith$elm_ui$Element$text(title));
 };
-var $author$project$Main$viewPartRadicals = F2(
-	function (radicals, part) {
+var $author$project$Main$viewPartRadicals = F3(
+	function (device, radicals, part) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -14699,32 +14766,26 @@ var $author$project$Main$viewPartRadicals = F2(
 					$author$project$Main$viewTitle(
 					$author$project$Part$getJapanesePartName(part)),
 					A2(
-					$mdgriffith$elm_ui$Element$wrappedRow,
-					_List_fromArray(
-						[
-							$mdgriffith$elm_ui$Element$spacing(20),
-							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-						]),
+					$author$project$Main$viewRadicals,
+					device,
 					A2(
-						$elm$core$List$map,
-						$author$project$Main$viewRadical,
-						A2(
-							$elm$core$List$filter,
-							function (r) {
-								return _Utils_eq(r.part, part);
-							},
-							radicals)))
+						$elm$core$List$filter,
+						function (r) {
+							return _Utils_eq(r.part, part);
+						},
+						radicals))
 				]));
 	});
-var $author$project$Main$viewRadicalsByPart = function (radicals) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_Nil,
-		A2(
-			$elm$core$List$map,
-			$author$project$Main$viewPartRadicals(radicals),
-			$author$project$Part$all));
-};
+var $author$project$Main$viewRadicalsByPart = F2(
+	function (device, radicals) {
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_Nil,
+			A2(
+				$elm$core$List$map,
+				A2($author$project$Main$viewPartRadicals, device, radicals),
+				$author$project$Part$all));
+	});
 var $author$project$Subject$all = _List_fromArray(
 	[$author$project$Subject$Nature, $author$project$Subject$BodyParts, $author$project$Subject$People, $author$project$Subject$Enclosures, $author$project$Subject$VerbsAndLanguage, $author$project$Subject$NaturalMaterials, $author$project$Subject$MathAndMeasurement, $author$project$Subject$Food, $author$project$Subject$Animals, $author$project$Subject$Warfare, $author$project$Subject$ManMadeTools, $author$project$Subject$Senses, $author$project$Subject$Supernatural]);
 var $author$project$Subject$getJapaneseSubjectName = function (subject) {
@@ -14757,8 +14818,8 @@ var $author$project$Subject$getJapaneseSubjectName = function (subject) {
 			return '超自然';
 	}
 };
-var $author$project$Main$viewSubjectRadicals = F2(
-	function (radicals, subject) {
+var $author$project$Main$viewSubjectRadicals = F3(
+	function (device, radicals, subject) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -14771,32 +14832,26 @@ var $author$project$Main$viewSubjectRadicals = F2(
 					$author$project$Main$viewTitle(
 					$author$project$Subject$getJapaneseSubjectName(subject)),
 					A2(
-					$mdgriffith$elm_ui$Element$wrappedRow,
-					_List_fromArray(
-						[
-							$mdgriffith$elm_ui$Element$spacing(20),
-							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-						]),
+					$author$project$Main$viewRadicals,
+					device,
 					A2(
-						$elm$core$List$map,
-						$author$project$Main$viewRadical,
-						A2(
-							$elm$core$List$filter,
-							function (r) {
-								return _Utils_eq(r.subject, subject);
-							},
-							radicals)))
+						$elm$core$List$filter,
+						function (r) {
+							return _Utils_eq(r.subject, subject);
+						},
+						radicals))
 				]));
 	});
-var $author$project$Main$viewRadicalsBySubject = function (radicals) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_Nil,
-		A2(
-			$elm$core$List$map,
-			$author$project$Main$viewSubjectRadicals(radicals),
-			$author$project$Subject$all));
-};
+var $author$project$Main$viewRadicalsBySubject = F2(
+	function (device, radicals) {
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_Nil,
+			A2(
+				$elm$core$List$map,
+				A2($author$project$Main$viewSubjectRadicals, device, radicals),
+				$author$project$Subject$all));
+	});
 var $author$project$Main$viewHomeRoute = function (model) {
 	return A2(
 		$mdgriffith$elm_ui$Element$column,
@@ -14815,11 +14870,11 @@ var $author$project$Main$viewHomeRoute = function (model) {
 				var _v0 = model.display;
 				switch (_v0.$) {
 					case 'ListBySubject':
-						return $author$project$Main$viewRadicalsBySubject(model.radicals);
+						return A2($author$project$Main$viewRadicalsBySubject, model.device._class, model.radicals);
 					case 'ListByPart':
-						return $author$project$Main$viewRadicalsByPart(model.radicals);
+						return A2($author$project$Main$viewRadicalsByPart, model.device._class, model.radicals);
 					default:
-						return $author$project$Main$viewRadicals(model.radicals);
+						return A2($author$project$Main$viewRadicals, model.device._class, model.radicals);
 				}
 			}()
 			]));
@@ -14863,7 +14918,8 @@ var $author$project$Main$viewPage = function (page) {
 						$mdgriffith$elm_ui$Element$centerX,
 						$mdgriffith$elm_ui$Element$centerY,
 						$mdgriffith$elm_ui$Element$Font$center,
-						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+						$mdgriffith$elm_ui$Element$width(
+						$mdgriffith$elm_ui$Element$px(800)),
 						$mdgriffith$elm_ui$Element$Background$color($author$project$Main$theme.contentBgColor),
 						$mdgriffith$elm_ui$Element$Border$rounded(10),
 						$mdgriffith$elm_ui$Element$padding(20)
@@ -14873,9 +14929,18 @@ var $author$project$Main$viewPage = function (page) {
 						$author$project$Main$viewTitle(page.title),
 						A2(
 						$mdgriffith$elm_ui$Element$el,
-						_List_Nil,
+						_List_fromArray(
+							[$mdgriffith$elm_ui$Element$Font$alignLeft]),
 						$mdgriffith$elm_ui$Element$html(
-							A3($elm_explorations$markdown$Markdown$toHtmlWith, $author$project$Main$markdownOptions, _List_Nil, page.content)))
+							A3(
+								$elm_explorations$markdown$Markdown$toHtmlWith,
+								$author$project$Main$markdownOptions,
+								_List_fromArray(
+									[
+										A2($elm$html$Html$Attributes$style, 'white-space', 'normal'),
+										A2($elm$html$Html$Attributes$style, 'line-height', '30px')
+									]),
+								page.content)))
 					]))
 			]));
 };
@@ -14921,7 +14986,7 @@ var $author$project$Main$view = function (model) {
 						]),
 					_List_fromArray(
 						[
-							$author$project$Main$viewHeader(model.display),
+							A2($author$project$Main$viewHeader, model.device._class, model.display),
 							function () {
 							var _v0 = model.route;
 							switch (_v0.$) {
