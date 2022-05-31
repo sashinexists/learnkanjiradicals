@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Browser.Events exposing (onKeyDown)
+import Browser.Events exposing (onKeyDown, onResize)
 import Browser.Navigation as Nav
 import Element exposing (..)
 import Element.Background as Background
@@ -40,6 +40,7 @@ type alias Model =
     , selected : Maybe Radical
     , display : Display
     , route : Route
+    , device : Device
     }
 
 
@@ -78,6 +79,7 @@ init _ url key =
             , selected = Nothing
             , display = ListBySubject
             , route = getRouteFromPath url.path
+            , device = { class = Desktop, orientation = Landscape }
             }
     in
     ( model, Cmd.none )
@@ -87,6 +89,7 @@ subscriptions : Model -> Sub Msg
 subscriptions _ =
     Sub.batch
         [ onKeyDown keyDownListener
+        , onResize WindowResized
         ]
 
 
@@ -107,6 +110,70 @@ type Msg
     | LinkClicked Browser.UrlRequest
     | DisplayBy Display
     | KeyDown String
+    | WindowResized Int Int
+
+
+type alias Device =
+    { class : DeviceClass
+    , orientation : Orientation
+    }
+
+
+type DeviceClass
+    = Phone
+    | Tablet
+    | Desktop
+    | BigDesktop
+
+
+type Orientation
+    = Portrait
+    | Landscape
+
+
+classifyDevice : { window | height : Int, width : Int } -> Device
+classifyDevice window =
+    let
+        height =
+            window.height
+
+        width =
+            window.width
+
+        orientation =
+            if height < width then
+                Landscape
+
+            else
+                Portrait
+
+        class =
+            if orientation == Landscape then
+                if width < 768 then
+                    Phone
+
+                else if width < 1024 then
+                    Tablet
+
+                else
+                    Desktop
+
+            else if orientation == Portrait then
+                if height < 768 then
+                    Phone
+
+                else if height < 1024 then
+                    Tablet
+
+                else
+                    Desktop
+
+            else
+                BigDesktop
+    in
+    { class = class
+    , orientation = orientation
+    }
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -143,6 +210,9 @@ update msg model =
 
         DisplayBy option ->
             ( { model | display = option, route = Home }, Cmd.none )
+
+        WindowResized height width ->
+            ( { model | device = classifyDevice { height = height, width = width } }, Cmd.none )
 
 
 handleKeyDown : String -> Model -> ( Model, Cmd Msg )
@@ -239,7 +309,7 @@ view model =
             , Element.inFront (displaySelectedRadical model.selected)
             ]
             (Element.column [ paddingEach { top = 10, bottom = 10, left = 60, right = 50 }, width fill ]
-                [ viewHeader model.display
+                [ viewHeader model.device.class model.display
                 , case model.route of
                     Home ->
                         viewHomeRoute model
@@ -266,13 +336,13 @@ viewHomeRoute model =
         ]
         [ case model.display of
             ListBySubject ->
-                viewRadicalsBySubject model.radicals
+                viewRadicalsBySubject model.device.class model.radicals
 
             ListByPart ->
-                viewRadicalsByPart model.radicals
+                viewRadicalsByPart model.device.class model.radicals
 
             NoCategories ->
-                viewRadicals model.radicals
+                viewRadicals model.device.class model.radicals
         ]
 
 
@@ -295,13 +365,31 @@ viewPage page =
         ]
 
 
-viewHeader : Display -> Element Msg
-viewHeader display =
-    Element.row [ centerY, Font.size 25, spaceEvenly, Font.light, Font.alignRight, width fill, alignRight, height <| px <| 70 ]
-        [ viewFilterButtons display
-        , viewSiteTitle
-        , viewHeaderLinks
-        ]
+viewHeader : DeviceClass -> Display -> Element Msg
+viewHeader device display =
+    let
+        styles =
+            [ centerY, Font.size 25, spaceEvenly, Font.light, Font.alignRight, width fill, alignRight, height <| px <| 70 ]
+
+        content =
+            [ viewFilterButtons display
+            , if device == Desktop then
+                viewSiteTitle
+
+              else
+                Element.none
+            , viewHeaderLinks
+            ]
+    in
+    case device of
+        Desktop ->
+            Element.row styles content
+
+        Phone ->
+            Element.column styles content
+
+        _ ->
+            Element.row styles content
 
 
 viewFilterButtons : Display -> Element Msg
@@ -417,54 +505,55 @@ viewTitle title =
     Element.el [ Font.extraLight, Font.size 50, paddingEach { top = 20, bottom = 20, right = 0, left = 10 } ] (Element.text title)
 
 
-viewRadicals : List Radical -> Element Msg
-viewRadicals radicals =
-    Element.wrappedRow
-        [ spacing 20
-        , width fill
-        ]
-        (List.map viewRadical radicals)
+viewRadicals : DeviceClass -> List Radical -> Element Msg
+viewRadicals device radicals =
+    let
+        content =
+            List.map viewRadical radicals
+    in
+    case device of
+        Phone ->
+            Element.column [ spacing 20, width fill ] content
+
+        _ ->
+            Element.wrappedRow
+                [ spacing 20
+                , width fill
+                ]
+                content
 
 
-viewRadicalsBySubject : List Radical -> Element Msg
-viewRadicalsBySubject radicals =
+viewRadicalsBySubject : DeviceClass -> List Radical -> Element Msg
+viewRadicalsBySubject device radicals =
     Element.column []
         (List.map
-            (viewSubjectRadicals radicals)
+            (viewSubjectRadicals device radicals)
             Subject.all
         )
 
 
-viewRadicalsByPart : List Radical -> Element Msg
-viewRadicalsByPart radicals =
+viewRadicalsByPart : DeviceClass -> List Radical -> Element Msg
+viewRadicalsByPart device radicals =
     Element.column []
         (List.map
-            (viewPartRadicals radicals)
+            (viewPartRadicals device radicals)
             Part.all
         )
 
 
-viewSubjectRadicals : List Radical -> Subject -> Element Msg
-viewSubjectRadicals radicals subject =
+viewSubjectRadicals : DeviceClass -> List Radical -> Subject -> Element Msg
+viewSubjectRadicals device radicals subject =
     Element.column [ paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
         [ viewTitle (getJapaneseSubjectName subject)
-        , Element.wrappedRow
-            [ spacing 20
-            , width fill
-            ]
-            (List.map viewRadical (List.filter (\r -> r.subject == subject) radicals))
+        , viewRadicals device (List.filter (\r -> r.subject == subject) radicals)
         ]
 
 
-viewPartRadicals : List Radical -> Part -> Element Msg
-viewPartRadicals radicals part =
+viewPartRadicals : DeviceClass -> List Radical -> Part -> Element Msg
+viewPartRadicals device radicals part =
     Element.column [ paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
         [ viewTitle (getJapanesePartName part)
-        , Element.wrappedRow
-            [ spacing 20
-            , width fill
-            ]
-            (List.map viewRadical (List.filter (\r -> r.part == part) radicals))
+        , viewRadicals device (List.filter (\r -> r.part == part) radicals)
         ]
 
 
