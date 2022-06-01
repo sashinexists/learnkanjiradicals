@@ -42,7 +42,7 @@ view model =
             ]
             (let
                 styles =
-                    [ paddingEach { top = 10, bottom = 10, left = 60, right = 50 }, width fill ]
+                    [ paddingEach { top = 10, bottom = 10, left = 20, right = 10 }, width fill ]
 
                 content =
                     [ viewHeader model.display
@@ -310,8 +310,8 @@ displaySelectedRadical selected =
 viewPopup : Radical -> Element Msg
 viewPopup radical =
     Element.column
-        [ width fill
-        , height fill
+        [ centerX
+        , centerY
         , alpha 0.95
         , Background.color theme.bgColor
         , Element.inFront (viewSelectedRadical radical)
@@ -322,16 +322,12 @@ viewPopup radical =
 viewSelectedRadical : Radical -> Element Msg
 viewSelectedRadical radical =
     Element.column
-        [ centerX
+        [ alpha 1
+        , centerX
         , centerY
-        , width fill
-        , height fill
-        , padding 60
-        , alpha 1
         ]
         [ Element.row
             [ width fill
-            , paddingEach { left = 20, top = 0, right = 0, bottom = 0 }
             , Background.color theme.contentBgColorDarker
             , alpha 1
             , roundEach { topLeft = 10, topRight = 10, bottomLeft = 0, bottomRight = 0 }
@@ -343,16 +339,11 @@ viewSelectedRadical radical =
                 }
             ]
         , Element.row
-            [ centerX
-            , centerY
-            , height fill
-            , width fill
-            , spacing 50
-            , roundEach { topLeft = 0, topRight = 0, bottomLeft = 10, bottomRight = 10 }
+            [ roundEach { topLeft = 0, topRight = 0, bottomLeft = 10, bottomRight = 10 }
             , Background.color theme.contentBgColorDarker
             ]
             [ Element.el
-                [ Font.size 200, Font.extraLight, width (fillPortion 1), Font.alignRight ]
+                [ Font.size 200, Font.extraLight, width (fillPortion 1) ]
                 (text (String.fromChar radical.radical))
             , Element.column [ width (fillPortion 1), spacing 30, Font.alignLeft ]
                 [ viewRadicalAttribute "名前" radical.name

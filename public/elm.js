@@ -15038,12 +15038,9 @@ var $author$project$Phone$viewSelectedRadical = function (radical) {
 		$mdgriffith$elm_ui$Element$column,
 		_List_fromArray(
 			[
+				$mdgriffith$elm_ui$Element$alpha(1),
 				$mdgriffith$elm_ui$Element$centerX,
-				$mdgriffith$elm_ui$Element$centerY,
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-				$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-				$mdgriffith$elm_ui$Element$padding(60),
-				$mdgriffith$elm_ui$Element$alpha(1)
+				$mdgriffith$elm_ui$Element$centerY
 			]),
 		_List_fromArray(
 			[
@@ -15052,8 +15049,6 @@ var $author$project$Phone$viewSelectedRadical = function (radical) {
 				_List_fromArray(
 					[
 						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-						$mdgriffith$elm_ui$Element$paddingEach(
-						{bottom: 0, left: 20, right: 0, top: 0}),
 						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorDarker),
 						$mdgriffith$elm_ui$Element$alpha(1),
 						$mdgriffith$elm_ui$Element$Border$roundEach(
@@ -15079,11 +15074,6 @@ var $author$project$Phone$viewSelectedRadical = function (radical) {
 				$mdgriffith$elm_ui$Element$row,
 				_List_fromArray(
 					[
-						$mdgriffith$elm_ui$Element$centerX,
-						$mdgriffith$elm_ui$Element$centerY,
-						$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-						$mdgriffith$elm_ui$Element$spacing(50),
 						$mdgriffith$elm_ui$Element$Border$roundEach(
 						{bottomLeft: 10, bottomRight: 10, topLeft: 0, topRight: 0}),
 						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorDarker)
@@ -15097,8 +15087,7 @@ var $author$project$Phone$viewSelectedRadical = function (radical) {
 								$mdgriffith$elm_ui$Element$Font$size(200),
 								$mdgriffith$elm_ui$Element$Font$extraLight,
 								$mdgriffith$elm_ui$Element$width(
-								$mdgriffith$elm_ui$Element$fillPortion(1)),
-								$mdgriffith$elm_ui$Element$Font$alignRight
+								$mdgriffith$elm_ui$Element$fillPortion(1))
 							]),
 						$mdgriffith$elm_ui$Element$text(
 							$elm$core$String$fromChar(radical.radical))),
@@ -15131,8 +15120,8 @@ var $author$project$Phone$viewPopup = function (radical) {
 		$mdgriffith$elm_ui$Element$column,
 		_List_fromArray(
 			[
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-				$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+				$mdgriffith$elm_ui$Element$centerX,
+				$mdgriffith$elm_ui$Element$centerY,
 				$mdgriffith$elm_ui$Element$alpha(0.95),
 				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.bgColor),
 				$mdgriffith$elm_ui$Element$inFront(
@@ -15559,7 +15548,7 @@ var $author$project$Phone$view = function (model) {
 					var styles = _List_fromArray(
 						[
 							$mdgriffith$elm_ui$Element$paddingEach(
-							{bottom: 10, left: 60, right: 50, top: 10}),
+							{bottom: 10, left: 20, right: 10, top: 10}),
 							$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
 						]);
 					var content = _List_fromArray(
