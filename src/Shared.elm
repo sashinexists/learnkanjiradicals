@@ -1,7 +1,6 @@
 module Shared exposing (..)
 
 import Browser
-import Browser.Dom as Dom exposing (Viewport)
 import Browser.Navigation as Nav
 import Element exposing (Device)
 import Radical exposing (..)
