@@ -97,7 +97,7 @@ classifyDevice window =
     { class =
         let
             longSide =
-                Debug.log "long side" (max window.width window.height)
+                max window.width window.height
 
             shortSide =
                 min window.width window.height
@@ -158,10 +158,10 @@ update msg model =
             ( { model | display = option, route = Home }, Cmd.none )
 
         WindowResized width height ->
-            ( { model | device = classifyDevice (Debug.log "Window size changed" { height = height, width = width }) }, Cmd.none )
+            ( { model | device = classifyDevice { height = height, width = width } }, Cmd.none )
 
         GotViewport data ->
-            ( { model | device = classifyDevice (Debug.log "Received Viewport" { height = round data.viewport.height, width = round data.viewport.width }) }, Cmd.none )
+            ( { model | device = classifyDevice { height = round data.viewport.height, width = round data.viewport.width } }, Cmd.none )
 
 
 handleKeyDown : String -> Model -> ( Model, Cmd Msg )
