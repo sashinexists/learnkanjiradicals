@@ -1,6 +1,7 @@
 module Shared exposing (..)
 
 import Browser
+import Browser.Dom as Dom exposing (Viewport)
 import Browser.Navigation as Nav
 import Element exposing (Device)
 import Radical exposing (..)
@@ -27,6 +28,7 @@ type Msg
     | DisplayBy Display
     | KeyDown String
     | WindowResized Int Int
+    | GotViewport Viewport
 
 
 type Display

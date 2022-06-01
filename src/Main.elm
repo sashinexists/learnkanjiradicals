@@ -1,20 +1,23 @@
 module Main exposing (..)
 
 import Browser
+import Browser.Dom as Dom exposing (Viewport)
 import Browser.Events exposing (onKeyDown, onResize)
 import Browser.Navigation as Nav
 import Desktop
 import Element exposing (..)
+import Html.Attributes exposing (class)
 import Json.Decode as D
 import Pages exposing (..)
 import Phone
 import Radicals exposing (radicals)
 import Routes exposing (Route(..))
 import Shared exposing (..)
+import Task exposing (Task)
 import Url exposing (..)
 
 
-main : Program () Model Msg
+main : Program Flags Model Msg
 main =
     Browser.application
         { init = init
@@ -45,8 +48,14 @@ getRouteFromPath path =
             Home
 
 
-init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
-init _ url key =
+type alias Flags =
+    { x : Int
+    , y : Int
+    }
+
+
+init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
+init flags url key =
     let
         model =
             { key = key
@@ -55,10 +64,12 @@ init _ url key =
             , selected = Nothing
             , display = ListBySubject
             , route = getRouteFromPath url.path
-            , device = { class = Phone, orientation = Portrait }
+            , device = classifyDevice { height = flags.y, width = flags.x }
             }
     in
-    ( model, Cmd.none )
+    ( model
+    , Cmd.batch [ Task.perform GotViewport Dom.getViewport ]
+    )
 
 
 subscriptions : Model -> Sub Msg
@@ -81,7 +92,34 @@ keyDownListener =
 
 classifyDevice : { window | height : Int, width : Int } -> Device
 classifyDevice window =
-    Element.classifyDevice window
+    -- Tested in this ellie:
+    -- https://ellie-app.com/68QM7wLW8b9a1
+    { class =
+        let
+            longSide =
+                Debug.log "long side" (max window.width window.height)
+
+            shortSide =
+                min window.width window.height
+        in
+        if shortSide < 600 then
+            Phone
+
+        else if longSide <= 900 then
+            Tablet
+
+        else if longSide > 900 && longSide <= 1920 then
+            Desktop
+
+        else
+            BigDesktop
+    , orientation =
+        if window.width < window.height then
+            Portrait
+
+        else
+            Landscape
+    }
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -119,8 +157,11 @@ update msg model =
         DisplayBy option ->
             ( { model | display = option, route = Home }, Cmd.none )
 
-        WindowResized height width ->
-            ( { model | device = classifyDevice { height = height, width = width } }, Cmd.none )
+        WindowResized width height ->
+            ( { model | device = classifyDevice (Debug.log "Window size changed" { height = height, width = width }) }, Cmd.none )
+
+        GotViewport data ->
+            ( { model | device = classifyDevice (Debug.log "Received Viewport" { height = round data.viewport.height, width = round data.viewport.width }) }, Cmd.none )
 
 
 handleKeyDown : String -> Model -> ( Model, Cmd Msg )
@@ -148,7 +189,7 @@ view model =
             Phone.view model
 
         Tablet ->
-            Phone.view model
+            Desktop.view model
 
         -- later you might want to make a view for tablets
         _ ->
