@@ -4,7 +4,7 @@ import Browser
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border exposing (roundEach, rounded)
-import Element.Font as Font
+import Element.Font as Font exposing (alignLeft)
 import Element.Input exposing (button)
 import Html.Attributes
 import Markdown
@@ -107,11 +107,12 @@ viewHeader : Display -> Element Msg
 viewHeader display =
     let
         styles =
-            [ centerY, Font.size 25, spaceEvenly, Font.light, Font.alignRight, width fill, alignRight, height <| px <| 70 ]
+            [ centerY, Font.size 25, spaceEvenly, Font.light, Font.alignLeft, alignRight, height <| px <| 70, width fill ]
 
         content =
             [ viewFilterButtons display
-            , viewHeaderLinks
+
+            --, viewHeaderLinks
             ]
     in
     Element.row styles content
@@ -119,7 +120,7 @@ viewHeader display =
 
 viewFilterButtons : Display -> Element Msg
 viewFilterButtons display =
-    Element.row [ spacing 20 ]
+    Element.row [ spacing 20, width fill ]
         [ displayHeaderButton "主題" (DisplayBy ListBySubject) display
         , displayHeaderButton "部分" (DisplayBy ListByPart) display
         , displayHeaderButton "全部" (DisplayBy NoCategories) display
@@ -128,7 +129,7 @@ viewFilterButtons display =
 
 viewHeaderLinks : Element Msg
 viewHeaderLinks =
-    Element.row [ spacing 20, alpha 0 ]
+    Element.row [ spacing 20, alpha 0, width fill ]
         (List.map
             (\p -> viewHeaderLink p.title (Routes.getUrlFromRoute p.route))
             pages
@@ -220,14 +221,9 @@ viewInactiveHeaderButton label =
         (Element.text label)
 
 
-viewSiteTitle : Element Msg
-viewSiteTitle =
-    Element.text "漢字の部首学ぶ教室へようこそ！！"
-
-
 viewTitle : String -> Element Msg
 viewTitle title =
-    Element.el [ Font.extraLight, Font.size 50, paddingEach { top = 20, bottom = 20, right = 0, left = 10 } ] (Element.text title)
+    Element.el [ width fill, Font.extraLight, Font.size 40, Font.alignLeft, paddingEach { top = 20, bottom = 20, right = 0, left = 10 } ] (Element.text title)
 
 
 viewRadicals : List Radical -> Element Msg

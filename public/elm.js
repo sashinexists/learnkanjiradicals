@@ -15215,7 +15215,8 @@ var $author$project$Phone$viewFilterButtons = function (display) {
 		$mdgriffith$elm_ui$Element$row,
 		_List_fromArray(
 			[
-				$mdgriffith$elm_ui$Element$spacing(20)
+				$mdgriffith$elm_ui$Element$spacing(20),
+				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
 			]),
 		_List_fromArray(
 			[
@@ -15236,45 +15237,6 @@ var $author$project$Phone$viewFilterButtons = function (display) {
 				display)
 			]));
 };
-var $author$project$Phone$viewHeaderLink = F2(
-	function (label, url) {
-		return A2(
-			$mdgriffith$elm_ui$Element$link,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.buttonBgColorAlt),
-					$mdgriffith$elm_ui$Element$Border$rounded(10),
-					$mdgriffith$elm_ui$Element$padding(15),
-					$mdgriffith$elm_ui$Element$Font$size(18),
-					$mdgriffith$elm_ui$Element$Font$center,
-					$mdgriffith$elm_ui$Element$mouseOver(
-					_List_fromArray(
-						[
-							$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.buttonBgHoverAlt),
-							$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
-						]))
-				]),
-			{
-				label: $mdgriffith$elm_ui$Element$text(label),
-				url: url
-			});
-	});
-var $author$project$Phone$viewHeaderLinks = A2(
-	$mdgriffith$elm_ui$Element$row,
-	_List_fromArray(
-		[
-			$mdgriffith$elm_ui$Element$spacing(20),
-			$mdgriffith$elm_ui$Element$alpha(0)
-		]),
-	A2(
-		$elm$core$List$map,
-		function (p) {
-			return A2(
-				$author$project$Phone$viewHeaderLink,
-				p.title,
-				$author$project$Routes$getUrlFromRoute(p.route));
-		},
-		$author$project$Pages$pages));
 var $author$project$Phone$viewHeader = function (display) {
 	var styles = _List_fromArray(
 		[
@@ -15282,16 +15244,15 @@ var $author$project$Phone$viewHeader = function (display) {
 			$mdgriffith$elm_ui$Element$Font$size(25),
 			$mdgriffith$elm_ui$Element$spaceEvenly,
 			$mdgriffith$elm_ui$Element$Font$light,
-			$mdgriffith$elm_ui$Element$Font$alignRight,
-			$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+			$mdgriffith$elm_ui$Element$Font$alignLeft,
 			$mdgriffith$elm_ui$Element$alignRight,
 			$mdgriffith$elm_ui$Element$height(
-			$mdgriffith$elm_ui$Element$px(70))
+			$mdgriffith$elm_ui$Element$px(70)),
+			$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
 		]);
 	var content = _List_fromArray(
 		[
-			$author$project$Phone$viewFilterButtons(display),
-			$author$project$Phone$viewHeaderLinks
+			$author$project$Phone$viewFilterButtons(display)
 		]);
 	return A2($mdgriffith$elm_ui$Element$row, styles, content);
 };
@@ -15364,8 +15325,10 @@ var $author$project$Phone$viewTitle = function (title) {
 		$mdgriffith$elm_ui$Element$el,
 		_List_fromArray(
 			[
+				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
 				$mdgriffith$elm_ui$Element$Font$extraLight,
-				$mdgriffith$elm_ui$Element$Font$size(50),
+				$mdgriffith$elm_ui$Element$Font$size(40),
+				$mdgriffith$elm_ui$Element$Font$alignLeft,
 				$mdgriffith$elm_ui$Element$paddingEach(
 				{bottom: 20, left: 10, right: 0, top: 20})
 			]),
