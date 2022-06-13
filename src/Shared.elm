@@ -13,7 +13,7 @@ type alias Model =
     { key : Nav.Key
     , url : Url
     , radicals : List Radical
-    , selected : Maybe Radical
+    , selected : List Radical
     , display : Display
     , route : Route
     , device : Device
@@ -22,7 +22,7 @@ type alias Model =
 
 type Msg
     = SelectRadical Radical
-    | DeselectRadical
+    | DeselectRadical Radical
     | UrlChanged Url
     | LinkClicked Browser.UrlRequest
     | DisplayBy Display

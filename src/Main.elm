@@ -10,6 +10,7 @@ import Html.Attributes exposing (class)
 import Json.Decode as D
 import Pages exposing (..)
 import Phone
+import Radical exposing (Radical)
 import Radicals exposing (radicals)
 import Routes exposing (Route(..))
 import Shared exposing (..)
@@ -61,7 +62,7 @@ init flags url key =
             { key = key
             , url = url
             , radicals = radicals
-            , selected = Nothing
+            , selected = []
             , display = ListBySubject
             , route = getRouteFromPath url.path
             , device = classifyDevice { height = flags.y, width = flags.x }
@@ -144,12 +145,12 @@ update msg model =
             )
 
         SelectRadical radical ->
-            ( { model | selected = Just radical }
+            ( { model | selected = model.selected ++ [ radical ] }
             , Cmd.none
             )
 
-        DeselectRadical ->
-            deselectRadical model
+        DeselectRadical radical ->
+            deselectRadical model radical
 
         KeyDown key ->
             handleKeyDown key model
@@ -168,15 +169,19 @@ handleKeyDown : String -> Model -> ( Model, Cmd Msg )
 handleKeyDown key model =
     case key of
         "Escape" ->
-            deselectRadical model
+            ( { model | selected = [] }, Cmd.none )
 
         _ ->
             ( model, Cmd.none )
 
 
-deselectRadical : Model -> ( Model, Cmd Msg )
-deselectRadical model =
-    ( { model | selected = Nothing }, Cmd.none )
+deselectRadical : Model -> Radical -> ( Model, Cmd Msg )
+deselectRadical model radical =
+    let
+        selection =
+            List.filter (\s -> radical /= s) model.selected
+    in
+    ( { model | selected = selection }, Cmd.none )
 
 
 view : Model -> Browser.Document Msg

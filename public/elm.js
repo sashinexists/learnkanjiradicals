@@ -7143,7 +7143,7 @@ var $author$project$Main$init = F3(
 			key: key,
 			radicals: $author$project$Radicals$radicals,
 			route: $author$project$Main$getRouteFromPath(url.path),
-			selected: $elm$core$Maybe$Nothing,
+			selected: _List_Nil,
 			url: url
 		};
 		return _Utils_Tuple2(
@@ -7590,18 +7590,41 @@ var $author$project$Main$subscriptions = function (_v0) {
 				$elm$browser$Browser$Events$onResize($author$project$Shared$WindowResized)
 			]));
 };
+var $elm$core$List$filter = F2(
+	function (isGood, list) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, xs) {
+					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
+				}),
+			_List_Nil,
+			list);
+	});
+var $elm$core$Basics$neq = _Utils_notEqual;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Main$deselectRadical = function (model) {
-	return _Utils_Tuple2(
-		_Utils_update(
-			model,
-			{selected: $elm$core$Maybe$Nothing}),
-		$elm$core$Platform$Cmd$none);
-};
+var $author$project$Main$deselectRadical = F2(
+	function (model, radical) {
+		var selection = A2(
+			$elm$core$List$filter,
+			function (s) {
+				return !_Utils_eq(radical, s);
+			},
+			model.selected);
+		return _Utils_Tuple2(
+			_Utils_update(
+				model,
+				{selected: selection}),
+			$elm$core$Platform$Cmd$none);
+	});
 var $author$project$Main$handleKeyDown = F2(
 	function (key, model) {
 		if (key === 'Escape') {
-			return $author$project$Main$deselectRadical(model);
+			return _Utils_Tuple2(
+				_Utils_update(
+					model,
+					{selected: _List_Nil}),
+				$elm$core$Platform$Cmd$none);
 		} else {
 			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 		}
@@ -7685,11 +7708,15 @@ var $author$project$Main$update = F2(
 					_Utils_update(
 						model,
 						{
-							selected: $elm$core$Maybe$Just(radical)
+							selected: _Utils_ap(
+								model.selected,
+								_List_fromArray(
+									[radical]))
 						}),
 					$elm$core$Platform$Cmd$none);
 			case 'DeselectRadical':
-				return $author$project$Main$deselectRadical(model);
+				var radical = msg.a;
+				return A2($author$project$Main$deselectRadical, model, radical);
 			case 'KeyDown':
 				var key = msg.a;
 				return A2($author$project$Main$handleKeyDown, key, model);
@@ -11147,17 +11174,6 @@ var $mdgriffith$elm_ui$Internal$Model$adjust = F3(
 	function (size, height, vertical) {
 		return {height: height / size, size: size, vertical: vertical};
 	});
-var $elm$core$List$filter = F2(
-	function (isGood, list) {
-		return A3(
-			$elm$core$List$foldr,
-			F2(
-				function (x, xs) {
-					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
-				}),
-			_List_Nil,
-			list);
-	});
 var $elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -11178,7 +11194,6 @@ var $elm$core$List$minimum = function (list) {
 		return $elm$core$Maybe$Nothing;
 	}
 };
-var $elm$core$Basics$neq = _Utils_notEqual;
 var $mdgriffith$elm_ui$Internal$Model$convertAdjustment = function (adjustment) {
 	var lines = _List_fromArray(
 		[adjustment.capital, adjustment.baseline, adjustment.descender, adjustment.lowercase]);
@@ -13282,706 +13297,6 @@ var $mdgriffith$elm_ui$Element$column = F2(
 						attrs))),
 			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
 	});
-var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
-	return {$: 'Text', a: a};
-};
-var $mdgriffith$elm_ui$Element$text = function (content) {
-	return $mdgriffith$elm_ui$Internal$Model$Text(content);
-};
-var $mdgriffith$elm_ui$Internal$Model$Transparency = F2(
-	function (a, b) {
-		return {$: 'Transparency', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$transparency = $mdgriffith$elm_ui$Internal$Flag$flag(0);
-var $mdgriffith$elm_ui$Element$alpha = function (o) {
-	var transparency = function (x) {
-		return 1 - x;
-	}(
-		A2(
-			$elm$core$Basics$min,
-			1.0,
-			A2($elm$core$Basics$max, 0.0, o)));
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$transparency,
-		A2(
-			$mdgriffith$elm_ui$Internal$Model$Transparency,
-			'transparency-' + $mdgriffith$elm_ui$Internal$Model$floatClass(transparency),
-			transparency));
-};
-var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
-	return {$: 'Fill', a: a};
-};
-var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
-var $mdgriffith$elm_ui$Internal$Model$InFront = {$: 'InFront'};
-var $mdgriffith$elm_ui$Internal$Model$Nearby = F2(
-	function (a, b) {
-		return {$: 'Nearby', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Internal$Model$NoAttribute = {$: 'NoAttribute'};
-var $mdgriffith$elm_ui$Element$createNearby = F2(
-	function (loc, element) {
-		if (element.$ === 'Empty') {
-			return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
-		} else {
-			return A2($mdgriffith$elm_ui$Internal$Model$Nearby, loc, element);
-		}
-	});
-var $mdgriffith$elm_ui$Element$inFront = function (element) {
-	return A2($mdgriffith$elm_ui$Element$createNearby, $mdgriffith$elm_ui$Internal$Model$InFront, element);
-};
-var $mdgriffith$elm_ui$Internal$Model$Rgba = F4(
-	function (a, b, c, d) {
-		return {$: 'Rgba', a: a, b: b, c: c, d: d};
-	});
-var $mdgriffith$elm_ui$Element$rgb255 = F3(
-	function (red, green, blue) {
-		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, 1);
-	});
-var $author$project$Theme$colorPalette = {
-	blackCoffee: A3($mdgriffith$elm_ui$Element$rgb255, 57, 45, 52),
-	combuGreen: A3($mdgriffith$elm_ui$Element$rgb255, 53, 70, 62),
-	culturedWhite: A3($mdgriffith$elm_ui$Element$rgb255, 245, 244, 245),
-	darkSienna: A3($mdgriffith$elm_ui$Element$rgb255, 61, 20, 37),
-	darkerSienner: A3($mdgriffith$elm_ui$Element$rgb255, 39, 1, 16),
-	englishViolet: A3($mdgriffith$elm_ui$Element$rgb255, 61, 56, 87),
-	gainsboro: A3($mdgriffith$elm_ui$Element$rgb255, 227, 221, 224),
-	oldMauve: A3($mdgriffith$elm_ui$Element$rgb255, 92, 30, 56),
-	raisinBlack: A3($mdgriffith$elm_ui$Element$rgb255, 31, 27, 31),
-	raisinBlackLight: A3($mdgriffith$elm_ui$Element$rgb255, 35, 46, 41),
-	richBlack: A3($mdgriffith$elm_ui$Element$rgb255, 12, 9, 11),
-	smokeyBlack: A3($mdgriffith$elm_ui$Element$rgb255, 23, 18, 21),
-	spaceCadet: A3($mdgriffith$elm_ui$Element$rgb255, 44, 40, 62)
-};
-var $author$project$Theme$theme = {bgColor: $author$project$Theme$colorPalette.richBlack, buttonBgColor: $author$project$Theme$colorPalette.raisinBlackLight, buttonBgColorAlt: $author$project$Theme$colorPalette.spaceCadet, buttonBgHover: $author$project$Theme$colorPalette.combuGreen, buttonBgHoverAlt: $author$project$Theme$colorPalette.englishViolet, contentBgColor: $author$project$Theme$colorPalette.raisinBlack, contentBgColorDarker: $author$project$Theme$colorPalette.smokeyBlack, contentBgColorLighter: $author$project$Theme$colorPalette.blackCoffee, fontColor: $author$project$Theme$colorPalette.gainsboro, fontColorLighter: $author$project$Theme$colorPalette.culturedWhite, textSize: 16};
-var $author$project$Shared$DeselectRadical = {$: 'DeselectRadical'};
-var $mdgriffith$elm_ui$Internal$Model$Class = F2(
-	function (a, b) {
-		return {$: 'Class', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$fontAlignment = $mdgriffith$elm_ui$Internal$Flag$flag(12);
-var $mdgriffith$elm_ui$Element$Font$alignLeft = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textLeft);
-var $mdgriffith$elm_ui$Element$Font$alignRight = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textRight);
-var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
-var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
-	return {$: 'Describe', a: a};
-};
-var $elm$json$Json$Encode$bool = _Json_wrap;
-var $elm$html$Html$Attributes$boolProperty = F2(
-	function (key, bool) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$bool(bool));
-	});
-var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
-var $mdgriffith$elm_ui$Element$Input$enter = 'Enter';
-var $mdgriffith$elm_ui$Element$Input$hasFocusStyle = function (attr) {
-	if (((attr.$ === 'StyleClass') && (attr.b.$ === 'PseudoSelector')) && (attr.b.a.$ === 'Focus')) {
-		var _v1 = attr.b;
-		var _v2 = _v1.a;
-		return true;
-	} else {
-		return false;
-	}
-};
-var $mdgriffith$elm_ui$Element$Input$focusDefault = function (attrs) {
-	return A2($elm$core$List$any, $mdgriffith$elm_ui$Element$Input$hasFocusStyle, attrs) ? $mdgriffith$elm_ui$Internal$Model$NoAttribute : $mdgriffith$elm_ui$Internal$Model$htmlClass('focusable');
-};
-var $elm$core$Basics$composeL = F3(
-	function (g, f, x) {
-		return g(
-			f(x));
-	});
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $mdgriffith$elm_ui$Element$Events$onClick = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Attr, $elm$html$Html$Events$onClick);
-var $elm$json$Json$Decode$fail = _Json_fail;
-var $elm$virtual_dom$VirtualDom$MayPreventDefault = function (a) {
-	return {$: 'MayPreventDefault', a: a};
-};
-var $elm$html$Html$Events$preventDefaultOn = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$MayPreventDefault(decoder));
-	});
-var $mdgriffith$elm_ui$Element$Input$onKeyLookup = function (lookup) {
-	var decode = function (code) {
-		var _v0 = lookup(code);
-		if (_v0.$ === 'Nothing') {
-			return $elm$json$Json$Decode$fail('No key matched');
-		} else {
-			var msg = _v0.a;
-			return $elm$json$Json$Decode$succeed(msg);
-		}
-	};
-	var isKey = A2(
-		$elm$json$Json$Decode$andThen,
-		decode,
-		A2($elm$json$Json$Decode$field, 'key', $elm$json$Json$Decode$string));
-	return $mdgriffith$elm_ui$Internal$Model$Attr(
-		A2(
-			$elm$html$Html$Events$preventDefaultOn,
-			'keydown',
-			A2(
-				$elm$json$Json$Decode$map,
-				function (fired) {
-					return _Utils_Tuple2(fired, true);
-				},
-				isKey)));
-};
-var $mdgriffith$elm_ui$Internal$Flag$cursor = $mdgriffith$elm_ui$Internal$Flag$flag(21);
-var $mdgriffith$elm_ui$Element$pointer = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$cursor, $mdgriffith$elm_ui$Internal$Style$classes.cursorPointer);
-var $mdgriffith$elm_ui$Element$Input$space = ' ';
-var $elm$html$Html$Attributes$tabindex = function (n) {
-	return A2(
-		_VirtualDom_attribute,
-		'tabIndex',
-		$elm$core$String$fromInt(n));
-};
-var $mdgriffith$elm_ui$Element$Input$button = F2(
-	function (attrs, _v0) {
-		var onPress = _v0.onPress;
-		var label = _v0.label;
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asEl,
-			$mdgriffith$elm_ui$Internal$Model$div,
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-					A2(
-						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentCenterX + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.contentCenterY + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.seButton + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.noTextSelection)))))),
-						A2(
-							$elm$core$List$cons,
-							$mdgriffith$elm_ui$Element$pointer,
-							A2(
-								$elm$core$List$cons,
-								$mdgriffith$elm_ui$Element$Input$focusDefault(attrs),
-								A2(
-									$elm$core$List$cons,
-									$mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Button),
-									A2(
-										$elm$core$List$cons,
-										$mdgriffith$elm_ui$Internal$Model$Attr(
-											$elm$html$Html$Attributes$tabindex(0)),
-										function () {
-											if (onPress.$ === 'Nothing') {
-												return A2(
-													$elm$core$List$cons,
-													$mdgriffith$elm_ui$Internal$Model$Attr(
-														$elm$html$Html$Attributes$disabled(true)),
-													attrs);
-											} else {
-												var msg = onPress.a;
-												return A2(
-													$elm$core$List$cons,
-													$mdgriffith$elm_ui$Element$Events$onClick(msg),
-													A2(
-														$elm$core$List$cons,
-														$mdgriffith$elm_ui$Element$Input$onKeyLookup(
-															function (code) {
-																return _Utils_eq(code, $mdgriffith$elm_ui$Element$Input$enter) ? $elm$core$Maybe$Just(msg) : (_Utils_eq(code, $mdgriffith$elm_ui$Element$Input$space) ? $elm$core$Maybe$Just(msg) : $elm$core$Maybe$Nothing);
-															}),
-														attrs));
-											}
-										}()))))))),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
-				_List_fromArray(
-					[label])));
-	});
-var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
-	return {$: 'AlignX', a: a};
-};
-var $mdgriffith$elm_ui$Internal$Model$CenterX = {$: 'CenterX'};
-var $mdgriffith$elm_ui$Element$centerX = $mdgriffith$elm_ui$Internal$Model$AlignX($mdgriffith$elm_ui$Internal$Model$CenterX);
-var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
-	return {$: 'AlignY', a: a};
-};
-var $mdgriffith$elm_ui$Internal$Model$CenterY = {$: 'CenterY'};
-var $mdgriffith$elm_ui$Element$centerY = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$CenterY);
-var $author$project$Meaning$displayMeaning = function (meaning) {
-	if (meaning.$ === 'Same') {
-		return '名前と同じ';
-	} else {
-		var m = meaning.a;
-		return m;
-	}
-};
-var $mdgriffith$elm_ui$Element$el = F2(
-	function (attrs, child) {
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asEl,
-			$mdgriffith$elm_ui$Internal$Model$div,
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-					attrs)),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
-				_List_fromArray(
-					[child])));
-	});
-var $mdgriffith$elm_ui$Internal$Flag$fontWeight = $mdgriffith$elm_ui$Internal$Flag$flag(13);
-var $mdgriffith$elm_ui$Element$Font$extraLight = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.textExtraLight);
-var $mdgriffith$elm_ui$Element$fillPortion = $mdgriffith$elm_ui$Internal$Model$Fill;
-var $elm$core$String$cons = _String_cons;
-var $elm$core$String$fromChar = function (_char) {
-	return A2($elm$core$String$cons, _char, '');
-};
-var $author$project$Part$getJapanesePartName = function (part) {
-	switch (part.$) {
-		case 'Left':
-			return 'へん';
-		case 'Right':
-			return 'つくり';
-		case 'Top':
-			return 'かんむり';
-		case 'Bottom':
-			return 'あし';
-		case 'Enclose':
-			return 'かまえ';
-		case 'Hang':
-			return 'たれ';
-		case 'Wrap':
-			return 'にょう';
-		default:
-			return 'なし';
-	}
-};
-var $mdgriffith$elm_ui$Internal$Model$PaddingStyle = F5(
-	function (a, b, c, d, e) {
-		return {$: 'PaddingStyle', a: a, b: b, c: c, d: d, e: e};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$padding = $mdgriffith$elm_ui$Internal$Flag$flag(2);
-var $mdgriffith$elm_ui$Element$padding = function (x) {
-	var f = x;
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$padding,
-		A5(
-			$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-			'p-' + $elm$core$String$fromInt(x),
-			f,
-			f,
-			f,
-			f));
-};
-var $mdgriffith$elm_ui$Internal$Model$paddingName = F4(
-	function (top, right, bottom, left) {
-		return 'pad-' + ($elm$core$String$fromInt(top) + ('-' + ($elm$core$String$fromInt(right) + ('-' + ($elm$core$String$fromInt(bottom) + ('-' + $elm$core$String$fromInt(left)))))));
-	});
-var $mdgriffith$elm_ui$Element$paddingEach = function (_v0) {
-	var top = _v0.top;
-	var right = _v0.right;
-	var bottom = _v0.bottom;
-	var left = _v0.left;
-	if (_Utils_eq(top, right) && (_Utils_eq(top, bottom) && _Utils_eq(top, left))) {
-		var topFloat = top;
-		return A2(
-			$mdgriffith$elm_ui$Internal$Model$StyleClass,
-			$mdgriffith$elm_ui$Internal$Flag$padding,
-			A5(
-				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-				'p-' + $elm$core$String$fromInt(top),
-				topFloat,
-				topFloat,
-				topFloat,
-				topFloat));
-	} else {
-		return A2(
-			$mdgriffith$elm_ui$Internal$Model$StyleClass,
-			$mdgriffith$elm_ui$Internal$Flag$padding,
-			A5(
-				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-				A4($mdgriffith$elm_ui$Internal$Model$paddingName, top, right, bottom, left),
-				top,
-				right,
-				bottom,
-				left));
-	}
-};
-var $mdgriffith$elm_ui$Internal$Flag$borderRound = $mdgriffith$elm_ui$Internal$Flag$flag(17);
-var $mdgriffith$elm_ui$Element$Border$roundEach = function (_v0) {
-	var topLeft = _v0.topLeft;
-	var topRight = _v0.topRight;
-	var bottomLeft = _v0.bottomLeft;
-	var bottomRight = _v0.bottomRight;
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$borderRound,
-		A3(
-			$mdgriffith$elm_ui$Internal$Model$Single,
-			'br-' + ($elm$core$String$fromInt(topLeft) + ('-' + ($elm$core$String$fromInt(topRight) + ($elm$core$String$fromInt(bottomLeft) + ('-' + $elm$core$String$fromInt(bottomRight)))))),
-			'border-radius',
-			$elm$core$String$fromInt(topLeft) + ('px ' + ($elm$core$String$fromInt(topRight) + ('px ' + ($elm$core$String$fromInt(bottomRight) + ('px ' + ($elm$core$String$fromInt(bottomLeft) + 'px'))))))));
-};
-var $mdgriffith$elm_ui$Internal$Model$AsRow = {$: 'AsRow'};
-var $mdgriffith$elm_ui$Internal$Model$asRow = $mdgriffith$elm_ui$Internal$Model$AsRow;
-var $mdgriffith$elm_ui$Element$row = F2(
-	function (attrs, children) {
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asRow,
-			$mdgriffith$elm_ui$Internal$Model$div,
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentLeft + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.contentCenterY)),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
-					A2(
-						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-						attrs))),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
-	});
-var $mdgriffith$elm_ui$Internal$Model$FontSize = function (a) {
-	return {$: 'FontSize', a: a};
-};
-var $mdgriffith$elm_ui$Internal$Flag$fontSize = $mdgriffith$elm_ui$Internal$Flag$flag(4);
-var $mdgriffith$elm_ui$Element$Font$size = function (i) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$fontSize,
-		$mdgriffith$elm_ui$Internal$Model$FontSize(i));
-};
-var $mdgriffith$elm_ui$Internal$Model$SpacingStyle = F3(
-	function (a, b, c) {
-		return {$: 'SpacingStyle', a: a, b: b, c: c};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$spacing = $mdgriffith$elm_ui$Internal$Flag$flag(3);
-var $mdgriffith$elm_ui$Internal$Model$spacingName = F2(
-	function (x, y) {
-		return 'spacing-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y)));
-	});
-var $mdgriffith$elm_ui$Element$spacing = function (x) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$spacing,
-		A3(
-			$mdgriffith$elm_ui$Internal$Model$SpacingStyle,
-			A2($mdgriffith$elm_ui$Internal$Model$spacingName, x, x),
-			x,
-			x));
-};
-var $mdgriffith$elm_ui$Internal$Model$Right = {$: 'Right'};
-var $mdgriffith$elm_ui$Element$alignRight = $mdgriffith$elm_ui$Internal$Model$AlignX($mdgriffith$elm_ui$Internal$Model$Right);
-var $mdgriffith$elm_ui$Internal$Model$Hover = {$: 'Hover'};
-var $mdgriffith$elm_ui$Internal$Model$PseudoSelector = F2(
-	function (a, b) {
-		return {$: 'PseudoSelector', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$hover = $mdgriffith$elm_ui$Internal$Flag$flag(33);
-var $mdgriffith$elm_ui$Internal$Model$TransformComponent = F2(
-	function (a, b) {
-		return {$: 'TransformComponent', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Internal$Model$Empty = {$: 'Empty'};
-var $elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
-var $mdgriffith$elm_ui$Internal$Model$map = F2(
-	function (fn, el) {
-		switch (el.$) {
-			case 'Styled':
-				var styled = el.a;
-				return $mdgriffith$elm_ui$Internal$Model$Styled(
-					{
-						html: F2(
-							function (add, context) {
-								return A2(
-									$elm$virtual_dom$VirtualDom$map,
-									fn,
-									A2(styled.html, add, context));
-							}),
-						styles: styled.styles
-					});
-			case 'Unstyled':
-				var html = el.a;
-				return $mdgriffith$elm_ui$Internal$Model$Unstyled(
-					A2(
-						$elm$core$Basics$composeL,
-						$elm$virtual_dom$VirtualDom$map(fn),
-						html));
-			case 'Text':
-				var str = el.a;
-				return $mdgriffith$elm_ui$Internal$Model$Text(str);
-			default:
-				return $mdgriffith$elm_ui$Internal$Model$Empty;
-		}
-	});
-var $elm$virtual_dom$VirtualDom$mapAttribute = _VirtualDom_mapAttribute;
-var $mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle = F2(
-	function (fn, attr) {
-		switch (attr.$) {
-			case 'NoAttribute':
-				return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
-			case 'Describe':
-				var description = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Describe(description);
-			case 'AlignX':
-				var x = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$AlignX(x);
-			case 'AlignY':
-				var y = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$AlignY(y);
-			case 'Width':
-				var x = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Width(x);
-			case 'Height':
-				var x = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Height(x);
-			case 'Class':
-				var x = attr.a;
-				var y = attr.b;
-				return A2($mdgriffith$elm_ui$Internal$Model$Class, x, y);
-			case 'StyleClass':
-				var flag = attr.a;
-				var style = attr.b;
-				return A2($mdgriffith$elm_ui$Internal$Model$StyleClass, flag, style);
-			case 'Nearby':
-				var location = attr.a;
-				var elem = attr.b;
-				return A2(
-					$mdgriffith$elm_ui$Internal$Model$Nearby,
-					location,
-					A2($mdgriffith$elm_ui$Internal$Model$map, fn, elem));
-			case 'Attr':
-				var htmlAttr = attr.a;
-				return $mdgriffith$elm_ui$Internal$Model$Attr(
-					A2($elm$virtual_dom$VirtualDom$mapAttribute, fn, htmlAttr));
-			default:
-				var fl = attr.a;
-				var trans = attr.b;
-				return A2($mdgriffith$elm_ui$Internal$Model$TransformComponent, fl, trans);
-		}
-	});
-var $mdgriffith$elm_ui$Internal$Model$removeNever = function (style) {
-	return A2($mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle, $elm$core$Basics$never, style);
-};
-var $mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper = F2(
-	function (attr, _v0) {
-		var styles = _v0.a;
-		var trans = _v0.b;
-		var _v1 = $mdgriffith$elm_ui$Internal$Model$removeNever(attr);
-		switch (_v1.$) {
-			case 'StyleClass':
-				var style = _v1.b;
-				return _Utils_Tuple2(
-					A2($elm$core$List$cons, style, styles),
-					trans);
-			case 'TransformComponent':
-				var flag = _v1.a;
-				var component = _v1.b;
-				return _Utils_Tuple2(
-					styles,
-					A2($mdgriffith$elm_ui$Internal$Model$composeTransformation, trans, component));
-			default:
-				return _Utils_Tuple2(styles, trans);
-		}
-	});
-var $mdgriffith$elm_ui$Internal$Model$unwrapDecorations = function (attrs) {
-	var _v0 = A3(
-		$elm$core$List$foldl,
-		$mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper,
-		_Utils_Tuple2(_List_Nil, $mdgriffith$elm_ui$Internal$Model$Untransformed),
-		attrs);
-	var styles = _v0.a;
-	var transform = _v0.b;
-	return A2(
-		$elm$core$List$cons,
-		$mdgriffith$elm_ui$Internal$Model$Transform(transform),
-		styles);
-};
-var $mdgriffith$elm_ui$Element$mouseOver = function (decs) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$hover,
-		A2(
-			$mdgriffith$elm_ui$Internal$Model$PseudoSelector,
-			$mdgriffith$elm_ui$Internal$Model$Hover,
-			$mdgriffith$elm_ui$Internal$Model$unwrapDecorations(decs)));
-};
-var $author$project$Theme$titleBarButtonStyles = _List_fromArray(
-	[
-		$mdgriffith$elm_ui$Element$padding(25),
-		$mdgriffith$elm_ui$Element$alignRight,
-		$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-		$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
-		$mdgriffith$elm_ui$Element$mouseOver(
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorLighter),
-				$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
-			]))
-	]);
-var $mdgriffith$elm_ui$Element$Font$bold = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.bold);
-var $author$project$Desktop$viewRadicalAttribute = F2(
-	function (attribute, value) {
-		return A2(
-			$mdgriffith$elm_ui$Element$row,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$centerX,
-					$mdgriffith$elm_ui$Element$centerY,
-					$mdgriffith$elm_ui$Element$height(
-					$mdgriffith$elm_ui$Element$fillPortion(1)),
-					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-					$mdgriffith$elm_ui$Element$Font$alignLeft,
-					$mdgriffith$elm_ui$Element$Font$size(20)
-				]),
-			_List_fromArray(
-				[
-					A2(
-					$mdgriffith$elm_ui$Element$el,
-					_List_fromArray(
-						[$mdgriffith$elm_ui$Element$centerY, $mdgriffith$elm_ui$Element$Font$bold]),
-					$mdgriffith$elm_ui$Element$text(attribute + ': ')),
-					A2(
-					$mdgriffith$elm_ui$Element$el,
-					_List_fromArray(
-						[$mdgriffith$elm_ui$Element$centerY]),
-					$mdgriffith$elm_ui$Element$text(value))
-				]));
-	});
-var $author$project$Desktop$viewSelectedRadical = function (radical) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$centerX,
-				$mdgriffith$elm_ui$Element$centerY,
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-				$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-				$mdgriffith$elm_ui$Element$padding(60),
-				$mdgriffith$elm_ui$Element$alpha(1)
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$mdgriffith$elm_ui$Element$row,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-						$mdgriffith$elm_ui$Element$paddingEach(
-						{bottom: 0, left: 20, right: 0, top: 0}),
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorDarker),
-						$mdgriffith$elm_ui$Element$alpha(1),
-						$mdgriffith$elm_ui$Element$Border$roundEach(
-						{bottomLeft: 0, bottomRight: 0, topLeft: 10, topRight: 10})
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$mdgriffith$elm_ui$Element$Input$button,
-						_Utils_ap(
-							$author$project$Theme$titleBarButtonStyles,
-							_List_fromArray(
-								[
-									$mdgriffith$elm_ui$Element$Border$roundEach(
-									{bottomLeft: 0, bottomRight: 0, topLeft: 0, topRight: 10})
-								])),
-						{
-							label: $mdgriffith$elm_ui$Element$text('⨉'),
-							onPress: $elm$core$Maybe$Just($author$project$Shared$DeselectRadical)
-						})
-					])),
-				A2(
-				$mdgriffith$elm_ui$Element$row,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$centerX,
-						$mdgriffith$elm_ui$Element$centerY,
-						$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-						$mdgriffith$elm_ui$Element$spacing(50),
-						$mdgriffith$elm_ui$Element$Border$roundEach(
-						{bottomLeft: 10, bottomRight: 10, topLeft: 0, topRight: 0}),
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorDarker)
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$Font$size(200),
-								$mdgriffith$elm_ui$Element$Font$extraLight,
-								$mdgriffith$elm_ui$Element$width(
-								$mdgriffith$elm_ui$Element$fillPortion(1)),
-								$mdgriffith$elm_ui$Element$Font$alignRight
-							]),
-						$mdgriffith$elm_ui$Element$text(
-							$elm$core$String$fromChar(radical.radical))),
-						A2(
-						$mdgriffith$elm_ui$Element$column,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$width(
-								$mdgriffith$elm_ui$Element$fillPortion(1)),
-								$mdgriffith$elm_ui$Element$spacing(30),
-								$mdgriffith$elm_ui$Element$Font$alignLeft
-							]),
-						_List_fromArray(
-							[
-								A2($author$project$Desktop$viewRadicalAttribute, '名前', radical.name),
-								A2(
-								$author$project$Desktop$viewRadicalAttribute,
-								'意味',
-								$author$project$Meaning$displayMeaning(radical.meaning)),
-								A2(
-								$author$project$Desktop$viewRadicalAttribute,
-								'部分',
-								$author$project$Part$getJapanesePartName(radical.part))
-							]))
-					]))
-			]));
-};
-var $author$project$Desktop$viewPopup = function (radical) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-				$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-				$mdgriffith$elm_ui$Element$alpha(0.95),
-				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.bgColor),
-				$mdgriffith$elm_ui$Element$inFront(
-				$author$project$Desktop$viewSelectedRadical(radical))
-			]),
-		_List_Nil);
-};
-var $author$project$Desktop$displaySelectedRadical = function (selected) {
-	if (selected.$ === 'Just') {
-		var radical = selected.a;
-		return $author$project$Desktop$viewPopup(radical);
-	} else {
-		return $mdgriffith$elm_ui$Element$text('');
-	}
-};
 var $mdgriffith$elm_ui$Internal$Model$FontFamily = F2(
 	function (a, b) {
 		return {$: 'FontFamily', a: a, b: b};
@@ -14035,6 +13350,34 @@ var $mdgriffith$elm_ui$Element$Font$family = function (families) {
 			A3($elm$core$List$foldl, $mdgriffith$elm_ui$Internal$Model$renderFontClassName, 'ff-', families),
 			families));
 };
+var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
+	return {$: 'Fill', a: a};
+};
+var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
+var $mdgriffith$elm_ui$Internal$Model$Rgba = F4(
+	function (a, b, c, d) {
+		return {$: 'Rgba', a: a, b: b, c: c, d: d};
+	});
+var $mdgriffith$elm_ui$Element$rgb255 = F3(
+	function (red, green, blue) {
+		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, 1);
+	});
+var $author$project$Theme$colorPalette = {
+	blackCoffee: A3($mdgriffith$elm_ui$Element$rgb255, 57, 45, 52),
+	combuGreen: A3($mdgriffith$elm_ui$Element$rgb255, 53, 70, 62),
+	culturedWhite: A3($mdgriffith$elm_ui$Element$rgb255, 245, 244, 245),
+	darkSienna: A3($mdgriffith$elm_ui$Element$rgb255, 61, 20, 37),
+	darkerSienner: A3($mdgriffith$elm_ui$Element$rgb255, 39, 1, 16),
+	englishViolet: A3($mdgriffith$elm_ui$Element$rgb255, 61, 56, 87),
+	gainsboro: A3($mdgriffith$elm_ui$Element$rgb255, 227, 221, 224),
+	oldMauve: A3($mdgriffith$elm_ui$Element$rgb255, 92, 30, 56),
+	raisinBlack: A3($mdgriffith$elm_ui$Element$rgb255, 31, 27, 31),
+	raisinBlackLight: A3($mdgriffith$elm_ui$Element$rgb255, 35, 46, 41),
+	richBlack: A3($mdgriffith$elm_ui$Element$rgb255, 12, 9, 11),
+	smokeyBlack: A3($mdgriffith$elm_ui$Element$rgb255, 23, 18, 21),
+	spaceCadet: A3($mdgriffith$elm_ui$Element$rgb255, 44, 40, 62)
+};
+var $author$project$Theme$theme = {bgColor: $author$project$Theme$colorPalette.richBlack, buttonBgColor: $author$project$Theme$colorPalette.raisinBlackLight, buttonBgColorAlt: $author$project$Theme$colorPalette.spaceCadet, buttonBgHover: $author$project$Theme$colorPalette.combuGreen, buttonBgHoverAlt: $author$project$Theme$colorPalette.englishViolet, contentBgColor: $author$project$Theme$colorPalette.raisinBlack, contentBgColorDarker: $author$project$Theme$colorPalette.smokeyBlack, contentBgColorLighter: $author$project$Theme$colorPalette.blackCoffee, fontColor: $author$project$Theme$colorPalette.gainsboro, fontColorLighter: $author$project$Theme$colorPalette.culturedWhite, textSize: 16};
 var $author$project$Theme$focusBoxShadow = {
 	blur: 8,
 	color: $author$project$Theme$theme.contentBgColorDarker,
@@ -14045,6 +13388,11 @@ var $mdgriffith$elm_ui$Internal$Model$FocusStyleOption = function (a) {
 	return {$: 'FocusStyleOption', a: a};
 };
 var $mdgriffith$elm_ui$Element$focusStyle = $mdgriffith$elm_ui$Internal$Model$FocusStyleOption;
+var $mdgriffith$elm_ui$Internal$Model$Class = F2(
+	function (a, b) {
+		return {$: 'Class', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$fontAlignment = $mdgriffith$elm_ui$Internal$Flag$flag(12);
 var $mdgriffith$elm_ui$Element$Font$justify = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textJustify);
 var $mdgriffith$elm_ui$Internal$Model$OnlyDynamic = F2(
 	function (a, b) {
@@ -14190,10 +13538,14 @@ var $mdgriffith$elm_ui$Internal$Model$renderRoot = F3(
 					_List_fromArray(
 						[child]))));
 	});
+var $mdgriffith$elm_ui$Internal$Model$FontSize = function (a) {
+	return {$: 'FontSize', a: a};
+};
 var $mdgriffith$elm_ui$Internal$Model$SansSerif = {$: 'SansSerif'};
 var $mdgriffith$elm_ui$Internal$Model$Typeface = function (a) {
 	return {$: 'Typeface', a: a};
 };
+var $mdgriffith$elm_ui$Internal$Flag$fontSize = $mdgriffith$elm_ui$Internal$Flag$flag(4);
 var $mdgriffith$elm_ui$Internal$Model$rootStyle = function () {
 	var families = _List_fromArray(
 		[
@@ -14252,15 +13604,93 @@ var $mdgriffith$elm_ui$Element$layoutWith = F3(
 				_Utils_ap($mdgriffith$elm_ui$Internal$Model$rootStyle, attrs)),
 			child);
 	});
+var $mdgriffith$elm_ui$Internal$Model$PaddingStyle = F5(
+	function (a, b, c, d, e) {
+		return {$: 'PaddingStyle', a: a, b: b, c: c, d: d, e: e};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$padding = $mdgriffith$elm_ui$Internal$Flag$flag(2);
+var $mdgriffith$elm_ui$Internal$Model$paddingName = F4(
+	function (top, right, bottom, left) {
+		return 'pad-' + ($elm$core$String$fromInt(top) + ('-' + ($elm$core$String$fromInt(right) + ('-' + ($elm$core$String$fromInt(bottom) + ('-' + $elm$core$String$fromInt(left)))))));
+	});
+var $mdgriffith$elm_ui$Element$paddingEach = function (_v0) {
+	var top = _v0.top;
+	var right = _v0.right;
+	var bottom = _v0.bottom;
+	var left = _v0.left;
+	if (_Utils_eq(top, right) && (_Utils_eq(top, bottom) && _Utils_eq(top, left))) {
+		var topFloat = top;
+		return A2(
+			$mdgriffith$elm_ui$Internal$Model$StyleClass,
+			$mdgriffith$elm_ui$Internal$Flag$padding,
+			A5(
+				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+				'p-' + $elm$core$String$fromInt(top),
+				topFloat,
+				topFloat,
+				topFloat,
+				topFloat));
+	} else {
+		return A2(
+			$mdgriffith$elm_ui$Internal$Model$StyleClass,
+			$mdgriffith$elm_ui$Internal$Flag$padding,
+			A5(
+				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+				A4($mdgriffith$elm_ui$Internal$Model$paddingName, top, right, bottom, left),
+				top,
+				right,
+				bottom,
+				left));
+	}
+};
+var $mdgriffith$elm_ui$Internal$Flag$fontWeight = $mdgriffith$elm_ui$Internal$Flag$flag(13);
 var $mdgriffith$elm_ui$Element$Font$regular = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.textNormalWeight);
+var $mdgriffith$elm_ui$Element$Font$size = function (i) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$fontSize,
+		$mdgriffith$elm_ui$Internal$Model$FontSize(i));
+};
 var $author$project$Pages$supportCopy = '# About Learning Japanese\n        \n<a href="https://donorbox.org/sashinexists">Donate Text or Image HTML</a>\n    ';
 var $author$project$Pages$support = {content: $author$project$Pages$supportCopy, route: $author$project$Routes$Support, title: '❤'};
 var $mdgriffith$elm_ui$Element$Font$typeface = $mdgriffith$elm_ui$Internal$Model$Typeface;
+var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
+	return {$: 'AlignX', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$Right = {$: 'Right'};
+var $mdgriffith$elm_ui$Element$alignRight = $mdgriffith$elm_ui$Internal$Model$AlignX($mdgriffith$elm_ui$Internal$Model$Right);
+var $mdgriffith$elm_ui$Element$Font$alignRight = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textRight);
+var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
+	return {$: 'AlignY', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$CenterY = {$: 'CenterY'};
+var $mdgriffith$elm_ui$Element$centerY = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$CenterY);
 var $mdgriffith$elm_ui$Element$Font$light = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.textLight);
 var $mdgriffith$elm_ui$Internal$Model$Px = function (a) {
 	return {$: 'Px', a: a};
 };
 var $mdgriffith$elm_ui$Element$px = $mdgriffith$elm_ui$Internal$Model$Px;
+var $mdgriffith$elm_ui$Internal$Model$AsRow = {$: 'AsRow'};
+var $mdgriffith$elm_ui$Internal$Model$asRow = $mdgriffith$elm_ui$Internal$Model$AsRow;
+var $mdgriffith$elm_ui$Element$row = F2(
+	function (attrs, children) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asRow,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentLeft + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.contentCenterY)),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+						attrs))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
+	});
+var $mdgriffith$elm_ui$Internal$Flag$spacing = $mdgriffith$elm_ui$Internal$Flag$flag(3);
 var $mdgriffith$elm_ui$Element$spaceEvenly = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$spacing, $mdgriffith$elm_ui$Internal$Style$classes.spaceEvenly);
 var $author$project$Shared$DisplayBy = function (a) {
 	return {$: 'DisplayBy', a: a};
@@ -14268,7 +13698,312 @@ var $author$project$Shared$DisplayBy = function (a) {
 var $author$project$Shared$ListByPart = {$: 'ListByPart'};
 var $author$project$Shared$NoCategories = {$: 'NoCategories'};
 var $author$project$Desktop$FilterButton = {$: 'FilterButton'};
+var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
+var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
+	return {$: 'Describe', a: a};
+};
+var $elm$json$Json$Encode$bool = _Json_wrap;
+var $elm$html$Html$Attributes$boolProperty = F2(
+	function (key, bool) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$bool(bool));
+	});
+var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
+var $mdgriffith$elm_ui$Element$Input$enter = 'Enter';
+var $mdgriffith$elm_ui$Internal$Model$NoAttribute = {$: 'NoAttribute'};
+var $mdgriffith$elm_ui$Element$Input$hasFocusStyle = function (attr) {
+	if (((attr.$ === 'StyleClass') && (attr.b.$ === 'PseudoSelector')) && (attr.b.a.$ === 'Focus')) {
+		var _v1 = attr.b;
+		var _v2 = _v1.a;
+		return true;
+	} else {
+		return false;
+	}
+};
+var $mdgriffith$elm_ui$Element$Input$focusDefault = function (attrs) {
+	return A2($elm$core$List$any, $mdgriffith$elm_ui$Element$Input$hasFocusStyle, attrs) ? $mdgriffith$elm_ui$Internal$Model$NoAttribute : $mdgriffith$elm_ui$Internal$Model$htmlClass('focusable');
+};
+var $elm$core$Basics$composeL = F3(
+	function (g, f, x) {
+		return g(
+			f(x));
+	});
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $mdgriffith$elm_ui$Element$Events$onClick = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Attr, $elm$html$Html$Events$onClick);
+var $elm$json$Json$Decode$fail = _Json_fail;
+var $elm$virtual_dom$VirtualDom$MayPreventDefault = function (a) {
+	return {$: 'MayPreventDefault', a: a};
+};
+var $elm$html$Html$Events$preventDefaultOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayPreventDefault(decoder));
+	});
+var $mdgriffith$elm_ui$Element$Input$onKeyLookup = function (lookup) {
+	var decode = function (code) {
+		var _v0 = lookup(code);
+		if (_v0.$ === 'Nothing') {
+			return $elm$json$Json$Decode$fail('No key matched');
+		} else {
+			var msg = _v0.a;
+			return $elm$json$Json$Decode$succeed(msg);
+		}
+	};
+	var isKey = A2(
+		$elm$json$Json$Decode$andThen,
+		decode,
+		A2($elm$json$Json$Decode$field, 'key', $elm$json$Json$Decode$string));
+	return $mdgriffith$elm_ui$Internal$Model$Attr(
+		A2(
+			$elm$html$Html$Events$preventDefaultOn,
+			'keydown',
+			A2(
+				$elm$json$Json$Decode$map,
+				function (fired) {
+					return _Utils_Tuple2(fired, true);
+				},
+				isKey)));
+};
+var $mdgriffith$elm_ui$Internal$Flag$cursor = $mdgriffith$elm_ui$Internal$Flag$flag(21);
+var $mdgriffith$elm_ui$Element$pointer = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$cursor, $mdgriffith$elm_ui$Internal$Style$classes.cursorPointer);
+var $mdgriffith$elm_ui$Element$Input$space = ' ';
+var $elm$html$Html$Attributes$tabindex = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'tabIndex',
+		$elm$core$String$fromInt(n));
+};
+var $mdgriffith$elm_ui$Element$Input$button = F2(
+	function (attrs, _v0) {
+		var onPress = _v0.onPress;
+		var label = _v0.label;
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asEl,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentCenterX + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.contentCenterY + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.seButton + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.noTextSelection)))))),
+						A2(
+							$elm$core$List$cons,
+							$mdgriffith$elm_ui$Element$pointer,
+							A2(
+								$elm$core$List$cons,
+								$mdgriffith$elm_ui$Element$Input$focusDefault(attrs),
+								A2(
+									$elm$core$List$cons,
+									$mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Button),
+									A2(
+										$elm$core$List$cons,
+										$mdgriffith$elm_ui$Internal$Model$Attr(
+											$elm$html$Html$Attributes$tabindex(0)),
+										function () {
+											if (onPress.$ === 'Nothing') {
+												return A2(
+													$elm$core$List$cons,
+													$mdgriffith$elm_ui$Internal$Model$Attr(
+														$elm$html$Html$Attributes$disabled(true)),
+													attrs);
+											} else {
+												var msg = onPress.a;
+												return A2(
+													$elm$core$List$cons,
+													$mdgriffith$elm_ui$Element$Events$onClick(msg),
+													A2(
+														$elm$core$List$cons,
+														$mdgriffith$elm_ui$Element$Input$onKeyLookup(
+															function (code) {
+																return _Utils_eq(code, $mdgriffith$elm_ui$Element$Input$enter) ? $elm$core$Maybe$Just(msg) : (_Utils_eq(code, $mdgriffith$elm_ui$Element$Input$space) ? $elm$core$Maybe$Just(msg) : $elm$core$Maybe$Nothing);
+															}),
+														attrs));
+											}
+										}()))))))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+				_List_fromArray(
+					[label])));
+	});
 var $mdgriffith$elm_ui$Element$Font$center = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textCenter);
+var $mdgriffith$elm_ui$Internal$Model$Hover = {$: 'Hover'};
+var $mdgriffith$elm_ui$Internal$Model$PseudoSelector = F2(
+	function (a, b) {
+		return {$: 'PseudoSelector', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$hover = $mdgriffith$elm_ui$Internal$Flag$flag(33);
+var $mdgriffith$elm_ui$Internal$Model$Nearby = F2(
+	function (a, b) {
+		return {$: 'Nearby', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Model$TransformComponent = F2(
+	function (a, b) {
+		return {$: 'TransformComponent', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Model$Empty = {$: 'Empty'};
+var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
+	return {$: 'Text', a: a};
+};
+var $elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
+var $mdgriffith$elm_ui$Internal$Model$map = F2(
+	function (fn, el) {
+		switch (el.$) {
+			case 'Styled':
+				var styled = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Styled(
+					{
+						html: F2(
+							function (add, context) {
+								return A2(
+									$elm$virtual_dom$VirtualDom$map,
+									fn,
+									A2(styled.html, add, context));
+							}),
+						styles: styled.styles
+					});
+			case 'Unstyled':
+				var html = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Unstyled(
+					A2(
+						$elm$core$Basics$composeL,
+						$elm$virtual_dom$VirtualDom$map(fn),
+						html));
+			case 'Text':
+				var str = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Text(str);
+			default:
+				return $mdgriffith$elm_ui$Internal$Model$Empty;
+		}
+	});
+var $elm$virtual_dom$VirtualDom$mapAttribute = _VirtualDom_mapAttribute;
+var $mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle = F2(
+	function (fn, attr) {
+		switch (attr.$) {
+			case 'NoAttribute':
+				return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
+			case 'Describe':
+				var description = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Describe(description);
+			case 'AlignX':
+				var x = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$AlignX(x);
+			case 'AlignY':
+				var y = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$AlignY(y);
+			case 'Width':
+				var x = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Width(x);
+			case 'Height':
+				var x = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Height(x);
+			case 'Class':
+				var x = attr.a;
+				var y = attr.b;
+				return A2($mdgriffith$elm_ui$Internal$Model$Class, x, y);
+			case 'StyleClass':
+				var flag = attr.a;
+				var style = attr.b;
+				return A2($mdgriffith$elm_ui$Internal$Model$StyleClass, flag, style);
+			case 'Nearby':
+				var location = attr.a;
+				var elem = attr.b;
+				return A2(
+					$mdgriffith$elm_ui$Internal$Model$Nearby,
+					location,
+					A2($mdgriffith$elm_ui$Internal$Model$map, fn, elem));
+			case 'Attr':
+				var htmlAttr = attr.a;
+				return $mdgriffith$elm_ui$Internal$Model$Attr(
+					A2($elm$virtual_dom$VirtualDom$mapAttribute, fn, htmlAttr));
+			default:
+				var fl = attr.a;
+				var trans = attr.b;
+				return A2($mdgriffith$elm_ui$Internal$Model$TransformComponent, fl, trans);
+		}
+	});
+var $mdgriffith$elm_ui$Internal$Model$removeNever = function (style) {
+	return A2($mdgriffith$elm_ui$Internal$Model$mapAttrFromStyle, $elm$core$Basics$never, style);
+};
+var $mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper = F2(
+	function (attr, _v0) {
+		var styles = _v0.a;
+		var trans = _v0.b;
+		var _v1 = $mdgriffith$elm_ui$Internal$Model$removeNever(attr);
+		switch (_v1.$) {
+			case 'StyleClass':
+				var style = _v1.b;
+				return _Utils_Tuple2(
+					A2($elm$core$List$cons, style, styles),
+					trans);
+			case 'TransformComponent':
+				var flag = _v1.a;
+				var component = _v1.b;
+				return _Utils_Tuple2(
+					styles,
+					A2($mdgriffith$elm_ui$Internal$Model$composeTransformation, trans, component));
+			default:
+				return _Utils_Tuple2(styles, trans);
+		}
+	});
+var $mdgriffith$elm_ui$Internal$Model$unwrapDecorations = function (attrs) {
+	var _v0 = A3(
+		$elm$core$List$foldl,
+		$mdgriffith$elm_ui$Internal$Model$unwrapDecsHelper,
+		_Utils_Tuple2(_List_Nil, $mdgriffith$elm_ui$Internal$Model$Untransformed),
+		attrs);
+	var styles = _v0.a;
+	var transform = _v0.b;
+	return A2(
+		$elm$core$List$cons,
+		$mdgriffith$elm_ui$Internal$Model$Transform(transform),
+		styles);
+};
+var $mdgriffith$elm_ui$Element$mouseOver = function (decs) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$hover,
+		A2(
+			$mdgriffith$elm_ui$Internal$Model$PseudoSelector,
+			$mdgriffith$elm_ui$Internal$Model$Hover,
+			$mdgriffith$elm_ui$Internal$Model$unwrapDecorations(decs)));
+};
+var $mdgriffith$elm_ui$Element$padding = function (x) {
+	var f = x;
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$padding,
+		A5(
+			$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+			'p-' + $elm$core$String$fromInt(x),
+			f,
+			f,
+			f,
+			f));
+};
+var $mdgriffith$elm_ui$Internal$Flag$borderRound = $mdgriffith$elm_ui$Internal$Flag$flag(17);
 var $mdgriffith$elm_ui$Element$Border$rounded = function (radius) {
 	return A2(
 		$mdgriffith$elm_ui$Internal$Model$StyleClass,
@@ -14278,6 +14013,9 @@ var $mdgriffith$elm_ui$Element$Border$rounded = function (radius) {
 			'br-' + $elm$core$String$fromInt(radius),
 			'border-radius',
 			$elm$core$String$fromInt(radius) + 'px'));
+};
+var $mdgriffith$elm_ui$Element$text = function (content) {
+	return $mdgriffith$elm_ui$Internal$Model$Text(content);
 };
 var $author$project$Desktop$viewHeaderButton = F3(
 	function (label, action, buttonType) {
@@ -14310,6 +14048,44 @@ var $author$project$Desktop$viewHeaderButton = F3(
 				label: $mdgriffith$elm_ui$Element$text(label),
 				onPress: $elm$core$Maybe$Just(action)
 			});
+	});
+var $mdgriffith$elm_ui$Internal$Model$Transparency = F2(
+	function (a, b) {
+		return {$: 'Transparency', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$transparency = $mdgriffith$elm_ui$Internal$Flag$flag(0);
+var $mdgriffith$elm_ui$Element$alpha = function (o) {
+	var transparency = function (x) {
+		return 1 - x;
+	}(
+		A2(
+			$elm$core$Basics$min,
+			1.0,
+			A2($elm$core$Basics$max, 0.0, o)));
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$transparency,
+		A2(
+			$mdgriffith$elm_ui$Internal$Model$Transparency,
+			'transparency-' + $mdgriffith$elm_ui$Internal$Model$floatClass(transparency),
+			transparency));
+};
+var $mdgriffith$elm_ui$Element$el = F2(
+	function (attrs, child) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asEl,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+					attrs)),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+				_List_fromArray(
+					[child])));
 	});
 var $author$project$Desktop$viewInactiveHeaderButton = function (label) {
 	return A2(
@@ -14351,6 +14127,24 @@ var $author$project$Desktop$displayHeaderButton = F3(
 				}
 		}
 	});
+var $mdgriffith$elm_ui$Internal$Model$SpacingStyle = F3(
+	function (a, b, c) {
+		return {$: 'SpacingStyle', a: a, b: b, c: c};
+	});
+var $mdgriffith$elm_ui$Internal$Model$spacingName = F2(
+	function (x, y) {
+		return 'spacing-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y)));
+	});
+var $mdgriffith$elm_ui$Element$spacing = function (x) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$spacing,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$SpacingStyle,
+			A2($mdgriffith$elm_ui$Internal$Model$spacingName, x, x),
+			x,
+			x));
+};
 var $author$project$Desktop$viewFilterButtons = function (display) {
 	return A2(
 		$mdgriffith$elm_ui$Element$row,
@@ -14487,10 +14281,139 @@ var $author$project$Desktop$viewHeader = function (display) {
 		]);
 	return A2($mdgriffith$elm_ui$Element$row, styles, content);
 };
+var $mdgriffith$elm_ui$Internal$Model$CenterX = {$: 'CenterX'};
+var $mdgriffith$elm_ui$Element$centerX = $mdgriffith$elm_ui$Internal$Model$AlignX($mdgriffith$elm_ui$Internal$Model$CenterX);
+var $author$project$Shared$DeselectRadical = function (a) {
+	return {$: 'DeselectRadical', a: a};
+};
+var $author$project$Meaning$displayMeaning = function (meaning) {
+	if (meaning.$ === 'Same') {
+		return '名前と同じ';
+	} else {
+		var m = meaning.a;
+		return m;
+	}
+};
+var $elm$core$String$cons = _String_cons;
+var $elm$core$String$fromChar = function (_char) {
+	return A2($elm$core$String$cons, _char, '');
+};
+var $author$project$Part$getJapanesePartName = function (part) {
+	switch (part.$) {
+		case 'Left':
+			return 'へん';
+		case 'Right':
+			return 'つくり';
+		case 'Top':
+			return 'かんむり';
+		case 'Bottom':
+			return 'あし';
+		case 'Enclose':
+			return 'かまえ';
+		case 'Hang':
+			return 'たれ';
+		case 'Wrap':
+			return 'にょう';
+		default:
+			return 'なし';
+	}
+};
+var $mdgriffith$elm_ui$Element$Font$alignLeft = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textLeft);
+var $mdgriffith$elm_ui$Element$Font$bold = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.bold);
+var $mdgriffith$elm_ui$Element$fillPortion = $mdgriffith$elm_ui$Internal$Model$Fill;
+var $author$project$Desktop$viewRadicalAttribute = F2(
+	function (attribute, value) {
+		return A2(
+			$mdgriffith$elm_ui$Element$row,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$centerX,
+					$mdgriffith$elm_ui$Element$centerY,
+					$mdgriffith$elm_ui$Element$height(
+					$mdgriffith$elm_ui$Element$fillPortion(1)),
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+					$mdgriffith$elm_ui$Element$Font$alignLeft,
+					$mdgriffith$elm_ui$Element$Font$size(14)
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$mdgriffith$elm_ui$Element$el,
+					_List_fromArray(
+						[$mdgriffith$elm_ui$Element$centerY, $mdgriffith$elm_ui$Element$Font$bold]),
+					$mdgriffith$elm_ui$Element$text(attribute + ': ')),
+					A2(
+					$mdgriffith$elm_ui$Element$el,
+					_List_fromArray(
+						[$mdgriffith$elm_ui$Element$centerY]),
+					$mdgriffith$elm_ui$Element$text(value))
+				]));
+	});
+var $author$project$Desktop$viewSelectedRadical = function (radical) {
+	return A2(
+		$mdgriffith$elm_ui$Element$Input$button,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
+				$mdgriffith$elm_ui$Element$Border$rounded(10),
+				$mdgriffith$elm_ui$Element$width(
+				$mdgriffith$elm_ui$Element$px(320)),
+				$mdgriffith$elm_ui$Element$height(
+				$mdgriffith$elm_ui$Element$px(200)),
+				$mdgriffith$elm_ui$Element$Font$size(50),
+				$mdgriffith$elm_ui$Element$Font$center,
+				$mdgriffith$elm_ui$Element$mouseOver(
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorLighter),
+						$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
+					]))
+			]),
+		{
+			label: A2(
+				$mdgriffith$elm_ui$Element$row,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Font$center,
+						$mdgriffith$elm_ui$Element$centerX,
+						$mdgriffith$elm_ui$Element$centerY,
+						$mdgriffith$elm_ui$Element$spacing(20)
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$mdgriffith$elm_ui$Element$el,
+						_List_fromArray(
+							[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$Font$light, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
+						$mdgriffith$elm_ui$Element$text(
+							$elm$core$String$fromChar(radical.radical))),
+						A2(
+						$mdgriffith$elm_ui$Element$column,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$spacing(10)
+							]),
+						_List_fromArray(
+							[
+								A2($author$project$Desktop$viewRadicalAttribute, '名前', radical.name),
+								A2(
+								$author$project$Desktop$viewRadicalAttribute,
+								'意味',
+								$author$project$Meaning$displayMeaning(radical.meaning)),
+								A2(
+								$author$project$Desktop$viewRadicalAttribute,
+								'部分',
+								$author$project$Part$getJapanesePartName(radical.part))
+							]))
+					])),
+			onPress: $elm$core$Maybe$Just(
+				$author$project$Shared$DeselectRadical(radical))
+		});
+};
 var $author$project$Shared$SelectRadical = function (a) {
 	return {$: 'SelectRadical', a: a};
 };
-var $author$project$Desktop$viewRadical = function (radical) {
+var $author$project$Desktop$viewUnselectedRadical = function (radical) {
 	return A2(
 		$mdgriffith$elm_ui$Element$Input$button,
 		_List_fromArray(
@@ -14527,23 +14450,21 @@ var $author$project$Desktop$viewRadical = function (radical) {
 						_List_fromArray(
 							[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
 						$mdgriffith$elm_ui$Element$text(
-							$elm$core$String$fromChar(radical.radical))),
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$Font$center,
-								$mdgriffith$elm_ui$Element$centerX,
-								$mdgriffith$elm_ui$Element$centerY,
-								$mdgriffith$elm_ui$Element$Font$size(20),
-								$mdgriffith$elm_ui$Element$alpha(0.3)
-							]),
-						$mdgriffith$elm_ui$Element$text(radical.name))
+							$elm$core$String$fromChar(radical.radical)))
 					])),
 			onPress: $elm$core$Maybe$Just(
 				$author$project$Shared$SelectRadical(radical))
 		});
 };
+var $author$project$Desktop$viewRadical = F2(
+	function (selected, radical) {
+		return A2(
+			$elm$core$List$any,
+			function (selectedRadical) {
+				return _Utils_eq(selectedRadical, radical);
+			},
+			selected) ? $author$project$Desktop$viewSelectedRadical(radical) : $author$project$Desktop$viewUnselectedRadical(radical);
+	});
 var $mdgriffith$elm_ui$Internal$Model$Padding = F5(
 	function (a, b, c, d, e) {
 		return {$: 'Padding', a: a, b: b, c: c, d: d, e: e};
@@ -14734,19 +14655,24 @@ var $mdgriffith$elm_ui$Element$wrappedRow = F2(
 			}
 		}
 	});
-var $author$project$Desktop$viewRadicals = function (radicals) {
-	var content = A2($elm$core$List$map, $author$project$Desktop$viewRadical, radicals);
-	return A2(
-		$mdgriffith$elm_ui$Element$wrappedRow,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$spacing(20),
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-			]),
-		content);
-};
+var $author$project$Desktop$viewRadicals = F2(
+	function (selected, radicals) {
+		var content = A2(
+			$elm$core$List$map,
+			$author$project$Desktop$viewRadical(selected),
+			radicals);
+		return A2(
+			$mdgriffith$elm_ui$Element$wrappedRow,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$spacing(20),
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+				]),
+			content);
+	});
 var $author$project$Part$all = _List_fromArray(
 	[$author$project$Part$Left, $author$project$Part$Right, $author$project$Part$Top, $author$project$Part$Bottom, $author$project$Part$Enclose, $author$project$Part$Hang, $author$project$Part$Wrap, $author$project$Part$None]);
+var $mdgriffith$elm_ui$Element$Font$extraLight = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.textExtraLight);
 var $author$project$Desktop$viewTitle = function (title) {
 	return A2(
 		$mdgriffith$elm_ui$Element$el,
@@ -14759,8 +14685,8 @@ var $author$project$Desktop$viewTitle = function (title) {
 			]),
 		$mdgriffith$elm_ui$Element$text(title));
 };
-var $author$project$Desktop$viewPartRadicals = F2(
-	function (radicals, part) {
+var $author$project$Desktop$viewPartRadicals = F3(
+	function (selected, radicals, part) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -14772,7 +14698,9 @@ var $author$project$Desktop$viewPartRadicals = F2(
 				[
 					$author$project$Desktop$viewTitle(
 					$author$project$Part$getJapanesePartName(part)),
-					$author$project$Desktop$viewRadicals(
+					A2(
+					$author$project$Desktop$viewRadicals,
+					selected,
 					A2(
 						$elm$core$List$filter,
 						function (r) {
@@ -14781,15 +14709,16 @@ var $author$project$Desktop$viewPartRadicals = F2(
 						radicals))
 				]));
 	});
-var $author$project$Desktop$viewRadicalsByPart = function (radicals) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_Nil,
-		A2(
-			$elm$core$List$map,
-			$author$project$Desktop$viewPartRadicals(radicals),
-			$author$project$Part$all));
-};
+var $author$project$Desktop$viewRadicalsByPart = F2(
+	function (selected, radicals) {
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_Nil,
+			A2(
+				$elm$core$List$map,
+				A2($author$project$Desktop$viewPartRadicals, selected, radicals),
+				$author$project$Part$all));
+	});
 var $author$project$Subject$all = _List_fromArray(
 	[$author$project$Subject$Nature, $author$project$Subject$BodyParts, $author$project$Subject$People, $author$project$Subject$Enclosures, $author$project$Subject$VerbsAndLanguage, $author$project$Subject$NaturalMaterials, $author$project$Subject$MathAndMeasurement, $author$project$Subject$Food, $author$project$Subject$Animals, $author$project$Subject$Warfare, $author$project$Subject$ManMadeTools, $author$project$Subject$Senses, $author$project$Subject$Supernatural]);
 var $author$project$Subject$getJapaneseSubjectName = function (subject) {
@@ -14822,8 +14751,8 @@ var $author$project$Subject$getJapaneseSubjectName = function (subject) {
 			return '超自然';
 	}
 };
-var $author$project$Desktop$viewSubjectRadicals = F2(
-	function (radicals, subject) {
+var $author$project$Desktop$viewSubjectRadicals = F3(
+	function (selected, radicals, subject) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -14835,7 +14764,9 @@ var $author$project$Desktop$viewSubjectRadicals = F2(
 				[
 					$author$project$Desktop$viewTitle(
 					$author$project$Subject$getJapaneseSubjectName(subject)),
-					$author$project$Desktop$viewRadicals(
+					A2(
+					$author$project$Desktop$viewRadicals,
+					selected,
 					A2(
 						$elm$core$List$filter,
 						function (r) {
@@ -14844,15 +14775,16 @@ var $author$project$Desktop$viewSubjectRadicals = F2(
 						radicals))
 				]));
 	});
-var $author$project$Desktop$viewRadicalsBySubject = function (radicals) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_Nil,
-		A2(
-			$elm$core$List$map,
-			$author$project$Desktop$viewSubjectRadicals(radicals),
-			$author$project$Subject$all));
-};
+var $author$project$Desktop$viewRadicalsBySubject = F2(
+	function (selected, radicals) {
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_Nil,
+			A2(
+				$elm$core$List$map,
+				A2($author$project$Desktop$viewSubjectRadicals, selected, radicals),
+				$author$project$Subject$all));
+	});
 var $author$project$Desktop$viewHomeRoute = function (model) {
 	return A2(
 		$mdgriffith$elm_ui$Element$column,
@@ -14871,11 +14803,11 @@ var $author$project$Desktop$viewHomeRoute = function (model) {
 				var _v0 = model.display;
 				switch (_v0.$) {
 					case 'ListBySubject':
-						return $author$project$Desktop$viewRadicalsBySubject(model.radicals);
+						return A2($author$project$Desktop$viewRadicalsBySubject, model.selected, model.radicals);
 					case 'ListByPart':
-						return $author$project$Desktop$viewRadicalsByPart(model.radicals);
+						return A2($author$project$Desktop$viewRadicalsByPart, model.selected, model.radicals);
 					default:
-						return $author$project$Desktop$viewRadicals(model.radicals);
+						return A2($author$project$Desktop$viewRadicals, model.selected, model.radicals);
 				}
 			}()
 			]));
@@ -14973,9 +14905,7 @@ var $author$project$Desktop$view = function (model) {
 						$mdgriffith$elm_ui$Element$Font$size($author$project$Theme$theme.textSize),
 						$mdgriffith$elm_ui$Element$Font$regular,
 						$mdgriffith$elm_ui$Element$Font$justify,
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.bgColor),
-						$mdgriffith$elm_ui$Element$inFront(
-						$author$project$Desktop$displaySelectedRadical(model.selected))
+						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.bgColor)
 					]),
 				function () {
 					var styles = _List_fromArray(
@@ -15004,138 +14934,6 @@ var $author$project$Desktop$view = function (model) {
 			]),
 		title: 'Learn the Japanese Kanji Radicals'
 	};
-};
-var $author$project$Phone$viewRadicalAttribute = F2(
-	function (attribute, value) {
-		return A2(
-			$mdgriffith$elm_ui$Element$row,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$centerX,
-					$mdgriffith$elm_ui$Element$centerY,
-					$mdgriffith$elm_ui$Element$height(
-					$mdgriffith$elm_ui$Element$fillPortion(1)),
-					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-					$mdgriffith$elm_ui$Element$Font$alignLeft,
-					$mdgriffith$elm_ui$Element$Font$size(20)
-				]),
-			_List_fromArray(
-				[
-					A2(
-					$mdgriffith$elm_ui$Element$el,
-					_List_fromArray(
-						[$mdgriffith$elm_ui$Element$centerY, $mdgriffith$elm_ui$Element$Font$bold]),
-					$mdgriffith$elm_ui$Element$text(attribute + ': ')),
-					A2(
-					$mdgriffith$elm_ui$Element$el,
-					_List_fromArray(
-						[$mdgriffith$elm_ui$Element$centerY]),
-					$mdgriffith$elm_ui$Element$text(value))
-				]));
-	});
-var $author$project$Phone$viewSelectedRadical = function (radical) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$alpha(1),
-				$mdgriffith$elm_ui$Element$centerX,
-				$mdgriffith$elm_ui$Element$centerY
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$mdgriffith$elm_ui$Element$row,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorDarker),
-						$mdgriffith$elm_ui$Element$alpha(1),
-						$mdgriffith$elm_ui$Element$Border$roundEach(
-						{bottomLeft: 0, bottomRight: 0, topLeft: 10, topRight: 10})
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$mdgriffith$elm_ui$Element$Input$button,
-						_Utils_ap(
-							$author$project$Theme$titleBarButtonStyles,
-							_List_fromArray(
-								[
-									$mdgriffith$elm_ui$Element$Border$roundEach(
-									{bottomLeft: 0, bottomRight: 0, topLeft: 0, topRight: 10})
-								])),
-						{
-							label: $mdgriffith$elm_ui$Element$text('⨉'),
-							onPress: $elm$core$Maybe$Just($author$project$Shared$DeselectRadical)
-						})
-					])),
-				A2(
-				$mdgriffith$elm_ui$Element$row,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$Border$roundEach(
-						{bottomLeft: 10, bottomRight: 10, topLeft: 0, topRight: 0}),
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorDarker)
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$Font$size(200),
-								$mdgriffith$elm_ui$Element$Font$extraLight,
-								$mdgriffith$elm_ui$Element$width(
-								$mdgriffith$elm_ui$Element$fillPortion(1))
-							]),
-						$mdgriffith$elm_ui$Element$text(
-							$elm$core$String$fromChar(radical.radical))),
-						A2(
-						$mdgriffith$elm_ui$Element$column,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$width(
-								$mdgriffith$elm_ui$Element$fillPortion(1)),
-								$mdgriffith$elm_ui$Element$spacing(30),
-								$mdgriffith$elm_ui$Element$Font$alignLeft
-							]),
-						_List_fromArray(
-							[
-								A2($author$project$Phone$viewRadicalAttribute, '名前', radical.name),
-								A2(
-								$author$project$Phone$viewRadicalAttribute,
-								'意味',
-								$author$project$Meaning$displayMeaning(radical.meaning)),
-								A2(
-								$author$project$Phone$viewRadicalAttribute,
-								'部分',
-								$author$project$Part$getJapanesePartName(radical.part))
-							]))
-					]))
-			]));
-};
-var $author$project$Phone$viewPopup = function (radical) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$centerX,
-				$mdgriffith$elm_ui$Element$centerY,
-				$mdgriffith$elm_ui$Element$alpha(0.95),
-				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.bgColor),
-				$mdgriffith$elm_ui$Element$inFront(
-				$author$project$Phone$viewSelectedRadical(radical))
-			]),
-		_List_Nil);
-};
-var $author$project$Phone$displaySelectedRadical = function (selected) {
-	if (selected.$ === 'Just') {
-		var radical = selected.a;
-		return $author$project$Phone$viewPopup(radical);
-	} else {
-		return $mdgriffith$elm_ui$Element$text('');
-	}
 };
 var $author$project$Phone$FilterButton = {$: 'FilterButton'};
 var $author$project$Phone$viewHeaderButton = F3(
@@ -15256,14 +15054,104 @@ var $author$project$Phone$viewHeader = function (display) {
 		]);
 	return A2($mdgriffith$elm_ui$Element$row, styles, content);
 };
-var $author$project$Phone$viewRadical = function (radical) {
+var $author$project$Phone$viewRadicalAttribute = F2(
+	function (attribute, value) {
+		return A2(
+			$mdgriffith$elm_ui$Element$row,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$centerX,
+					$mdgriffith$elm_ui$Element$centerY,
+					$mdgriffith$elm_ui$Element$height(
+					$mdgriffith$elm_ui$Element$fillPortion(1)),
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+					$mdgriffith$elm_ui$Element$Font$alignLeft,
+					$mdgriffith$elm_ui$Element$Font$size(14)
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$mdgriffith$elm_ui$Element$el,
+					_List_fromArray(
+						[$mdgriffith$elm_ui$Element$centerY, $mdgriffith$elm_ui$Element$Font$bold]),
+					$mdgriffith$elm_ui$Element$text(attribute + ': ')),
+					A2(
+					$mdgriffith$elm_ui$Element$el,
+					_List_fromArray(
+						[$mdgriffith$elm_ui$Element$centerY]),
+					$mdgriffith$elm_ui$Element$text(value))
+				]));
+	});
+var $author$project$Phone$viewSelectedRadical = function (radical) {
 	return A2(
 		$mdgriffith$elm_ui$Element$Input$button,
 		_List_fromArray(
 			[
 				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
 				$mdgriffith$elm_ui$Element$Border$rounded(10),
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+				$mdgriffith$elm_ui$Element$width(
+				$mdgriffith$elm_ui$Element$px(320)),
+				$mdgriffith$elm_ui$Element$height(
+				$mdgriffith$elm_ui$Element$px(200)),
+				$mdgriffith$elm_ui$Element$Font$size(50),
+				$mdgriffith$elm_ui$Element$Font$center,
+				$mdgriffith$elm_ui$Element$mouseOver(
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorLighter),
+						$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
+					]))
+			]),
+		{
+			label: A2(
+				$mdgriffith$elm_ui$Element$row,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Font$center,
+						$mdgriffith$elm_ui$Element$centerX,
+						$mdgriffith$elm_ui$Element$centerY,
+						$mdgriffith$elm_ui$Element$spacing(20)
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$mdgriffith$elm_ui$Element$el,
+						_List_fromArray(
+							[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$Font$light, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
+						$mdgriffith$elm_ui$Element$text(
+							$elm$core$String$fromChar(radical.radical))),
+						A2(
+						$mdgriffith$elm_ui$Element$column,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$spacing(10)
+							]),
+						_List_fromArray(
+							[
+								A2($author$project$Phone$viewRadicalAttribute, '名前', radical.name),
+								A2(
+								$author$project$Phone$viewRadicalAttribute,
+								'意味',
+								$author$project$Meaning$displayMeaning(radical.meaning)),
+								A2(
+								$author$project$Phone$viewRadicalAttribute,
+								'部分',
+								$author$project$Part$getJapanesePartName(radical.part))
+							]))
+					])),
+			onPress: $elm$core$Maybe$Just(
+				$author$project$Shared$DeselectRadical(radical))
+		});
+};
+var $author$project$Phone$viewUnselectedRadical = function (radical) {
+	return A2(
+		$mdgriffith$elm_ui$Element$Input$button,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
+				$mdgriffith$elm_ui$Element$Border$rounded(10),
+				$mdgriffith$elm_ui$Element$width(
+				$mdgriffith$elm_ui$Element$px(320)),
 				$mdgriffith$elm_ui$Element$height(
 				$mdgriffith$elm_ui$Element$px(200)),
 				$mdgriffith$elm_ui$Element$Font$size(50),
@@ -15292,34 +15180,36 @@ var $author$project$Phone$viewRadical = function (radical) {
 						_List_fromArray(
 							[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
 						$mdgriffith$elm_ui$Element$text(
-							$elm$core$String$fromChar(radical.radical))),
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$Font$center,
-								$mdgriffith$elm_ui$Element$centerX,
-								$mdgriffith$elm_ui$Element$centerY,
-								$mdgriffith$elm_ui$Element$Font$size(20),
-								$mdgriffith$elm_ui$Element$alpha(0.3)
-							]),
-						$mdgriffith$elm_ui$Element$text(radical.name))
+							$elm$core$String$fromChar(radical.radical)))
 					])),
 			onPress: $elm$core$Maybe$Just(
 				$author$project$Shared$SelectRadical(radical))
 		});
 };
-var $author$project$Phone$viewRadicals = function (radicals) {
-	var content = A2($elm$core$List$map, $author$project$Phone$viewRadical, radicals);
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$spacing(20),
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-			]),
-		content);
-};
+var $author$project$Phone$viewRadical = F2(
+	function (selected, radical) {
+		return A2(
+			$elm$core$List$any,
+			function (selectedRadical) {
+				return _Utils_eq(selectedRadical, radical);
+			},
+			selected) ? $author$project$Phone$viewSelectedRadical(radical) : $author$project$Phone$viewUnselectedRadical(radical);
+	});
+var $author$project$Phone$viewRadicals = F2(
+	function (selected, radicals) {
+		var content = A2(
+			$elm$core$List$map,
+			$author$project$Phone$viewRadical(selected),
+			radicals);
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$spacing(20),
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+				]),
+			content);
+	});
 var $author$project$Phone$viewTitle = function (title) {
 	return A2(
 		$mdgriffith$elm_ui$Element$el,
@@ -15334,8 +15224,8 @@ var $author$project$Phone$viewTitle = function (title) {
 			]),
 		$mdgriffith$elm_ui$Element$text(title));
 };
-var $author$project$Phone$viewPartRadicals = F2(
-	function (radicals, part) {
+var $author$project$Phone$viewPartRadicals = F3(
+	function (selected, radicals, part) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -15348,7 +15238,9 @@ var $author$project$Phone$viewPartRadicals = F2(
 				[
 					$author$project$Phone$viewTitle(
 					$author$project$Part$getJapanesePartName(part)),
-					$author$project$Phone$viewRadicals(
+					A2(
+					$author$project$Phone$viewRadicals,
+					selected,
 					A2(
 						$elm$core$List$filter,
 						function (r) {
@@ -15357,20 +15249,21 @@ var $author$project$Phone$viewPartRadicals = F2(
 						radicals))
 				]));
 	});
-var $author$project$Phone$viewRadicalsByPart = function (radicals) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-			]),
-		A2(
-			$elm$core$List$map,
-			$author$project$Phone$viewPartRadicals(radicals),
-			$author$project$Part$all));
-};
-var $author$project$Phone$viewSubjectRadicals = F2(
-	function (radicals, subject) {
+var $author$project$Phone$viewRadicalsByPart = F2(
+	function (selected, radicals) {
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+				]),
+			A2(
+				$elm$core$List$map,
+				A2($author$project$Phone$viewPartRadicals, selected, radicals),
+				$author$project$Part$all));
+	});
+var $author$project$Phone$viewSubjectRadicals = F3(
+	function (selected, radicals, subject) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -15383,7 +15276,9 @@ var $author$project$Phone$viewSubjectRadicals = F2(
 				[
 					$author$project$Phone$viewTitle(
 					$author$project$Subject$getJapaneseSubjectName(subject)),
-					$author$project$Phone$viewRadicals(
+					A2(
+					$author$project$Phone$viewRadicals,
+					selected,
 					A2(
 						$elm$core$List$filter,
 						function (r) {
@@ -15392,18 +15287,19 @@ var $author$project$Phone$viewSubjectRadicals = F2(
 						radicals))
 				]));
 	});
-var $author$project$Phone$viewRadicalsBySubject = function (radicals) {
-	return A2(
-		$mdgriffith$elm_ui$Element$column,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-			]),
-		A2(
-			$elm$core$List$map,
-			$author$project$Phone$viewSubjectRadicals(radicals),
-			$author$project$Subject$all));
-};
+var $author$project$Phone$viewRadicalsBySubject = F2(
+	function (selected, radicals) {
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+				]),
+			A2(
+				$elm$core$List$map,
+				A2($author$project$Phone$viewSubjectRadicals, selected, radicals),
+				$author$project$Subject$all));
+	});
 var $author$project$Phone$viewHomeRoute = function (model) {
 	return A2(
 		$mdgriffith$elm_ui$Element$column,
@@ -15422,11 +15318,11 @@ var $author$project$Phone$viewHomeRoute = function (model) {
 				var _v0 = model.display;
 				switch (_v0.$) {
 					case 'ListBySubject':
-						return $author$project$Phone$viewRadicalsBySubject(model.radicals);
+						return A2($author$project$Phone$viewRadicalsBySubject, model.selected, model.radicals);
 					case 'ListByPart':
-						return $author$project$Phone$viewRadicalsByPart(model.radicals);
+						return A2($author$project$Phone$viewRadicalsByPart, model.selected, model.radicals);
 					default:
-						return $author$project$Phone$viewRadicals(model.radicals);
+						return A2($author$project$Phone$viewRadicals, model.selected, model.radicals);
 				}
 			}()
 			]));
@@ -15503,9 +15399,7 @@ var $author$project$Phone$view = function (model) {
 						$mdgriffith$elm_ui$Element$Font$size($author$project$Theme$theme.textSize),
 						$mdgriffith$elm_ui$Element$Font$regular,
 						$mdgriffith$elm_ui$Element$Font$justify,
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.bgColor),
-						$mdgriffith$elm_ui$Element$inFront(
-						$author$project$Phone$displaySelectedRadical(model.selected))
+						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.bgColor)
 					]),
 				function () {
 					var styles = _List_fromArray(

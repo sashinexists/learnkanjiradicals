@@ -38,7 +38,6 @@ view model =
             , Font.regular
             , Font.justify
             , Background.color theme.bgColor
-            , Element.inFront (displaySelectedRadical model.selected)
             ]
             (let
                 styles =
@@ -74,13 +73,13 @@ viewHomeRoute model =
         ]
         [ case model.display of
             ListBySubject ->
-                viewRadicalsBySubject model.radicals
+                viewRadicalsBySubject model.selected model.radicals
 
             ListByPart ->
-                viewRadicalsByPart model.radicals
+                viewRadicalsByPart model.selected model.radicals
 
             NoCategories ->
-                viewRadicals model.radicals
+                viewRadicals model.selected model.radicals
         ]
 
 
@@ -226,11 +225,11 @@ viewTitle title =
     Element.el [ width fill, Font.extraLight, Font.size 40, Font.alignLeft, paddingEach { top = 20, bottom = 20, right = 0, left = 10 } ] (Element.text title)
 
 
-viewRadicals : List Radical -> Element Msg
-viewRadicals radicals =
+viewRadicals : List Radical -> List Radical -> Element Msg
+viewRadicals selected radicals =
     let
         content =
-            List.map viewRadical radicals
+            List.map (viewRadical selected) radicals
     in
     Element.column
         [ spacing 20
@@ -239,46 +238,55 @@ viewRadicals radicals =
         content
 
 
-viewRadicalsBySubject : List Radical -> Element Msg
-viewRadicalsBySubject radicals =
+viewRadicalsBySubject : List Radical -> List Radical -> Element Msg
+viewRadicalsBySubject selected radicals =
     Element.column [ width fill ]
         (List.map
-            (viewSubjectRadicals radicals)
+            (viewSubjectRadicals selected radicals)
             Subject.all
         )
 
 
-viewRadicalsByPart : List Radical -> Element Msg
-viewRadicalsByPart radicals =
+viewRadicalsByPart : List Radical -> List Radical -> Element Msg
+viewRadicalsByPart selected radicals =
     Element.column [ width fill ]
         (List.map
-            (viewPartRadicals radicals)
+            (viewPartRadicals selected radicals)
             Part.all
         )
 
 
-viewSubjectRadicals : List Radical -> Subject -> Element Msg
-viewSubjectRadicals radicals subject =
+viewSubjectRadicals : List Radical -> List Radical -> Subject -> Element Msg
+viewSubjectRadicals selected radicals subject =
     Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
         [ viewTitle (getJapaneseSubjectName subject)
-        , viewRadicals (List.filter (\r -> r.subject == subject) radicals)
+        , viewRadicals selected (List.filter (\r -> r.subject == subject) radicals)
         ]
 
 
-viewPartRadicals : List Radical -> Part -> Element Msg
-viewPartRadicals radicals part =
+viewPartRadicals : List Radical -> List Radical -> Part -> Element Msg
+viewPartRadicals selected radicals part =
     Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
         [ viewTitle (getJapanesePartName part)
-        , viewRadicals (List.filter (\r -> r.part == part) radicals)
+        , viewRadicals selected (List.filter (\r -> r.part == part) radicals)
         ]
 
 
-viewRadical : Radical -> Element Msg
-viewRadical radical =
+viewRadical : List Radical -> Radical -> Element Msg
+viewRadical selected radical =
+    if List.any (\selectedRadical -> selectedRadical == radical) selected then
+        viewSelectedRadical radical
+
+    else
+        viewUnselectedRadical radical
+
+
+viewUnselectedRadical : Radical -> Element Msg
+viewUnselectedRadical radical =
     button
         [ Background.color theme.contentBgColor
         , rounded 10
-        , width fill
+        , width <| px <| 320
         , height <| px <| 200
         , Font.size 50
         , Font.center
@@ -287,67 +295,33 @@ viewRadical radical =
         { label =
             Element.column [ Font.center, centerX, centerY, spacing 20 ]
                 [ Element.el [ Font.center, centerX, centerY ] (text (String.fromChar radical.radical))
-                , Element.el [ Font.center, centerX, centerY, Font.size 20, alpha 0.3 ] (text radical.name)
                 ]
         , onPress = Just (SelectRadical radical)
         }
 
 
-displaySelectedRadical : Maybe Radical -> Element Msg
-displaySelectedRadical selected =
-    case selected of
-        Just radical ->
-            viewPopup radical
-
-        Nothing ->
-            text ""
-
-
-viewPopup : Radical -> Element Msg
-viewPopup radical =
-    Element.column
-        [ centerX
-        , centerY
-        , alpha 0.95
-        , Background.color theme.bgColor
-        , Element.inFront (viewSelectedRadical radical)
-        ]
-        []
-
-
 viewSelectedRadical : Radical -> Element Msg
 viewSelectedRadical radical =
-    Element.column
-        [ alpha 1
-        , centerX
-        , centerY
+    button
+        [ Background.color theme.contentBgColor
+        , rounded 10
+        , width <| px <| 320
+        , height <| px <| 200
+        , Font.size 50
+        , Font.center
+        , mouseOver [ Background.color theme.contentBgColorLighter, Font.color theme.fontColorLighter ]
         ]
-        [ Element.row
-            [ width fill
-            , Background.color theme.contentBgColorDarker
-            , alpha 1
-            , roundEach { topLeft = 10, topRight = 10, bottomLeft = 0, bottomRight = 0 }
-            ]
-            [ button
-                (titleBarButtonStyles ++ [ roundEach { topRight = 10, topLeft = 0, bottomLeft = 0, bottomRight = 0 } ])
-                { label = text "⨉"
-                , onPress = Just DeselectRadical
-                }
-            ]
-        , Element.row
-            [ roundEach { topLeft = 0, topRight = 0, bottomLeft = 10, bottomRight = 10 }
-            , Background.color theme.contentBgColorDarker
-            ]
-            [ Element.el
-                [ Font.size 200, Font.extraLight, width (fillPortion 1) ]
-                (text (String.fromChar radical.radical))
-            , Element.column [ width (fillPortion 1), spacing 30, Font.alignLeft ]
-                [ viewRadicalAttribute "名前" radical.name
-                , viewRadicalAttribute "意味" (displayMeaning radical.meaning)
-                , viewRadicalAttribute "部分" (getJapanesePartName radical.part)
+        { label =
+            Element.row [ Font.center, centerX, centerY, spacing 20 ]
+                [ Element.el [ Font.center, Font.light, centerX, centerY ] (text (String.fromChar radical.radical))
+                , Element.column [ spacing 10 ]
+                    [ viewRadicalAttribute "名前" radical.name
+                    , viewRadicalAttribute "意味" (displayMeaning radical.meaning)
+                    , viewRadicalAttribute "部分" (getJapanesePartName radical.part)
+                    ]
                 ]
-            ]
-        ]
+        , onPress = Just (DeselectRadical radical)
+        }
 
 
 viewRadicalAttribute : String -> String -> Element Msg
@@ -358,7 +332,7 @@ viewRadicalAttribute attribute value =
         , height (fillPortion 1)
         , width fill
         , Font.alignLeft
-        , Font.size 20
+        , Font.size 14
         ]
         [ Element.el
             [ centerY
