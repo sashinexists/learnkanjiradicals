@@ -1,5 +1,7 @@
 module Main exposing (..)
 
+--import Random.List exposing (..)
+
 import Browser
 import Browser.Dom as Dom exposing (Viewport)
 import Browser.Events exposing (onKeyDown, onResize)
@@ -12,6 +14,8 @@ import Pages exposing (..)
 import Phone
 import Radical exposing (Radical)
 import Radicals exposing (radicals)
+import Random exposing (..)
+import Random.List exposing (..)
 import Routes exposing (Route(..))
 import Shared exposing (..)
 import Task exposing (Task)
@@ -163,6 +167,12 @@ update msg model =
 
         GotViewport data ->
             ( { model | device = classifyDevice { height = round data.viewport.height, width = round data.viewport.width } }, Cmd.none )
+
+        Randomise ->
+            ( model, Random.generate NewRadicalsList (Random.List.shuffle model.radicals) )
+
+        NewRadicalsList radicals ->
+            ( { model | radicals = radicals }, Cmd.none )
 
 
 handleKeyDown : String -> Model -> ( Model, Cmd Msg )

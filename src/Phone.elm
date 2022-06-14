@@ -38,10 +38,12 @@ view model =
             , Font.regular
             , Font.justify
             , Background.color theme.bgColor
+            , centerX
+            , centerY
             ]
             (let
                 styles =
-                    [ paddingEach { top = 10, bottom = 10, left = 20, right = 10 }, width fill ]
+                    [ paddingEach { top = 10, bottom = 10, left = 20, right = 10 }, width fill, centerX, centerY ]
 
                 content =
                     [ viewHeader model.display
@@ -123,6 +125,7 @@ viewFilterButtons display =
         [ displayHeaderButton "主題" (DisplayBy ListBySubject) display
         , displayHeaderButton "部分" (DisplayBy ListByPart) display
         , displayHeaderButton "全部" (DisplayBy NoCategories) display
+        , displayHeaderButton "混合" Randomise display
         ]
 
 
@@ -234,13 +237,16 @@ viewRadicals selected radicals =
     Element.column
         [ spacing 20
         , width fill
+        , centerX
+        , centerY
         ]
         content
 
 
 viewRadicalsBySubject : List Radical -> List Radical -> Element Msg
 viewRadicalsBySubject selected radicals =
-    Element.column [ width fill ]
+    Element.column [ width fill , centerX
+        , centerY]
         (List.map
             (viewSubjectRadicals selected radicals)
             Subject.all
@@ -249,7 +255,8 @@ viewRadicalsBySubject selected radicals =
 
 viewRadicalsByPart : List Radical -> List Radical -> Element Msg
 viewRadicalsByPart selected radicals =
-    Element.column [ width fill ]
+    Element.column [ width fill, centerX
+        , centerY ]
         (List.map
             (viewPartRadicals selected radicals)
             Part.all
@@ -258,7 +265,8 @@ viewRadicalsByPart selected radicals =
 
 viewSubjectRadicals : List Radical -> List Radical -> Subject -> Element Msg
 viewSubjectRadicals selected radicals subject =
-    Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
+    Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 }, centerX
+        , centerY ]
         [ viewTitle (getJapaneseSubjectName subject)
         , viewRadicals selected (List.filter (\r -> r.subject == subject) radicals)
         ]
@@ -266,7 +274,8 @@ viewSubjectRadicals selected radicals subject =
 
 viewPartRadicals : List Radical -> List Radical -> Part -> Element Msg
 viewPartRadicals selected radicals part =
-    Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
+    Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 } , centerX
+        , centerY]
         [ viewTitle (getJapanesePartName part)
         , viewRadicals selected (List.filter (\r -> r.part == part) radicals)
         ]
@@ -290,7 +299,9 @@ viewUnselectedRadical radical =
         , height <| px <| 200
         , Font.size 50
         , Font.center
-        , mouseOver [ Background.color theme.contentBgColorLighter, Font.color theme.fontColorLighter ]
+        , mouseOver [ Background.color theme.contentBgColorLighter, Font.color theme.fontColorLighter 
+        ], centerX
+        , centerY
         ]
         { label =
             Element.column [ Font.center, centerX, centerY, spacing 20 ]
@@ -309,7 +320,9 @@ viewSelectedRadical radical =
         , height <| px <| 200
         , Font.size 50
         , Font.center
-        , mouseOver [ Background.color theme.contentBgColorLighter, Font.color theme.fontColorLighter ]
+        , mouseOver [ Background.color theme.contentBgColorLighter, Font.color theme.fontColorLighter 
+        ], centerX
+        , centerY
         ]
         { label =
             Element.row [ Font.center, centerX, centerY, spacing 20 ]

@@ -123,6 +123,7 @@ viewFilterButtons display =
         [ displayHeaderButton "主題" (DisplayBy ListBySubject) display
         , displayHeaderButton "部分" (DisplayBy ListByPart) display
         , displayHeaderButton "全部" (DisplayBy NoCategories) display
+        , displayHeaderButton "混合" Randomise display
         ]
 
 

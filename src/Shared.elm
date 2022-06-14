@@ -29,6 +29,8 @@ type Msg
     | KeyDown String
     | WindowResized Int Int
     | GotViewport Viewport
+    | Randomise
+    | NewRadicalsList (List Radical)
 
 
 type Display
