@@ -4056,7 +4056,6 @@ function _Browser_application(impl)
 	var onUrlChange = impl.onUrlChange;
 	var onUrlRequest = impl.onUrlRequest;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
-key['elm-hot-nav-key'] = true
 
 	return _Browser_document({
 		setup: function(sendToApp)
@@ -5353,6 +5352,7 @@ var $elm$json$Json$Decode$field = _Json_decodeField;
 var $author$project$Shared$GotViewport = function (a) {
 	return {$: 'GotViewport', a: a};
 };
+var $author$project$Multilingual$Ja = {$: 'Ja'};
 var $author$project$Shared$ListBySubject = {$: 'ListBySubject'};
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $mdgriffith$elm_ui$Element$BigDesktop = {$: 'BigDesktop'};
@@ -5399,6 +5399,7 @@ var $author$project$Part$Bottom = {$: 'Bottom'};
 var $author$project$Meaning$Different = function (a) {
 	return {$: 'Different', a: a};
 };
+var $author$project$Multilingual$En = {$: 'En'};
 var $author$project$Part$Enclose = {$: 'Enclose'};
 var $author$project$Subject$Enclosures = {$: 'Enclosures'};
 var $author$project$Subject$Food = {$: 'Food'};
@@ -5440,7 +5441,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('氵'),
 		'さんずい',
-		$author$project$Meaning$Different('水'),
+		$author$project$Meaning$Different(
+			{
+				copy: '水',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Water'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '水')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('水')
@@ -5491,7 +5500,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('艹'),
 		'くさかんむり',
-		$author$project$Meaning$Different('草'),
+		$author$project$Meaning$Different(
+			{
+				copy: '草',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Grass'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '草')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('艸')
@@ -5515,7 +5532,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('灬'),
 		'れっか',
-		$author$project$Meaning$Different('火'),
+		$author$project$Meaning$Different(
+			{
+				copy: '火',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Fire'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '火')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('火')
@@ -5572,7 +5597,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('川'),
 		'さんぼんがわ',
-		$author$project$Meaning$Different('かわ'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'かわ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'River'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'かわ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -5599,7 +5632,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⽓'),
 		'きがまえ',
-		$author$project$Meaning$Different('蒸気'),
+		$author$project$Meaning$Different(
+			{
+				copy: '蒸気',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Steam'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '蒸気')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Enclose,
 		_List_Nil,
@@ -5608,7 +5649,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('冫'),
 		'にすい',
-		$author$project$Meaning$Different('氷・二つの水敵'),
+		$author$project$Meaning$Different(
+			{
+				copy: '氷・二つの水敵',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Ice or two drops of water'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '氷・二つの水敵')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Left,
 		_List_Nil,
@@ -5617,7 +5666,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('穴'),
 		'あな',
-		$author$project$Meaning$Different('洞窟・穴'),
+		$author$project$Meaning$Different(
+			{
+				copy: '洞窟・穴',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Cave or Hole'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '洞窟・穴')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -5635,7 +5692,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('支'),
 		'しにょう',
-		$author$project$Meaning$Different('枝'),
+		$author$project$Meaning$Different(
+			{
+				copy: '枝',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Branch'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '枝')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -5665,7 +5730,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('扌'),
 		'てへん',
-		$author$project$Meaning$Different('手'),
+		$author$project$Meaning$Different(
+			{
+				copy: '手',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Hand'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '手')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('手')
@@ -5690,7 +5763,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺗'),
 		'したごころ',
-		$author$project$Meaning$Different('心'),
+		$author$project$Meaning$Different(
+			{
+				copy: '心',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Heart'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '心')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('心'),
@@ -5703,7 +5784,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺖'),
 		'りっしんべん',
-		$author$project$Meaning$Different('心'),
+		$author$project$Meaning$Different(
+			{
+				copy: '心',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Heart'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '心')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('心'),
@@ -5764,7 +5853,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('尸'),
 		'しかばね',
-		$author$project$Meaning$Different('死体'),
+		$author$project$Meaning$Different(
+			{
+				copy: '死体',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Corpse'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '死体')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Hang,
 		_List_Nil,
@@ -5773,7 +5870,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('癶'),
 		'はつがしら',
-		$author$project$Meaning$Different('足音'),
+		$author$project$Meaning$Different(
+			{
+				copy: '足音',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Footsteps'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '足音')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Top,
 		_List_Nil,
@@ -5809,7 +5914,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('皮'),
 		'けがわ',
-		$author$project$Meaning$Different('肌'),
+		$author$project$Meaning$Different(
+			{
+				copy: '肌',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Skin'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '肌')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -5818,7 +5931,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('彡'),
 		'さんづくり',
-		$author$project$Meaning$Different('髪・三'),
+		$author$project$Meaning$Different(
+			{
+				copy: '髪・三',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Hair or Three'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '髪・三')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Right,
 		_List_Nil,
@@ -5858,7 +5979,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('亻'),
 		'にんべん',
-		$author$project$Meaning$Different('人'),
+		$author$project$Meaning$Different(
+			{
+				copy: '人',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Person'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '人')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('人'),
@@ -5871,7 +6000,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('𠆢'),
 		'ひとやね',
-		$author$project$Meaning$Different('人'),
+		$author$project$Meaning$Different(
+			{
+				copy: '人',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Person'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '人')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('人'),
@@ -5902,7 +6039,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('老'),
 		'おいかんむり',
-		$author$project$Meaning$Different('お年寄り'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'お年寄り',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Elderly'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'お年寄り')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('耂')
@@ -5914,7 +6059,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('耂'),
 		'おいかんむり',
-		$author$project$Meaning$Different('お年寄り'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'お年寄り',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Elderly'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'お年寄り')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('老')
@@ -5953,7 +6106,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('氏'),
 		'うし',
-		$author$project$Meaning$Different('家族の名前'),
+		$author$project$Meaning$Different(
+			{
+				copy: '家族の名前',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Family Name'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '家族の名前')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -5971,7 +6132,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('臣'),
 		'しん',
-		$author$project$Meaning$Different('政府の役人'),
+		$author$project$Meaning$Different(
+			{
+				copy: '政府の役人',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Government Official'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '政府の役人')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -5980,7 +6149,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('自'),
 		'みずから',
-		$author$project$Meaning$Different('自分'),
+		$author$project$Meaning$Different(
+			{
+				copy: '自分',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Oneself'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '自分')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -5998,7 +6175,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('ム'),
 		'む',
-		$author$project$Meaning$Different('民間・カタカナのム'),
+		$author$project$Meaning$Different(
+			{
+				copy: '民間・カタカナのム',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Private, Katakana \"ム\"'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '民間・カタカナのム')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6007,7 +6192,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('辶'),
 		'しんにょう',
-		$author$project$Meaning$Different('動き・歩く・進む'),
+		$author$project$Meaning$Different(
+			{
+				copy: '動き・歩く・進む',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Movement, Walking, Advancing'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '動き・歩く・進む')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Wrap,
 		_List_Nil,
@@ -6016,7 +6209,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('疒'),
 		'やまいだれ',
-		$author$project$Meaning$Different('病気'),
+		$author$project$Meaning$Different(
+			{
+				copy: '病気',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Sickness'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '病気')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Hang,
 		_List_Nil,
@@ -6025,7 +6226,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼴'),
 		'まだれ',
-		$author$project$Meaning$Different('屋上'),
+		$author$project$Meaning$Different(
+			{
+				copy: '屋上',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Rooftop'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '屋上')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Hang,
 		_List_Nil,
@@ -6034,7 +6243,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('彳'),
 		'ぎょうにんべん',
-		$author$project$Meaning$Different('歩'),
+		$author$project$Meaning$Different(
+			{
+				copy: '歩',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Step'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '歩')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Left,
 		_List_Nil,
@@ -6043,7 +6260,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('阝'),
 		'こざとへん',
-		$author$project$Meaning$Different('左の村'),
+		$author$project$Meaning$Different(
+			{
+				copy: '左の村',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Village (\"Left\")'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '左の村')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Left,
 		_List_Nil,
@@ -6052,7 +6277,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('阝'),
 		'おおざと',
-		$author$project$Meaning$Different('右の村'),
+		$author$project$Meaning$Different(
+			{
+				copy: '左の村',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Village (\"Right\")'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '左の村')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Right,
 		_List_Nil,
@@ -6061,7 +6294,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('囗'),
 		'くにがまえ',
-		$author$project$Meaning$Different('国境'),
+		$author$project$Meaning$Different(
+			{
+				copy: '国境',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Country Border'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '国境')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Enclose,
 		_List_Nil,
@@ -6070,7 +6311,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('門'),
 		'もんがまえ',
-		$author$project$Meaning$Different('もん'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'もん',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Gate'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'もん')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Enclose,
 		_List_Nil,
@@ -6079,7 +6328,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('宀'),
 		'う かんむり',
-		$author$project$Meaning$Different('屋上・カタカナのゥ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '屋上・カタカナのゥ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Rooftop, Katakana \"ウ\"'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '屋上・カタカナのゥ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Top,
 		_List_Nil,
@@ -6097,7 +6354,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('廴'),
 		'えんにょう',
-		$author$project$Meaning$Different('伸ばす・長いステップ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '伸ばす・長いステップ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'To Lengthen, A Long Stride'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '伸ばす・長いステップ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Wrap,
 		_List_Nil,
@@ -6106,7 +6371,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼚'),
 		'がんだれ',
-		$author$project$Meaning$Different('崖'),
+		$author$project$Meaning$Different(
+			{
+				copy: '崖',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Cliff'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '崖')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Hang,
 		_List_Nil,
@@ -6115,7 +6388,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('勹'),
 		'つつみがまえ',
-		$author$project$Meaning$Different('包装'),
+		$author$project$Meaning$Different(
+			{
+				copy: '包装',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Wrapping'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '包装')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Enclose,
 		_List_Nil,
@@ -6124,7 +6405,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼐'),
 		'かんにょう',
-		$author$project$Meaning$Different('受け箱'),
+		$author$project$Meaning$Different(
+			{
+				copy: '受け箱',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Inbox'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '受け箱')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Wrap,
 		_List_Nil,
@@ -6133,7 +6422,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('匚'),
 		'はこがまえ',
-		$author$project$Meaning$Different('箱'),
+		$author$project$Meaning$Different(
+			{
+				copy: '箱',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Box'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '箱')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Enclose,
 		_List_Nil,
@@ -6151,7 +6448,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺍'),
 		'つ かんむり',
-		$author$project$Meaning$Different('カタカナのツ'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'カタカナのツ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Katakana \"ツ\"'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'カタカナのツ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Top,
 		_List_Nil,
@@ -6160,7 +6465,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('冖'),
 		'わかんむり',
-		$author$project$Meaning$Different('覆う・冠'),
+		$author$project$Meaning$Different(
+			{
+				copy: '覆う・冠',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'To Cover, Crown'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '覆う・冠')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Top,
 		_List_Nil,
@@ -6169,7 +6482,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('丿'),
 		'の',
-		$author$project$Meaning$Different('カタカナのノ'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'カタカナのノ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Katakana ノ'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'カタカナのノ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6178,7 +6499,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('亅'),
 		'はねぼう',
-		$author$project$Meaning$Different('釣り針'),
+		$author$project$Meaning$Different(
+			{
+				copy: '釣り針',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Fishing Hook'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '釣り針')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6187,7 +6516,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('言'),
 		'げん',
-		$author$project$Meaning$Different('話している'),
+		$author$project$Meaning$Different(
+			{
+				copy: '話している',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Speaking'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '釣り針')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6208,7 +6545,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('飠'),
 		'しょくへん',
-		$author$project$Meaning$Different('食べ物'),
+		$author$project$Meaning$Different(
+			{
+				copy: '食べ物',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Food'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '食べ物')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('食')
@@ -6232,7 +6577,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('礻'),
 		'しめすへん',
-		$author$project$Meaning$Different('示す'),
+		$author$project$Meaning$Different(
+			{
+				copy: '示す',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'To Demonstrate'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '示す')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('示')
@@ -6244,7 +6597,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('又'),
 		'また',
-		$author$project$Meaning$Different('また・右の手'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'また・右の手',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Again, Right Hand'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'また・右の手')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6271,7 +6632,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('工'),
 		'たくみ',
-		$author$project$Meaning$Different('働く・カタカナのエ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '働く・カタカナのエ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Work, Katakana \"エ\"'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '働く・カタカナのエ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6298,7 +6667,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('干'),
 		'かん',
-		$author$project$Meaning$Different('干した'),
+		$author$project$Meaning$Different(
+			{
+				copy: '干した',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Dried'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '干した')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6307,7 +6684,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('曰'),
 		'ひらび',
-		$author$project$Meaning$Different('言う'),
+		$author$project$Meaning$Different(
+			{
+				copy: '言う',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'To Speak'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '言う')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6325,7 +6710,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('生'),
 		'うまれる',
-		$author$project$Meaning$Different('うまれる・住む'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'うまれる・住む',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'To be born, to live'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'うまれる・住む')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6334,7 +6727,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('非'),
 		'あらず',
-		$author$project$Meaning$Different('違う・反対・カタカナのヒ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '違う・反対・カタカナのヒ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Difference, Opposite'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '違う・反対・カタカナのヒ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6343,7 +6744,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⾏'),
 		'ぎょうがまえ',
-		$author$project$Meaning$Different('いく'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'いく',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Go, Move'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'いく')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Enclose,
 		_List_Nil,
@@ -6373,7 +6782,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('幺'),
 		'いとへん',
-		$author$project$Meaning$Different('織物'),
+		$author$project$Meaning$Different(
+			{
+				copy: '織物',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Textiles, Fabric'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '織物')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('糸')
@@ -6394,7 +6811,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('巾'),
 		'はば',
-		$author$project$Meaning$Different('布'),
+		$author$project$Meaning$Different(
+			{
+				copy: '布',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Cloth'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '布')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6415,7 +6840,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('衤'),
 		'ころもへん',
-		$author$project$Meaning$Different('衣服'),
+		$author$project$Meaning$Different(
+			{
+				copy: '衣服',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Clothes'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '衣服')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('衣')
@@ -6436,7 +6869,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('韋'),
 		'なめしがわ',
-		$author$project$Meaning$Different('鞣皮'),
+		$author$project$Meaning$Different(
+			{
+				copy: '鞣皮',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Leather'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '鞣皮')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6457,7 +6898,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺪'),
 		'ひきへん',
-		$author$project$Meaning$Different('⽦'),
+		$author$project$Meaning$Different(
+			{
+				copy: '⽦',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Roll, Bolt of Cloth'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '⽦')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('⽦')
@@ -6469,7 +6918,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('一'),
 		'いち',
-		$author$project$Meaning$Different('一つ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '一つ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'One'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '一つ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6478,7 +6935,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('二'),
 		'に',
-		$author$project$Meaning$Different('二つ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '二つ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Two'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '二つ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6487,7 +6952,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('八'),
 		'はち',
-		$author$project$Meaning$Different('八つ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '八つ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Eight'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '八つ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6496,7 +6969,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('十'),
 		'じゅう',
-		$author$project$Meaning$Different('十つ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '十つ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Ten'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '十つ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6514,7 +6995,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('大'),
 		'だい',
-		$author$project$Meaning$Different('大きい'),
+		$author$project$Meaning$Different(
+			{
+				copy: '大きい',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Big'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '大きい')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6523,7 +7012,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('小'),
 		'しょう',
-		$author$project$Meaning$Different('小さい'),
+		$author$project$Meaning$Different(
+			{
+				copy: '小さい',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Small'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '小さい')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6544,7 +7041,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('镸'),
 		'ながいへん',
-		$author$project$Meaning$Different('長い'),
+		$author$project$Meaning$Different(
+			{
+				copy: '長い',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Long'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '長い')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('長')
@@ -6577,7 +7082,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('乚'),
 		'おつ',
-		$author$project$Meaning$Different('乙'),
+		$author$project$Meaning$Different(
+			{
+				copy: '乙',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Second'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '乙')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('乙')
@@ -6589,7 +7102,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('片'),
 		'かた',
-		$author$project$Meaning$Different('切った木'),
+		$author$project$Meaning$Different(
+			{
+				copy: '切った木',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Slice, Fragment'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '切った木')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6598,7 +7119,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('釆'),
 		'のごめ',
-		$author$project$Meaning$Different('分割する'),
+		$author$project$Meaning$Different(
+			{
+				copy: '分割する',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Dividing, Splitting'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '分割する')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6607,7 +7136,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('面'),
 		'めん',
-		$author$project$Meaning$Different('面'),
+		$author$project$Meaning$Different(
+			{
+				copy: '面',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Face'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '面')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6616,7 +7153,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('方'),
 		'ほう',
-		$author$project$Meaning$Different('方向'),
+		$author$project$Meaning$Different(
+			{
+				copy: '方向',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Direction'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '方向')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6638,7 +7183,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⾑'),
 		'にしへん',
-		$author$project$Meaning$Different('西'),
+		$author$project$Meaning$Different(
+			{
+				copy: '西',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'West'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '西')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('西'),
@@ -6651,7 +7204,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⻃'),
 		'にしへん',
-		$author$project$Meaning$Different('西'),
+		$author$project$Meaning$Different(
+			{
+				copy: '西',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'West'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '西')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('西'),
@@ -6664,7 +7225,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('艮'),
 		'こん',
-		$author$project$Meaning$Different('境界'),
+		$author$project$Meaning$Different(
+			{
+				copy: '境界',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Boundary'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '境界')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6673,7 +7242,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('斉'),
 		'せい',
-		$author$project$Meaning$Different('らしい'),
+		$author$project$Meaning$Different(
+			{
+				copy: 'らしい',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Even'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'らしい')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6682,7 +7259,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('夂'),
 		'ふゆ がしら',
-		$author$project$Meaning$Different('冬'),
+		$author$project$Meaning$Different(
+			{
+				copy: '冬',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Winter'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '冬')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6691,7 +7276,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼣'),
 		'ゆうべ',
-		$author$project$Meaning$Different('夕べ'),
+		$author$project$Meaning$Different(
+			{
+				copy: '夕べ',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Evening'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '夕べ')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6709,7 +7302,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('禾'),
 		'のぎへん',
-		$author$project$Meaning$Different('粒'),
+		$author$project$Meaning$Different(
+			{
+				copy: '粒',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Grain, Bread'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '粒')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Left,
 		_List_Nil,
@@ -6727,7 +7328,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('匕'),
 		'さじのひ',
-		$author$project$Meaning$Different('匙'),
+		$author$project$Meaning$Different(
+			{
+				copy: '匙',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Spoon'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '匙')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Right,
 		_List_Nil,
@@ -6736,7 +7345,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('酉'),
 		'ひよみのとり',
-		$author$project$Meaning$Different('酒'),
+		$author$project$Meaning$Different(
+			{
+				copy: '酒',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Alcohol'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '酒')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -6793,7 +7410,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺨'),
 		'いぬ',
-		$author$project$Meaning$Different('犬'),
+		$author$project$Meaning$Different(
+			{
+				copy: '犬',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Dog'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '犬')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('犬')
@@ -6898,7 +7523,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('刂'),
 		'りっとう',
-		$author$project$Meaning$Different('刀'),
+		$author$project$Meaning$Different(
+			{
+				copy: '刀',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Katana, Blade'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '刀')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('刀')
@@ -6910,7 +7543,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⽁'),
 		'ぼくずくり',
-		$author$project$Meaning$Different('殴る'),
+		$author$project$Meaning$Different(
+			{
+				copy: '殴る',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'To Strike'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '殴る')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('⺙')
@@ -6922,7 +7563,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺙'),
 		'ぼくずくり',
-		$author$project$Meaning$Different('殴る'),
+		$author$project$Meaning$Different(
+			{
+				copy: '殴る',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'To Strike'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '殴る')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('⽁')
@@ -7015,7 +7664,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('罒'),
 		'あみがしら',
-		$author$project$Meaning$Different('網目'),
+		$author$project$Meaning$Different(
+			{
+				copy: '網目',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Mesh (of a net)'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '網目')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('网'),
@@ -7028,7 +7685,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺳'),
 		'あみがしら',
-		$author$project$Meaning$Different('網目'),
+		$author$project$Meaning$Different(
+			{
+				copy: '網目',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Mesh (of a net)'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '網目')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('罒'),
@@ -7054,7 +7719,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('耒'),
 		'らいすき',
-		$author$project$Meaning$Different('鋤'),
+		$author$project$Meaning$Different(
+			{
+				copy: '鋤',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Spade, Plough'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '鋤')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Left,
 		_List_Nil,
@@ -7072,7 +7745,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼙'),
 		'ふし ずくり',
-		$author$project$Meaning$Different('印鑑'),
+		$author$project$Meaning$Different(
+			{
+				copy: '印鑑',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Stamp, Seal'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '印鑑')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$Right,
 		_List_Nil,
@@ -7111,7 +7792,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('⾭'),
 		'あお',
-		$author$project$Meaning$Different('青'),
+		$author$project$Meaning$Different(
+			{
+				copy: '青',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Blue'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '青')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('青')
@@ -7132,7 +7821,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('辰'),
 		'しんのたつ',
-		$author$project$Meaning$Different('竜'),
+		$author$project$Meaning$Different(
+			{
+				copy: '竜',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Dragon'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '竜')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -7153,7 +7850,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('龍'),
 		'りゅう',
-		$author$project$Meaning$Different('竜'),
+		$author$project$Meaning$Different(
+			{
+				copy: '竜',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Dragon'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '竜')
+					])
+			}),
 		_List_fromArray(
 			[
 				_Utils_chr('竜')
@@ -7174,7 +7879,15 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		$author$project$Radical$Radical,
 		_Utils_chr('ト'),
 		'ぼくのと',
-		$author$project$Meaning$Different('占い・カタカナのト'),
+		$author$project$Meaning$Different(
+			{
+				copy: '占い・カタカナのト',
+				translations: _List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$En, 'Old, Katakana ト'),
+						_Utils_Tuple2($author$project$Multilingual$Ja, '占い・カタカナのト')
+					])
+			}),
 		_List_Nil,
 		$author$project$Part$None,
 		_List_Nil,
@@ -7187,6 +7900,7 @@ var $author$project$Main$init = F3(
 				{height: flags.y, width: flags.x}),
 			display: $author$project$Shared$ListBySubject,
 			key: key,
+			language: $author$project$Multilingual$Ja,
 			radicals: $author$project$Radicals$radicals,
 			route: $author$project$Main$getRouteFromPath(url.path),
 			selected: _List_Nil,
@@ -8030,12 +8744,19 @@ var $author$project$Main$update = F2(
 						$elm$random$Random$generate,
 						$author$project$Shared$NewRadicalsList,
 						$elm_community$random_extra$Random$List$shuffle(model.radicals)));
-			default:
+			case 'NewRadicalsList':
 				var radicals = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{radicals: radicals}),
+					$elm$core$Platform$Cmd$none);
+			default:
+				var language = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{language: language}),
 					$elm$core$Platform$Cmd$none);
 		}
 	});
@@ -13975,6 +14696,18 @@ var $author$project$Shared$DisplayBy = function (a) {
 var $author$project$Shared$ListByPart = {$: 'ListByPart'};
 var $author$project$Shared$NoCategories = {$: 'NoCategories'};
 var $author$project$Shared$Randomise = {$: 'Randomise'};
+var $author$project$Multilingual$Multilingual = F2(
+	function (copy, translations) {
+		return {copy: copy, translations: translations};
+	});
+var $author$project$Copy$allButton = A2(
+	$author$project$Multilingual$Multilingual,
+	'全部',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '全部'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'No Categories')
+		]));
 var $author$project$Desktop$FilterButton = {$: 'FilterButton'};
 var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
 var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
@@ -14405,6 +15138,22 @@ var $author$project$Desktop$displayHeaderButton = F3(
 				}
 		}
 	});
+var $author$project$Copy$partsButton = A2(
+	$author$project$Multilingual$Multilingual,
+	'部分',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '部分'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'By Part')
+		]));
+var $author$project$Copy$randomiseButton = A2(
+	$author$project$Multilingual$Multilingual,
+	'混合',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '混合'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'Randomise')
+		]));
 var $mdgriffith$elm_ui$Internal$Model$SpacingStyle = F3(
 	function (a, b, c) {
 		return {$: 'SpacingStyle', a: a, b: b, c: c};
@@ -14423,7 +15172,109 @@ var $mdgriffith$elm_ui$Element$spacing = function (x) {
 			x,
 			x));
 };
-var $author$project$Desktop$viewFilterButtons = function (display) {
+var $author$project$Copy$subjectsButton = A2(
+	$author$project$Multilingual$Multilingual,
+	'主題',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '主題'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'By Subject')
+		]));
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $author$project$Multilingual$toString = F2(
+	function (language, multilingual) {
+		return A2(
+			$elm$core$Maybe$withDefault,
+			_Utils_Tuple2(language, 'failed'),
+			$elm$core$List$head(
+				A2(
+					$elm$core$List$filter,
+					function (_v0) {
+						var code = _v0.a;
+						return _Utils_eq(code, language);
+					},
+					multilingual.translations))).b;
+	});
+var $author$project$Desktop$viewFilterButtons = F2(
+	function (language, display) {
+		return A2(
+			$mdgriffith$elm_ui$Element$row,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$spacing(20)
+				]),
+			_List_fromArray(
+				[
+					A3(
+					$author$project$Desktop$displayHeaderButton,
+					A2($author$project$Multilingual$toString, language, $author$project$Copy$subjectsButton),
+					$author$project$Shared$DisplayBy($author$project$Shared$ListBySubject),
+					display),
+					A3(
+					$author$project$Desktop$displayHeaderButton,
+					A2($author$project$Multilingual$toString, language, $author$project$Copy$partsButton),
+					$author$project$Shared$DisplayBy($author$project$Shared$ListByPart),
+					display),
+					A3(
+					$author$project$Desktop$displayHeaderButton,
+					A2($author$project$Multilingual$toString, language, $author$project$Copy$allButton),
+					$author$project$Shared$DisplayBy($author$project$Shared$NoCategories),
+					display),
+					A3(
+					$author$project$Desktop$displayHeaderButton,
+					A2($author$project$Multilingual$toString, language, $author$project$Copy$randomiseButton),
+					$author$project$Shared$Randomise,
+					display)
+				]));
+	});
+var $author$project$Shared$ChangeLanguage = function (a) {
+	return {$: 'ChangeLanguage', a: a};
+};
+var $author$project$Copy$languageButton = A2(
+	$author$project$Multilingual$Multilingual,
+	'英語で使いたいですか？',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '🇬🇧 英語で使いたいですか？'),
+			_Utils_Tuple2($author$project$Multilingual$En, '🇯🇵 Switch to Japanese?')
+		]));
+var $author$project$Desktop$switchLanguage = function (currentLanguage) {
+	return _Utils_eq(currentLanguage, $author$project$Multilingual$Ja) ? $author$project$Multilingual$En : $author$project$Multilingual$Ja;
+};
+var $author$project$Desktop$viewChangeLanguageButton = function (currentLanguage) {
+	return A2(
+		$mdgriffith$elm_ui$Element$Input$button,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.buttonBgColorAlt),
+				$mdgriffith$elm_ui$Element$Border$rounded(10),
+				$mdgriffith$elm_ui$Element$padding(15),
+				$mdgriffith$elm_ui$Element$Font$size(18),
+				$mdgriffith$elm_ui$Element$Font$center,
+				$mdgriffith$elm_ui$Element$mouseOver(
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.buttonBgHoverAlt),
+						$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
+					]))
+			]),
+		{
+			label: $mdgriffith$elm_ui$Element$text(
+				A2($author$project$Multilingual$toString, currentLanguage, $author$project$Copy$languageButton)),
+			onPress: $elm$core$Maybe$Just(
+				$author$project$Shared$ChangeLanguage(
+					$author$project$Desktop$switchLanguage(currentLanguage)))
+		});
+};
+var $author$project$Desktop$viewHeaderLinks = function (currentLanguage) {
 	return A2(
 		$mdgriffith$elm_ui$Element$row,
 		_List_fromArray(
@@ -14432,134 +15283,43 @@ var $author$project$Desktop$viewFilterButtons = function (display) {
 			]),
 		_List_fromArray(
 			[
-				A3(
-				$author$project$Desktop$displayHeaderButton,
-				'主題',
-				$author$project$Shared$DisplayBy($author$project$Shared$ListBySubject),
-				display),
-				A3(
-				$author$project$Desktop$displayHeaderButton,
-				'部分',
-				$author$project$Shared$DisplayBy($author$project$Shared$ListByPart),
-				display),
-				A3(
-				$author$project$Desktop$displayHeaderButton,
-				'全部',
-				$author$project$Shared$DisplayBy($author$project$Shared$NoCategories),
-				display),
-				A3($author$project$Desktop$displayHeaderButton, '混合', $author$project$Shared$Randomise, display)
+				$author$project$Desktop$viewChangeLanguageButton(currentLanguage)
 			]));
 };
-var $author$project$Routes$getUrlFromRoute = function (route) {
-	switch (route.$) {
-		case 'Home':
-			return '/';
-		case 'About':
-			return '/about';
-		default:
-			return '/support';
-	}
-};
-var $author$project$Pages$pages = _List_fromArray(
-	[$author$project$Pages$about, $author$project$Pages$support]);
-var $elm$html$Html$Attributes$href = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'href',
-		_VirtualDom_noJavaScriptUri(url));
-};
-var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
-var $mdgriffith$elm_ui$Element$link = F2(
-	function (attrs, _v0) {
-		var url = _v0.url;
-		var label = _v0.label;
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asEl,
-			$mdgriffith$elm_ui$Internal$Model$NodeName('a'),
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Internal$Model$Attr(
-					$elm$html$Html$Attributes$href(url)),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Internal$Model$Attr(
-						$elm$html$Html$Attributes$rel('noopener noreferrer')),
-					A2(
-						$elm$core$List$cons,
-						$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
-						A2(
-							$elm$core$List$cons,
-							$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-							A2(
-								$elm$core$List$cons,
-								$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentCenterX + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.contentCenterY + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.link)))),
-								attrs))))),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
-				_List_fromArray(
-					[label])));
-	});
-var $author$project$Desktop$viewHeaderLink = F2(
-	function (label, url) {
-		return A2(
-			$mdgriffith$elm_ui$Element$link,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.buttonBgColorAlt),
-					$mdgriffith$elm_ui$Element$Border$rounded(10),
-					$mdgriffith$elm_ui$Element$padding(15),
-					$mdgriffith$elm_ui$Element$Font$size(18),
-					$mdgriffith$elm_ui$Element$Font$center,
-					$mdgriffith$elm_ui$Element$mouseOver(
-					_List_fromArray(
-						[
-							$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.buttonBgHoverAlt),
-							$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
-						]))
-				]),
-			{
-				label: $mdgriffith$elm_ui$Element$text(label),
-				url: url
-			});
-	});
-var $author$project$Desktop$viewHeaderLinks = A2(
-	$mdgriffith$elm_ui$Element$row,
+var $author$project$Copy$siteTitle = A2(
+	$author$project$Multilingual$Multilingual,
+	'漢字の部首学ぶ教室へようこそ！！',
 	_List_fromArray(
 		[
-			$mdgriffith$elm_ui$Element$spacing(20),
-			$mdgriffith$elm_ui$Element$alpha(0)
-		]),
-	A2(
-		$elm$core$List$map,
-		function (p) {
-			return A2(
-				$author$project$Desktop$viewHeaderLink,
-				p.title,
-				$author$project$Routes$getUrlFromRoute(p.route));
-		},
-		$author$project$Pages$pages));
-var $author$project$Desktop$viewSiteTitle = $mdgriffith$elm_ui$Element$text('漢字の部首学ぶ教室へようこそ！！');
-var $author$project$Desktop$viewHeader = function (display) {
-	var styles = _List_fromArray(
-		[
-			$mdgriffith$elm_ui$Element$centerY,
-			$mdgriffith$elm_ui$Element$Font$size(25),
-			$mdgriffith$elm_ui$Element$spaceEvenly,
-			$mdgriffith$elm_ui$Element$Font$light,
-			$mdgriffith$elm_ui$Element$Font$alignRight,
-			$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-			$mdgriffith$elm_ui$Element$alignRight,
-			$mdgriffith$elm_ui$Element$height(
-			$mdgriffith$elm_ui$Element$px(70))
-		]);
-	var content = _List_fromArray(
-		[
-			$author$project$Desktop$viewFilterButtons(display),
-			$author$project$Desktop$viewSiteTitle,
-			$author$project$Desktop$viewHeaderLinks
-		]);
-	return A2($mdgriffith$elm_ui$Element$row, styles, content);
+			_Utils_Tuple2($author$project$Multilingual$Ja, '漢字の部首学ぶ教室へようこそ！！'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'Learn Kanji Radicals')
+		]));
+var $author$project$Desktop$viewSiteTitle = function (language) {
+	return $mdgriffith$elm_ui$Element$text(
+		A2($author$project$Multilingual$toString, language, $author$project$Copy$siteTitle));
 };
+var $author$project$Desktop$viewHeader = F2(
+	function (language, display) {
+		var styles = _List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$centerY,
+				$mdgriffith$elm_ui$Element$Font$size(25),
+				$mdgriffith$elm_ui$Element$spaceEvenly,
+				$mdgriffith$elm_ui$Element$Font$light,
+				$mdgriffith$elm_ui$Element$Font$alignRight,
+				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+				$mdgriffith$elm_ui$Element$alignRight,
+				$mdgriffith$elm_ui$Element$height(
+				$mdgriffith$elm_ui$Element$px(70))
+			]);
+		var content = _List_fromArray(
+			[
+				A2($author$project$Desktop$viewFilterButtons, language, display),
+				$author$project$Desktop$viewSiteTitle(language),
+				$author$project$Desktop$viewHeaderLinks(language)
+			]);
+		return A2($mdgriffith$elm_ui$Element$row, styles, content);
+	});
 var $mdgriffith$elm_ui$Internal$Model$CenterX = {$: 'CenterX'};
 var $mdgriffith$elm_ui$Element$centerX = $mdgriffith$elm_ui$Internal$Model$AlignX($mdgriffith$elm_ui$Internal$Model$CenterX);
 var $author$project$Shared$DeselectRadical = function (a) {
@@ -14567,7 +15327,14 @@ var $author$project$Shared$DeselectRadical = function (a) {
 };
 var $author$project$Meaning$displayMeaning = function (meaning) {
 	if (meaning.$ === 'Same') {
-		return '名前と同じ';
+		return {
+			copy: '名前と同じ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Same as name'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, '名前と同じ')
+				])
+		};
 	} else {
 		var m = meaning.a;
 		return m;
@@ -14577,26 +15344,106 @@ var $elm$core$String$cons = _String_cons;
 var $elm$core$String$fromChar = function (_char) {
 	return A2($elm$core$String$cons, _char, '');
 };
-var $author$project$Part$getJapanesePartName = function (part) {
+var $author$project$Copy$getPartName = function (part) {
 	switch (part.$) {
 		case 'Left':
-			return 'へん';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'へん',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'へん'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Left')
+					]));
 		case 'Right':
-			return 'つくり';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'つくり',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'つくり'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Right')
+					]));
 		case 'Top':
-			return 'かんむり';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'かんむり',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'かんむり'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Crown (Top)')
+					]));
 		case 'Bottom':
-			return 'あし';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'あし',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'あし'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Legs (Bottom)')
+					]));
 		case 'Enclose':
-			return 'かまえ';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'かまえ',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'かまえ'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Enclose')
+					]));
 		case 'Hang':
-			return 'たれ';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'たれ',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'たれ'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Hang')
+					]));
 		case 'Wrap':
-			return 'にょう';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'にょう',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'にょう'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Wrap')
+					]));
 		default:
-			return 'なし';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'なし',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, 'なし'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'N/A')
+					]));
 	}
 };
+var $author$project$Copy$radicalMeaning = A2(
+	$author$project$Multilingual$Multilingual,
+	'意味',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '意味'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'Meaning')
+		]));
+var $author$project$Copy$radicalName = A2(
+	$author$project$Multilingual$Multilingual,
+	'名前',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '名前'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'Name')
+		]));
+var $author$project$Copy$radicalPart = A2(
+	$author$project$Multilingual$Multilingual,
+	'部分',
+	_List_fromArray(
+		[
+			_Utils_Tuple2($author$project$Multilingual$Ja, '部分'),
+			_Utils_Tuple2($author$project$Multilingual$En, 'Position')
+		]));
 var $mdgriffith$elm_ui$Element$Font$alignLeft = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontAlignment, $mdgriffith$elm_ui$Internal$Style$classes.textLeft);
 var $mdgriffith$elm_ui$Element$Font$bold = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.bold);
 var $mdgriffith$elm_ui$Element$fillPortion = $mdgriffith$elm_ui$Internal$Model$Fill;
@@ -14628,67 +15475,77 @@ var $author$project$Desktop$viewRadicalAttribute = F2(
 					$mdgriffith$elm_ui$Element$text(value))
 				]));
 	});
-var $author$project$Desktop$viewSelectedRadical = function (radical) {
-	return A2(
-		$mdgriffith$elm_ui$Element$Input$button,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
-				$mdgriffith$elm_ui$Element$Border$rounded(10),
-				$mdgriffith$elm_ui$Element$width(
-				$mdgriffith$elm_ui$Element$px(320)),
-				$mdgriffith$elm_ui$Element$height(
-				$mdgriffith$elm_ui$Element$px(200)),
-				$mdgriffith$elm_ui$Element$Font$size(50),
-				$mdgriffith$elm_ui$Element$Font$center,
-				$mdgriffith$elm_ui$Element$mouseOver(
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorLighter),
-						$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
-					]))
-			]),
-		{
-			label: A2(
-				$mdgriffith$elm_ui$Element$row,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$Font$center,
-						$mdgriffith$elm_ui$Element$centerX,
-						$mdgriffith$elm_ui$Element$centerY,
-						$mdgriffith$elm_ui$Element$spacing(20)
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$Font$light, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
-						$mdgriffith$elm_ui$Element$text(
-							$elm$core$String$fromChar(radical.radical))),
-						A2(
-						$mdgriffith$elm_ui$Element$column,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$spacing(10)
-							]),
-						_List_fromArray(
-							[
-								A2($author$project$Desktop$viewRadicalAttribute, '名前', radical.name),
-								A2(
-								$author$project$Desktop$viewRadicalAttribute,
-								'意味',
-								$author$project$Meaning$displayMeaning(radical.meaning)),
-								A2(
-								$author$project$Desktop$viewRadicalAttribute,
-								'部分',
-								$author$project$Part$getJapanesePartName(radical.part))
-							]))
-					])),
-			onPress: $elm$core$Maybe$Just(
-				$author$project$Shared$DeselectRadical(radical))
-		});
-};
+var $author$project$Desktop$viewSelectedRadical = F2(
+	function (language, radical) {
+		return A2(
+			$mdgriffith$elm_ui$Element$Input$button,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
+					$mdgriffith$elm_ui$Element$Border$rounded(10),
+					$mdgriffith$elm_ui$Element$width(
+					$mdgriffith$elm_ui$Element$px(320)),
+					$mdgriffith$elm_ui$Element$height(
+					$mdgriffith$elm_ui$Element$px(200)),
+					$mdgriffith$elm_ui$Element$Font$size(50),
+					$mdgriffith$elm_ui$Element$Font$center,
+					$mdgriffith$elm_ui$Element$mouseOver(
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorLighter),
+							$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
+						]))
+				]),
+			{
+				label: A2(
+					$mdgriffith$elm_ui$Element$row,
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$Font$center,
+							$mdgriffith$elm_ui$Element$centerX,
+							$mdgriffith$elm_ui$Element$centerY,
+							$mdgriffith$elm_ui$Element$spacing(20)
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$mdgriffith$elm_ui$Element$el,
+							_List_fromArray(
+								[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$Font$light, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
+							$mdgriffith$elm_ui$Element$text(
+								$elm$core$String$fromChar(radical.radical))),
+							A2(
+							$mdgriffith$elm_ui$Element$column,
+							_List_fromArray(
+								[
+									$mdgriffith$elm_ui$Element$spacing(10)
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$author$project$Desktop$viewRadicalAttribute,
+									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalName),
+									radical.name),
+									A2(
+									$author$project$Desktop$viewRadicalAttribute,
+									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalMeaning),
+									A2(
+										$author$project$Multilingual$toString,
+										language,
+										$author$project$Meaning$displayMeaning(radical.meaning))),
+									A2(
+									$author$project$Desktop$viewRadicalAttribute,
+									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalPart),
+									A2(
+										$author$project$Multilingual$toString,
+										language,
+										$author$project$Copy$getPartName(radical.part)))
+								]))
+						])),
+				onPress: $elm$core$Maybe$Just(
+					$author$project$Shared$DeselectRadical(radical))
+			});
+	});
 var $author$project$Shared$SelectRadical = function (a) {
 	return {$: 'SelectRadical', a: a};
 };
@@ -14735,14 +15592,14 @@ var $author$project$Desktop$viewUnselectedRadical = function (radical) {
 				$author$project$Shared$SelectRadical(radical))
 		});
 };
-var $author$project$Desktop$viewRadical = F2(
-	function (selected, radical) {
+var $author$project$Desktop$viewRadical = F3(
+	function (language, selected, radical) {
 		return A2(
 			$elm$core$List$any,
 			function (selectedRadical) {
 				return _Utils_eq(selectedRadical, radical);
 			},
-			selected) ? $author$project$Desktop$viewSelectedRadical(radical) : $author$project$Desktop$viewUnselectedRadical(radical);
+			selected) ? A2($author$project$Desktop$viewSelectedRadical, language, radical) : $author$project$Desktop$viewUnselectedRadical(radical);
 	});
 var $mdgriffith$elm_ui$Internal$Model$Padding = F5(
 	function (a, b, c, d, e) {
@@ -14934,11 +15791,11 @@ var $mdgriffith$elm_ui$Element$wrappedRow = F2(
 			}
 		}
 	});
-var $author$project$Desktop$viewRadicals = F2(
-	function (selected, radicals) {
+var $author$project$Desktop$viewRadicals = F3(
+	function (language, selected, radicals) {
 		var content = A2(
 			$elm$core$List$map,
-			$author$project$Desktop$viewRadical(selected),
+			A2($author$project$Desktop$viewRadical, language, selected),
 			radicals);
 		return A2(
 			$mdgriffith$elm_ui$Element$wrappedRow,
@@ -14964,8 +15821,8 @@ var $author$project$Desktop$viewTitle = function (title) {
 			]),
 		$mdgriffith$elm_ui$Element$text(title));
 };
-var $author$project$Desktop$viewPartRadicals = F3(
-	function (selected, radicals, part) {
+var $author$project$Desktop$viewPartRadicals = F4(
+	function (language, selected, radicals, part) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -14976,9 +15833,13 @@ var $author$project$Desktop$viewPartRadicals = F3(
 			_List_fromArray(
 				[
 					$author$project$Desktop$viewTitle(
-					$author$project$Part$getJapanesePartName(part)),
 					A2(
+						$author$project$Multilingual$toString,
+						language,
+						$author$project$Copy$getPartName(part))),
+					A3(
 					$author$project$Desktop$viewRadicals,
+					language,
 					selected,
 					A2(
 						$elm$core$List$filter,
@@ -14988,50 +15849,141 @@ var $author$project$Desktop$viewPartRadicals = F3(
 						radicals))
 				]));
 	});
-var $author$project$Desktop$viewRadicalsByPart = F2(
-	function (selected, radicals) {
+var $author$project$Desktop$viewRadicalsByPart = F3(
+	function (language, selected, radicals) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_Nil,
 			A2(
 				$elm$core$List$map,
-				A2($author$project$Desktop$viewPartRadicals, selected, radicals),
+				A3($author$project$Desktop$viewPartRadicals, language, selected, radicals),
 				$author$project$Part$all));
 	});
 var $author$project$Subject$all = _List_fromArray(
 	[$author$project$Subject$Nature, $author$project$Subject$BodyParts, $author$project$Subject$People, $author$project$Subject$Enclosures, $author$project$Subject$VerbsAndLanguage, $author$project$Subject$NaturalMaterials, $author$project$Subject$MathAndMeasurement, $author$project$Subject$Food, $author$project$Subject$Animals, $author$project$Subject$Warfare, $author$project$Subject$ManMadeTools, $author$project$Subject$Senses, $author$project$Subject$Supernatural]);
-var $author$project$Subject$getJapaneseSubjectName = function (subject) {
+var $author$project$Copy$getSubjectName = function (subject) {
 	switch (subject.$) {
 		case 'Nature':
-			return '自然';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'自然',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '自然'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Nature')
+					]));
 		case 'BodyParts':
-			return '身体部位';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'身体部位',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '身体部位'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Body Parts')
+					]));
 		case 'People':
-			return '人';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'人',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '人'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'People')
+					]));
 		case 'Enclosures':
-			return '環境';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'環境',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '環境'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Enclosures')
+					]));
 		case 'VerbsAndLanguage':
-			return '動詞と言語';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'動詞と言語',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '動詞と言語'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Verbs and Language')
+					]));
 		case 'NaturalMaterials':
-			return '自然材料';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'自然材料',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '自然材料'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Natural Materials')
+					]));
 		case 'MathAndMeasurement':
-			return '数学と測定';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'数学と測定',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '数学と測定'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Math and Measurement')
+					]));
 		case 'Food':
-			return '食物';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'食物',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '食物'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Food')
+					]));
 		case 'Animals':
-			return '動物';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'動物',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '動物'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Animals')
+					]));
 		case 'Warfare':
-			return '戦争';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'戦争',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '戦争'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Warfare')
+					]));
 		case 'ManMadeTools':
-			return '人間製のツール';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'人間製のツール',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '人間製のツール'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Man-Made Tools')
+					]));
 		case 'Senses':
-			return '感覚';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'感覚',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '感覚'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Senses')
+					]));
 		default:
-			return '超自然';
+			return A2(
+				$author$project$Multilingual$Multilingual,
+				'超自然',
+				_List_fromArray(
+					[
+						_Utils_Tuple2($author$project$Multilingual$Ja, '超自然'),
+						_Utils_Tuple2($author$project$Multilingual$En, 'Supernatural')
+					]));
 	}
 };
-var $author$project$Desktop$viewSubjectRadicals = F3(
-	function (selected, radicals, subject) {
+var $author$project$Desktop$viewSubjectRadicals = F4(
+	function (language, selected, radicals, subject) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -15042,9 +15994,13 @@ var $author$project$Desktop$viewSubjectRadicals = F3(
 			_List_fromArray(
 				[
 					$author$project$Desktop$viewTitle(
-					$author$project$Subject$getJapaneseSubjectName(subject)),
 					A2(
+						$author$project$Multilingual$toString,
+						language,
+						$author$project$Copy$getSubjectName(subject))),
+					A3(
 					$author$project$Desktop$viewRadicals,
+					language,
 					selected,
 					A2(
 						$elm$core$List$filter,
@@ -15054,14 +16010,14 @@ var $author$project$Desktop$viewSubjectRadicals = F3(
 						radicals))
 				]));
 	});
-var $author$project$Desktop$viewRadicalsBySubject = F2(
-	function (selected, radicals) {
+var $author$project$Desktop$viewRadicalsBySubject = F3(
+	function (language, selected, radicals) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_Nil,
 			A2(
 				$elm$core$List$map,
-				A2($author$project$Desktop$viewSubjectRadicals, selected, radicals),
+				A3($author$project$Desktop$viewSubjectRadicals, language, selected, radicals),
 				$author$project$Subject$all));
 	});
 var $author$project$Desktop$viewHomeRoute = function (model) {
@@ -15082,11 +16038,11 @@ var $author$project$Desktop$viewHomeRoute = function (model) {
 				var _v0 = model.display;
 				switch (_v0.$) {
 					case 'ListBySubject':
-						return A2($author$project$Desktop$viewRadicalsBySubject, model.selected, model.radicals);
+						return A3($author$project$Desktop$viewRadicalsBySubject, model.language, model.selected, model.radicals);
 					case 'ListByPart':
-						return A2($author$project$Desktop$viewRadicalsByPart, model.selected, model.radicals);
+						return A3($author$project$Desktop$viewRadicalsByPart, model.language, model.selected, model.radicals);
 					default:
-						return A2($author$project$Desktop$viewRadicals, model.selected, model.radicals);
+						return A3($author$project$Desktop$viewRadicals, model.language, model.selected, model.radicals);
 				}
 			}()
 			]));
@@ -15195,7 +16151,7 @@ var $author$project$Desktop$view = function (model) {
 						]);
 					var content = _List_fromArray(
 						[
-							$author$project$Desktop$viewHeader(model.display),
+							A2($author$project$Desktop$viewHeader, model.language, model.display),
 							function () {
 							var _v0 = model.route;
 							switch (_v0.$) {
@@ -15362,69 +16318,79 @@ var $author$project$Phone$viewRadicalAttribute = F2(
 					$mdgriffith$elm_ui$Element$text(value))
 				]));
 	});
-var $author$project$Phone$viewSelectedRadical = function (radical) {
-	return A2(
-		$mdgriffith$elm_ui$Element$Input$button,
-		_List_fromArray(
-			[
-				$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
-				$mdgriffith$elm_ui$Element$Border$rounded(10),
-				$mdgriffith$elm_ui$Element$width(
-				$mdgriffith$elm_ui$Element$px(320)),
-				$mdgriffith$elm_ui$Element$height(
-				$mdgriffith$elm_ui$Element$px(200)),
-				$mdgriffith$elm_ui$Element$Font$size(50),
-				$mdgriffith$elm_ui$Element$Font$center,
-				$mdgriffith$elm_ui$Element$mouseOver(
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorLighter),
-						$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
-					])),
-				$mdgriffith$elm_ui$Element$centerX,
-				$mdgriffith$elm_ui$Element$centerY
-			]),
-		{
-			label: A2(
-				$mdgriffith$elm_ui$Element$row,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$Font$center,
-						$mdgriffith$elm_ui$Element$centerX,
-						$mdgriffith$elm_ui$Element$centerY,
-						$mdgriffith$elm_ui$Element$spacing(20)
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$mdgriffith$elm_ui$Element$el,
-						_List_fromArray(
-							[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$Font$light, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
-						$mdgriffith$elm_ui$Element$text(
-							$elm$core$String$fromChar(radical.radical))),
-						A2(
-						$mdgriffith$elm_ui$Element$column,
-						_List_fromArray(
-							[
-								$mdgriffith$elm_ui$Element$spacing(10)
-							]),
-						_List_fromArray(
-							[
-								A2($author$project$Phone$viewRadicalAttribute, '名前', radical.name),
-								A2(
-								$author$project$Phone$viewRadicalAttribute,
-								'意味',
-								$author$project$Meaning$displayMeaning(radical.meaning)),
-								A2(
-								$author$project$Phone$viewRadicalAttribute,
-								'部分',
-								$author$project$Part$getJapanesePartName(radical.part))
-							]))
-					])),
-			onPress: $elm$core$Maybe$Just(
-				$author$project$Shared$DeselectRadical(radical))
-		});
-};
+var $author$project$Phone$viewSelectedRadical = F2(
+	function (language, radical) {
+		return A2(
+			$mdgriffith$elm_ui$Element$Input$button,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColor),
+					$mdgriffith$elm_ui$Element$Border$rounded(10),
+					$mdgriffith$elm_ui$Element$width(
+					$mdgriffith$elm_ui$Element$px(320)),
+					$mdgriffith$elm_ui$Element$height(
+					$mdgriffith$elm_ui$Element$px(200)),
+					$mdgriffith$elm_ui$Element$Font$size(50),
+					$mdgriffith$elm_ui$Element$Font$center,
+					$mdgriffith$elm_ui$Element$mouseOver(
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$Background$color($author$project$Theme$theme.contentBgColorLighter),
+							$mdgriffith$elm_ui$Element$Font$color($author$project$Theme$theme.fontColorLighter)
+						])),
+					$mdgriffith$elm_ui$Element$centerX,
+					$mdgriffith$elm_ui$Element$centerY
+				]),
+			{
+				label: A2(
+					$mdgriffith$elm_ui$Element$row,
+					_List_fromArray(
+						[
+							$mdgriffith$elm_ui$Element$Font$center,
+							$mdgriffith$elm_ui$Element$centerX,
+							$mdgriffith$elm_ui$Element$centerY,
+							$mdgriffith$elm_ui$Element$spacing(20)
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$mdgriffith$elm_ui$Element$el,
+							_List_fromArray(
+								[$mdgriffith$elm_ui$Element$Font$center, $mdgriffith$elm_ui$Element$Font$light, $mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
+							$mdgriffith$elm_ui$Element$text(
+								$elm$core$String$fromChar(radical.radical))),
+							A2(
+							$mdgriffith$elm_ui$Element$column,
+							_List_fromArray(
+								[
+									$mdgriffith$elm_ui$Element$spacing(10)
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$author$project$Phone$viewRadicalAttribute,
+									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalName),
+									radical.name),
+									A2(
+									$author$project$Phone$viewRadicalAttribute,
+									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalMeaning),
+									A2(
+										$author$project$Multilingual$toString,
+										language,
+										$author$project$Meaning$displayMeaning(radical.meaning))),
+									A2(
+									$author$project$Phone$viewRadicalAttribute,
+									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalPart),
+									A2(
+										$author$project$Multilingual$toString,
+										language,
+										$author$project$Copy$getPartName(radical.part)))
+								]))
+						])),
+				onPress: $elm$core$Maybe$Just(
+					$author$project$Shared$DeselectRadical(radical))
+			});
+	});
 var $author$project$Phone$viewUnselectedRadical = function (radical) {
 	return A2(
 		$mdgriffith$elm_ui$Element$Input$button,
@@ -15470,20 +16436,20 @@ var $author$project$Phone$viewUnselectedRadical = function (radical) {
 				$author$project$Shared$SelectRadical(radical))
 		});
 };
-var $author$project$Phone$viewRadical = F2(
-	function (selected, radical) {
+var $author$project$Phone$viewRadical = F3(
+	function (language, selected, radical) {
 		return A2(
 			$elm$core$List$any,
 			function (selectedRadical) {
 				return _Utils_eq(selectedRadical, radical);
 			},
-			selected) ? $author$project$Phone$viewSelectedRadical(radical) : $author$project$Phone$viewUnselectedRadical(radical);
+			selected) ? A2($author$project$Phone$viewSelectedRadical, language, radical) : $author$project$Phone$viewUnselectedRadical(radical);
 	});
-var $author$project$Phone$viewRadicals = F2(
-	function (selected, radicals) {
+var $author$project$Phone$viewRadicals = F3(
+	function (language, selected, radicals) {
 		var content = A2(
 			$elm$core$List$map,
-			$author$project$Phone$viewRadical(selected),
+			A2($author$project$Phone$viewRadical, language, selected),
 			radicals);
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
@@ -15496,6 +16462,26 @@ var $author$project$Phone$viewRadicals = F2(
 				]),
 			content);
 	});
+var $author$project$Part$getJapanesePartName = function (part) {
+	switch (part.$) {
+		case 'Left':
+			return 'へん';
+		case 'Right':
+			return 'つくり';
+		case 'Top':
+			return 'かんむり';
+		case 'Bottom':
+			return 'あし';
+		case 'Enclose':
+			return 'かまえ';
+		case 'Hang':
+			return 'たれ';
+		case 'Wrap':
+			return 'にょう';
+		default:
+			return 'なし';
+	}
+};
 var $author$project$Phone$viewTitle = function (title) {
 	return A2(
 		$mdgriffith$elm_ui$Element$el,
@@ -15510,8 +16496,8 @@ var $author$project$Phone$viewTitle = function (title) {
 			]),
 		$mdgriffith$elm_ui$Element$text(title));
 };
-var $author$project$Phone$viewPartRadicals = F3(
-	function (selected, radicals, part) {
+var $author$project$Phone$viewPartRadicals = F4(
+	function (language, selected, radicals, part) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -15526,8 +16512,9 @@ var $author$project$Phone$viewPartRadicals = F3(
 				[
 					$author$project$Phone$viewTitle(
 					$author$project$Part$getJapanesePartName(part)),
-					A2(
+					A3(
 					$author$project$Phone$viewRadicals,
+					language,
 					selected,
 					A2(
 						$elm$core$List$filter,
@@ -15537,8 +16524,8 @@ var $author$project$Phone$viewPartRadicals = F3(
 						radicals))
 				]));
 	});
-var $author$project$Phone$viewRadicalsByPart = F2(
-	function (selected, radicals) {
+var $author$project$Phone$viewRadicalsByPart = F3(
+	function (language, selected, radicals) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -15549,11 +16536,41 @@ var $author$project$Phone$viewRadicalsByPart = F2(
 				]),
 			A2(
 				$elm$core$List$map,
-				A2($author$project$Phone$viewPartRadicals, selected, radicals),
+				A3($author$project$Phone$viewPartRadicals, language, selected, radicals),
 				$author$project$Part$all));
 	});
-var $author$project$Phone$viewSubjectRadicals = F3(
-	function (selected, radicals, subject) {
+var $author$project$Subject$getJapaneseSubjectName = function (subject) {
+	switch (subject.$) {
+		case 'Nature':
+			return '自然';
+		case 'BodyParts':
+			return '身体部位';
+		case 'People':
+			return '人';
+		case 'Enclosures':
+			return '環境';
+		case 'VerbsAndLanguage':
+			return '動詞と言語';
+		case 'NaturalMaterials':
+			return '自然材料';
+		case 'MathAndMeasurement':
+			return '数学と測定';
+		case 'Food':
+			return '食物';
+		case 'Animals':
+			return '動物';
+		case 'Warfare':
+			return '戦争';
+		case 'ManMadeTools':
+			return '人間製のツール';
+		case 'Senses':
+			return '感覚';
+		default:
+			return '超自然';
+	}
+};
+var $author$project$Phone$viewSubjectRadicals = F4(
+	function (language, selected, radicals, subject) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -15568,8 +16585,9 @@ var $author$project$Phone$viewSubjectRadicals = F3(
 				[
 					$author$project$Phone$viewTitle(
 					$author$project$Subject$getJapaneseSubjectName(subject)),
-					A2(
+					A3(
 					$author$project$Phone$viewRadicals,
+					language,
 					selected,
 					A2(
 						$elm$core$List$filter,
@@ -15579,8 +16597,8 @@ var $author$project$Phone$viewSubjectRadicals = F3(
 						radicals))
 				]));
 	});
-var $author$project$Phone$viewRadicalsBySubject = F2(
-	function (selected, radicals) {
+var $author$project$Phone$viewRadicalsBySubject = F3(
+	function (language, selected, radicals) {
 		return A2(
 			$mdgriffith$elm_ui$Element$column,
 			_List_fromArray(
@@ -15591,7 +16609,7 @@ var $author$project$Phone$viewRadicalsBySubject = F2(
 				]),
 			A2(
 				$elm$core$List$map,
-				A2($author$project$Phone$viewSubjectRadicals, selected, radicals),
+				A3($author$project$Phone$viewSubjectRadicals, language, selected, radicals),
 				$author$project$Subject$all));
 	});
 var $author$project$Phone$viewHomeRoute = function (model) {
@@ -15612,11 +16630,11 @@ var $author$project$Phone$viewHomeRoute = function (model) {
 				var _v0 = model.display;
 				switch (_v0.$) {
 					case 'ListBySubject':
-						return A2($author$project$Phone$viewRadicalsBySubject, model.selected, model.radicals);
+						return A3($author$project$Phone$viewRadicalsBySubject, model.language, model.selected, model.radicals);
 					case 'ListByPart':
-						return A2($author$project$Phone$viewRadicalsByPart, model.selected, model.radicals);
+						return A3($author$project$Phone$viewRadicalsByPart, model.language, model.selected, model.radicals);
 					default:
-						return A2($author$project$Phone$viewRadicals, model.selected, model.radicals);
+						return A3($author$project$Phone$viewRadicals, model.language, model.selected, model.radicals);
 				}
 			}()
 			]));
@@ -15754,544 +16772,4 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 				},
 				A2($elm$json$Json$Decode$field, 'x', $elm$json$Json$Decode$int));
 		},
-		A2($elm$json$Json$Decode$field, 'y', $elm$json$Json$Decode$int)))(0)}});
-
-//////////////////// HMR BEGIN ////////////////////
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Original Author: Flux Xu @fluxxu
-*/
-
-/*
-    A note about the environment that this code runs in...
-
-    assumed globals:
-        - `module` (from Node.js module system and webpack)
-
-    assumed in scope after injection into the Elm IIFE:
-        - `scope` (has an 'Elm' property which contains the public Elm API)
-        - various functions defined by Elm which we have to hook such as `_Platform_initialize` and `_Scheduler_binding`
- */
-
-if (module.hot) {
-    (function () {
-        "use strict";
-
-        //polyfill for IE: https://github.com/fluxxu/elm-hot-loader/issues/16
-        if (typeof Object.assign != 'function') {
-            Object.assign = function (target) {
-                'use strict';
-                if (target == null) {
-                    throw new TypeError('Cannot convert undefined or null to object');
-                }
-
-                target = Object(target);
-                for (var index = 1; index < arguments.length; index++) {
-                    var source = arguments[index];
-                    if (source != null) {
-                        for (var key in source) {
-                            if (Object.prototype.hasOwnProperty.call(source, key)) {
-                                target[key] = source[key];
-                            }
-                        }
-                    }
-                }
-                return target;
-            };
-        }
-
-        // Elm 0.19.1 introduced a '$' prefix at the beginning of the symbols it emits,
-        // and we check for `List.map` because we expect it to be present in all Elm programs.
-        var elmVersion;
-        if (typeof elm$core$List$map !== 'undefined')
-            elmVersion = '0.19.0';
-        else if (typeof $elm$core$List$map !== 'undefined')
-            elmVersion = '0.19.1';
-        else
-            throw new Error("Could not determine Elm version");
-
-        function elmSymbol(symbol) {
-            try {
-                switch (elmVersion) {
-                    case '0.19.0':
-                        return eval(symbol);
-                    case '0.19.1':
-                        return eval('$' + symbol);
-                    default:
-                        throw new Error('Cannot resolve ' + symbol + '. Elm version unknown!')
-                }
-            } catch (e) {
-                if (e instanceof ReferenceError) {
-                    return undefined;
-                } else {
-                    throw e;
-                }
-            }
-        }
-
-        var instances = module.hot.data
-            ? module.hot.data.instances || {}
-            : {};
-        var uid = module.hot.data
-            ? module.hot.data.uid || 0
-            : 0;
-
-        if (Object.keys(instances).length === 0) {
-            log("[elm-hot] Enabled");
-        }
-
-        var cancellers = [];
-
-        // These 2 variables act as dynamically-scoped variables which are set only when the
-        // Elm module's hooked init function is called.
-        var initializingInstance = null;
-        var swappingInstance = null;
-
-        module.hot.accept();
-        module.hot.dispose(function (data) {
-            data.instances = instances;
-            data.uid = uid;
-
-            // Cleanup pending async tasks
-
-            // First, make sure that no new tasks can be started until we finish replacing the code
-            _Scheduler_binding = function () {
-                return _Scheduler_fail(new Error('[elm-hot] Inactive Elm instance.'))
-            };
-
-            // Second, kill pending tasks belonging to the old instance
-            if (cancellers.length) {
-                log('[elm-hot] Killing ' + cancellers.length + ' running processes...');
-                try {
-                    cancellers.forEach(function (cancel) {
-                        cancel();
-                    });
-                } catch (e) {
-                    console.warn('[elm-hot] Kill process error: ' + e.message);
-                }
-            }
-        });
-
-        function log(message) {
-            if (module.hot.verbose) {
-                console.log(message)
-            }
-        }
-
-        function getId() {
-            return ++uid;
-        }
-
-        function findPublicModules(parent, path) {
-            var modules = [];
-            for (var key in parent) {
-                var child = parent[key];
-                var currentPath = path ? path + '.' + key : key;
-                if ('init' in child) {
-                    modules.push({
-                        path: currentPath,
-                        module: child
-                    });
-                } else {
-                    modules = modules.concat(findPublicModules(child, currentPath));
-                }
-            }
-            return modules;
-        }
-
-        function registerInstance(domNode, flags, path, portSubscribes, portSends) {
-            var id = getId();
-
-            var instance = {
-                id: id,
-                path: path,
-                domNode: domNode,
-                flags: flags,
-                portSubscribes: portSubscribes,
-                portSends: portSends,
-                navKeyPath: null, // array of JS property names by which the Browser.Navigation.Key can be found in the model
-                lastState: null // last Elm app state (root model)
-            };
-
-            return instances[id] = instance
-        }
-
-        function isFullscreenApp() {
-            // Returns true if the Elm app will take over the entire DOM body.
-            return typeof elmSymbol("elm$browser$Browser$application") !== 'undefined'
-                || typeof elmSymbol("elm$browser$Browser$document") !== 'undefined';
-        }
-
-        function wrapDomNode(node) {
-            // When embedding an Elm app into a specific DOM node, Elm will replace the provided
-            // DOM node with the Elm app's content. When the Elm app is compiled normally, the
-            // original DOM node is reused (its attributes and content changes, but the object
-            // in memory remains the same). But when compiled using `--debug`, Elm will completely
-            // destroy the original DOM node and instead replace it with 2 brand new nodes: one
-            // for your Elm app's content and the other for the Elm debugger UI. In this case,
-            // if you held a reference to the DOM node provided for embedding, it would be orphaned
-            // after Elm module initialization.
-            //
-            // So in order to make both cases consistent and isolate us from changes in how Elm
-            // does this, we will insert a dummy node to wrap the node for embedding and hold
-            // a reference to the dummy node.
-            //
-            // We will also put a tag on the dummy node so that the Elm developer knows who went
-            // behind their back and rudely put stuff in their DOM.
-            var dummyNode = document.createElement("div");
-            dummyNode.setAttribute("data-elm-hot", "true");
-            dummyNode.style.height = "inherit";
-            var parentNode = node.parentNode;
-            parentNode.replaceChild(dummyNode, node);
-            dummyNode.appendChild(node);
-            return dummyNode;
-        }
-
-        function wrapPublicModule(path, module) {
-            var originalInit = module.init;
-            if (originalInit) {
-                module.init = function (args) {
-                    var elm;
-                    var portSubscribes = {};
-                    var portSends = {};
-                    var domNode = null;
-                    var flags = null;
-                    if (typeof args !== 'undefined') {
-                        // normal case
-                        domNode = args['node'] && !isFullscreenApp()
-                            ? wrapDomNode(args['node'])
-                            : document.body;
-                        flags = args['flags'];
-                    } else {
-                        // rare case: Elm allows init to be called without any arguments at all
-                        domNode = document.body;
-                        flags = undefined
-                    }
-                    initializingInstance = registerInstance(domNode, flags, path, portSubscribes, portSends);
-                    elm = originalInit(args);
-                    wrapPorts(elm, portSubscribes, portSends);
-                    initializingInstance = null;
-                    return elm;
-                };
-            } else {
-                console.error("Could not find a public module to wrap at path " + path)
-            }
-        }
-
-        function swap(Elm, instance) {
-            log('[elm-hot] Hot-swapping module: ' + instance.path);
-
-            swappingInstance = instance;
-
-            // remove from the DOM everything that had been created by the old Elm app
-            var containerNode = instance.domNode;
-            while (containerNode.lastChild) {
-                containerNode.removeChild(containerNode.lastChild);
-            }
-
-            var m = getAt(instance.path.split('.'), Elm);
-            var elm;
-            if (m) {
-                // prepare to initialize the new Elm module
-                var args = {flags: instance.flags};
-                if (containerNode === document.body) {
-                    // fullscreen case: no additional args needed
-                } else {
-                    // embed case: provide a new node for Elm to use
-                    var nodeForEmbed = document.createElement("div");
-                    containerNode.appendChild(nodeForEmbed);
-                    args['node'] = nodeForEmbed;
-                }
-
-                elm = m.init(args);
-
-                Object.keys(instance.portSubscribes).forEach(function (portName) {
-                    if (portName in elm.ports && 'subscribe' in elm.ports[portName]) {
-                        var handlers = instance.portSubscribes[portName];
-                        if (!handlers.length) {
-                            return;
-                        }
-                        log('[elm-hot] Reconnect ' + handlers.length + ' handler(s) to port \''
-                            + portName + '\' (' + instance.path + ').');
-                        handlers.forEach(function (handler) {
-                            elm.ports[portName].subscribe(handler);
-                        });
-                    } else {
-                        delete instance.portSubscribes[portName];
-                        log('[elm-hot] Port was removed: ' + portName);
-                    }
-                });
-
-                Object.keys(instance.portSends).forEach(function (portName) {
-                    if (portName in elm.ports && 'send' in elm.ports[portName]) {
-                        log('[elm-hot] Replace old port send with the new send');
-                        instance.portSends[portName] = elm.ports[portName].send;
-                    } else {
-                        delete instance.portSends[portName];
-                        log('[elm-hot] Port was removed: ' + portName);
-                    }
-                });
-            } else {
-                log('[elm-hot] Module was removed: ' + instance.path);
-            }
-
-            swappingInstance = null;
-        }
-
-        function wrapPorts(elm, portSubscribes, portSends) {
-            var portNames = Object.keys(elm.ports || {});
-            //hook ports
-            if (portNames.length) {
-                // hook outgoing ports
-                portNames
-                    .filter(function (name) {
-                        return 'subscribe' in elm.ports[name];
-                    })
-                    .forEach(function (portName) {
-                        var port = elm.ports[portName];
-                        var subscribe = port.subscribe;
-                        var unsubscribe = port.unsubscribe;
-                        elm.ports[portName] = Object.assign(port, {
-                            subscribe: function (handler) {
-                                log('[elm-hot] ports.' + portName + '.subscribe called.');
-                                if (!portSubscribes[portName]) {
-                                    portSubscribes[portName] = [handler];
-                                } else {
-                                    //TODO handle subscribing to single handler more than once?
-                                    portSubscribes[portName].push(handler);
-                                }
-                                return subscribe.call(port, handler);
-                            },
-                            unsubscribe: function (handler) {
-                                log('[elm-hot] ports.' + portName + '.unsubscribe called.');
-                                var list = portSubscribes[portName];
-                                if (list && list.indexOf(handler) !== -1) {
-                                    list.splice(list.lastIndexOf(handler), 1);
-                                } else {
-                                    console.warn('[elm-hot] ports.' + portName + '.unsubscribe: handler not subscribed');
-                                }
-                                return unsubscribe.call(port, handler);
-                            }
-                        });
-                    });
-
-                // hook incoming ports
-                portNames
-                    .filter(function (name) {
-                        return 'send' in elm.ports[name];
-                    })
-                    .forEach(function (portName) {
-                        var port = elm.ports[portName];
-                        portSends[portName] = port.send;
-                        elm.ports[portName] = Object.assign(port, {
-                            send: function (val) {
-                                return portSends[portName].call(port, val);
-                            }
-                        });
-                    });
-            }
-            return portSubscribes;
-        }
-
-        /*
-        Breadth-first search for a `Browser.Navigation.Key` in the user's app model.
-        Returns the key and keypath or null if not found.
-        */
-        function findNavKey(rootModel) {
-            var queue = [];
-            if (isDebuggerModel(rootModel)) {
-                /*
-                 Extract the user's app model from the Elm Debugger's model. The Elm debugger
-                 can hold multiple references to the user's model (e.g. in its "history"). So
-                 we must be careful to only search within the "state" part of the Debugger.
-                */
-                queue.push({value: rootModel['state'], keypath: ['state']});
-            } else {
-                queue.push({value: rootModel, keypath: []});
-            }
-
-            while (queue.length !== 0) {
-                var item = queue.shift();
-
-                // The nav key is identified by a runtime tag added by the elm-hot injector.
-                if (item.value.hasOwnProperty("elm-hot-nav-key")) {
-                    // found it!
-                    return item;
-                }
-
-                if (typeof item.value !== "object") {
-                    continue;
-                }
-
-                for (var propName in item.value) {
-                    if (!item.value.hasOwnProperty(propName)) continue;
-                    var newKeypath = item.keypath.slice();
-                    newKeypath.push(propName);
-                    queue.push({value: item.value[propName], keypath: newKeypath})
-                }
-            }
-
-            return null;
-        }
-
-
-        function isDebuggerModel(model) {
-            return model && model.hasOwnProperty("expando") && model.hasOwnProperty("state");
-        }
-
-        function getAt(keyPath, obj) {
-            return keyPath.reduce(function (xs, x) {
-                return (xs && xs[x]) ? xs[x] : null
-            }, obj)
-        }
-
-        function removeNavKeyListeners(navKey) {
-            window.removeEventListener('popstate', navKey.value);
-            window.navigator.userAgent.indexOf('Trident') < 0 || window.removeEventListener('hashchange', navKey.value);
-        }
-
-        // hook program creation
-        var initialize = _Platform_initialize;
-        _Platform_initialize = function (flagDecoder, args, init, update, subscriptions, stepperBuilder) {
-            var instance = initializingInstance || swappingInstance;
-            var tryFirstRender = !!swappingInstance;
-
-            var hookedInit = function (args) {
-                var initialStateTuple = init(args);
-                if (swappingInstance) {
-                    var oldModel = swappingInstance.lastState;
-                    var newModel = initialStateTuple.a;
-
-                    if (typeof elmSymbol("elm$browser$Browser$application") !== 'undefined') {
-                        // attempt to find the Browser.Navigation.Key in the newly-constructed model
-                        // and bring it along with the rest of the old data.
-                        var newKeyLoc = findNavKey(newModel);
-                        var error = null;
-                        if (newKeyLoc === null) {
-                            error = "could not find Browser.Navigation.Key in the new app model";
-                        } else if (instance.navKeyPath === null) {
-                            error = "could not find Browser.Navigation.Key in the old app model.";
-                        } else if (newKeyLoc.keypath.toString() !== instance.navKeyPath.toString()) {
-                            error = "the location of the Browser.Navigation.Key in the model has changed.";
-                        } else {
-                            var oldNavKey = getAt(instance.navKeyPath, oldModel);
-                            if (oldNavKey === null) {
-                                error = "keypath " + instance.navKeyPath + " is invalid. Please report a bug."
-                            } else {
-                                // remove event listeners attached to the old nav key
-                                removeNavKeyListeners(oldNavKey);
-
-                                // insert the new nav key into the old model in the exact same location
-                                var parentKeyPath = newKeyLoc.keypath.slice(0, -1);
-                                var lastSegment = newKeyLoc.keypath.slice(-1)[0];
-                                var oldParent = getAt(parentKeyPath, oldModel);
-                                oldParent[lastSegment] = newKeyLoc.value;
-                            }
-                        }
-
-                        if (error !== null) {
-                            console.error("[elm-hot] Hot-swapping " + instance.path + " not possible: " + error);
-                            oldModel = newModel;
-                        }
-                    }
-
-                    // the heart of the app state hot-swap
-                    initialStateTuple.a = oldModel;
-
-                    // ignore any Cmds returned by the init during hot-swap
-                    initialStateTuple.b = elmSymbol("elm$core$Platform$Cmd$none");
-                } else {
-                    // capture the initial state for later
-                    initializingInstance.lastState = initialStateTuple.a;
-
-                    // capture Browser.application's navigation key for later
-                    if (typeof elmSymbol("elm$browser$Browser$application") !== 'undefined') {
-                        var navKeyLoc = findNavKey(initializingInstance.lastState);
-                        if (!navKeyLoc) {
-                            console.error("[elm-hot] Hot-swapping disabled for " + instance.path
-                                + ": could not find Browser.Navigation.Key in your model.");
-                            instance.navKeyPath = null;
-                        } else {
-                            instance.navKeyPath = navKeyLoc.keypath;
-                        }
-                    }
-                }
-
-                return initialStateTuple
-            };
-
-            var hookedStepperBuilder = function (sendToApp, model) {
-                var result;
-                // first render may fail if shape of model changed too much
-                if (tryFirstRender) {
-                    tryFirstRender = false;
-                    try {
-                        result = stepperBuilder(sendToApp, model)
-                    } catch (e) {
-                        throw new Error('[elm-hot] Hot-swapping ' + instance.path +
-                            ' is not possible, please reload page. Error: ' + e.message)
-                    }
-                } else {
-                    result = stepperBuilder(sendToApp, model)
-                }
-
-                return function (nextModel, isSync) {
-                    if (instance) {
-                        // capture the state after every step so that later we can restore from it during a hot-swap
-                        instance.lastState = nextModel
-                    }
-                    return result(nextModel, isSync)
-                }
-            };
-
-            return initialize(flagDecoder, args, hookedInit, update, subscriptions, hookedStepperBuilder)
-        };
-
-        // hook process creation
-        var originalBinding = _Scheduler_binding;
-        _Scheduler_binding = function (originalCallback) {
-            return originalBinding(function () {
-                // start the scheduled process, which may return a cancellation function.
-                var cancel = originalCallback.apply(this, arguments);
-                if (cancel) {
-                    cancellers.push(cancel);
-                    return function () {
-                        cancellers.splice(cancellers.indexOf(cancel), 1);
-                        return cancel();
-                    };
-                }
-                return cancel;
-            });
-        };
-
-        scope['_elm_hot_loader_init'] = function (Elm) {
-            // swap instances
-            var removedInstances = [];
-            for (var id in instances) {
-                var instance = instances[id];
-                if (instance.domNode.parentNode) {
-                    swap(Elm, instance);
-                } else {
-                    removedInstances.push(id);
-                }
-            }
-
-            removedInstances.forEach(function (id) {
-                delete instance[id];
-            });
-
-            // wrap all public modules
-            var publicModules = findPublicModules(Elm);
-            publicModules.forEach(function (m) {
-                wrapPublicModule(m.path, m.module);
-            });
-        }
-    })();
-
-    scope['_elm_hot_loader_init'](scope['Elm']);
-}
-//////////////////// HMR END ////////////////////
-
-
-}(this));
+		A2($elm$json$Json$Decode$field, 'y', $elm$json$Json$Decode$int)))(0)}});}(this));
