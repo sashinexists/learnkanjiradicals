@@ -5428,7 +5428,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('水'),
-		'みず',
+		{
+			copy: 'みず',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Water (みず)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'みず')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -5440,7 +5447,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('氵'),
-		'さんずい',
+		{
+			copy: 'さんずい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Three drops (さんずい)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'さんずい')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '水',
@@ -5460,7 +5474,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('木'),
-		'き',
+		{
+			copy: 'き',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Tree'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'き')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5469,7 +5490,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('土'),
-		'つち',
+		{
+			copy: 'つち',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Dirt, Earth'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'つち')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5478,7 +5506,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('日'),
-		'ひ',
+		{
+			copy: 'ひ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Sun'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5487,7 +5522,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('艸'),
-		'くさ',
+		{
+			copy: 'くさ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Grass'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'くさ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -5499,7 +5541,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('艹'),
-		'くさかんむり',
+		{
+			copy: 'くさかんむり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Grass (Crown)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'くさかんむり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '草',
@@ -5519,7 +5568,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('火'),
-		'ひ',
+		{
+			copy: 'ひ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Fire'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -5531,7 +5587,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('灬'),
-		'れっか',
+		{
+			copy: 'れっか',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Raging Fire (れっか)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'れっか')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '火',
@@ -5551,7 +5614,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('田'),
-		'た',
+		{
+			copy: 'た',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Rice Paddy'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'た')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5560,7 +5630,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('貝'),
-		'かい',
+		{
+			copy: 'かい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Shell'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'かい')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5569,7 +5646,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('頁'),
-		'おおがい',
+		{
+			copy: 'おおがい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Big Shell'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おおがい')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$Right,
@@ -5578,7 +5662,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('月'),
-		'つき',
+		{
+			copy: 'つき',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Moon (つき)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'つき')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5587,7 +5678,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('石'),
-		'いし',
+		{
+			copy: 'いし',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Stone'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'いし')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5596,7 +5694,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('川'),
-		'さんぼんがわ',
+		{
+			copy: 'さんぼんがわ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'River'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'さんぼんがわ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'かわ',
@@ -5613,7 +5718,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('山'),
-		'やま',
+		{
+			copy: 'やま',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Mountain'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'やま')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5622,7 +5734,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('雨'),
-		'あめ',
+		{
+			copy: 'あめ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Rain'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あめ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5631,7 +5750,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⽓'),
-		'きがまえ',
+		{
+			copy: 'きがまえ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Steam (Enclosure)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'きがまえ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '蒸気',
@@ -5648,7 +5774,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('冫'),
-		'にすい',
+		{
+			copy: 'にすい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Two Drops'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'にすい')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '氷・二つの水敵',
@@ -5665,7 +5798,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('穴'),
-		'あな',
+		{
+			copy: 'あな',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Hole'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あな')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '洞窟・穴',
@@ -5682,7 +5822,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('谷'),
-		'たに',
+		{
+			copy: 'たに',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Valley'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'たに')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5691,7 +5838,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('支'),
-		'しにょう',
+		{
+			copy: 'しにょう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Branch (Bottom)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しにょう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '枝',
@@ -5708,7 +5862,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('口'),
-		'くち',
+		{
+			copy: 'くち',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Mouth'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'くち')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5717,7 +5878,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('手'),
-		'て',
+		{
+			copy: 'て',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Hand'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'て')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -5729,7 +5897,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('扌'),
-		'てへん',
+		{
+			copy: 'てへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Hand (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'てへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '手',
@@ -5749,7 +5924,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('心'),
-		'こころ',
+		{
+			copy: 'こころ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Heart'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'こころ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -5762,7 +5944,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺗'),
-		'したごころ',
+		{
+			copy: 'したごころ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Heart (Bottom)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'したごころ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '心',
@@ -5783,7 +5972,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺖'),
-		'りっしんべん',
+		{
+			copy: 'りっしんべん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Heart (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'りっしんべん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '心',
@@ -5804,7 +6000,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('肉'),
-		'にく',
+		{
+			copy: 'にく',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Meat'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'にく')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -5816,7 +6019,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('月'),
-		'にくづき',
+		{
+			copy: 'にくづき',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Meat (Side)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'にくづき')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5825,7 +6035,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('目'),
-		'め',
+		{
+			copy: 'め',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Eye'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'め')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5834,7 +6051,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('儿'),
-		'ひとあし',
+		{
+			copy: 'ひとあし',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Person\'s Legs'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひとあし')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$Bottom,
@@ -5843,7 +6067,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('欠'),
-		'あくび',
+		{
+			copy: 'あくび',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, ''),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あくび')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5852,7 +6083,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('尸'),
-		'しかばね',
+		{
+			copy: 'しかばね',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Corpse'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しかばね')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '死体',
@@ -5869,7 +6107,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('癶'),
-		'はつがしら',
+		{
+			copy: 'はつがしら',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Tent'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'はつがしら')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '足音',
@@ -5886,7 +6131,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('足'),
-		'あし',
+		{
+			copy: 'あし',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Legs'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あし')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5895,7 +6147,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('首'),
-		'くび',
+		{
+			copy: 'くび',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Neck'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'くび')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5904,7 +6163,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('身'),
-		'み',
+		{
+			copy: 'み',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Body'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'み')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5913,7 +6179,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('皮'),
-		'けがわ',
+		{
+			copy: 'けがわ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Skin'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'けがわ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '肌',
@@ -5930,7 +6203,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('彡'),
-		'さんづくり',
+		{
+			copy: 'さんづくり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Three, Hair Ornament'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'さんづくり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '髪・三',
@@ -5947,7 +6227,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('血'),
-		'ち',
+		{
+			copy: 'ち',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Blood'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ち')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5956,7 +6243,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('歯'),
-		'は',
+		{
+			copy: 'は',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Tooth'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'は')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -5965,7 +6259,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('人'),
-		'ひと',
+		{
+			copy: 'ひと',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Person'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひと')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -5978,7 +6279,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('亻'),
-		'にんべん',
+		{
+			copy: 'にんべん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Person (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'にんべん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '人',
@@ -5999,7 +6307,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('𠆢'),
-		'ひとやね',
+		{
+			copy: 'ひとやね',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Person (Top)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひとやね')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '人',
@@ -6020,7 +6335,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('女'),
-		'おんな',
+		{
+			copy: 'おんな',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Womamn'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おんな')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6029,7 +6351,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('雨'),
-		'あめ',
+		{
+			copy: 'あめ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Rain'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あめ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6038,7 +6367,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('老'),
-		'おいかんむり',
+		{
+			copy: 'おいかんむり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Old (Crown/Top)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おいかんむり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'お年寄り',
@@ -6058,7 +6394,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('耂'),
-		'おいかんむり',
+		{
+			copy: 'おいかんむり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Old (Crown/Top)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おいかんむり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'お年寄り',
@@ -6078,7 +6421,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('王'),
-		'おう',
+		{
+			copy: 'おう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'King'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おう')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6087,7 +6437,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⽟'),
-		'たま',
+		{
+			copy: 'たま',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Ball'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'たま')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6096,7 +6453,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('子'),
-		'こ',
+		{
+			copy: 'こ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Child'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'こ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6105,7 +6469,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('氏'),
-		'うし',
+		{
+			copy: 'うじ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Clan'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'うじ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '家族の名前',
@@ -6122,7 +6493,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('士'),
-		'さむらい',
+		{
+			copy: 'さむらい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Samurai'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'さむらい')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6131,7 +6509,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('臣'),
-		'しん',
+		{
+			copy: 'しん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Sincerity'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '政府の役人',
@@ -6148,7 +6533,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('自'),
-		'みずから',
+		{
+			copy: 'みずから',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Onself'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'みずから')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '自分',
@@ -6165,7 +6557,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('己'),
-		'おのれ',
+		{
+			copy: 'おのれ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Oneself'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おのれ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6174,7 +6573,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('ム'),
-		'む',
+		{
+			copy: 'む',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Katakana ム'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'む')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '民間・カタカナのム',
@@ -6191,7 +6597,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('辶'),
-		'しんにょう',
+		{
+			copy: 'しんにょう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Road, Advance'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しんにょう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '動き・歩く・進む',
@@ -6208,7 +6621,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('疒'),
-		'やまいだれ',
+		{
+			copy: 'やまいだれ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Illness'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'やまいだれ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '病気',
@@ -6225,7 +6645,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼴'),
-		'まだれ',
+		{
+			copy: 'まだれ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Dotted Cliff'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'まだれ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '屋上',
@@ -6242,7 +6669,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('彳'),
-		'ぎょうにんべん',
+		{
+			copy: 'ぎょうにんべん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, '\"Going\" Man'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ぎょうにんべん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '歩',
@@ -6259,7 +6693,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('阝'),
-		'こざとへん',
+		{
+			copy: 'こざとへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Mound, Small Village'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'こざとへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '左の村',
@@ -6276,7 +6717,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('阝'),
-		'おおざと',
+		{
+			copy: 'おおざと',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Large Village'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おおざと')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '左の村',
@@ -6293,7 +6741,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('囗'),
-		'くにがまえ',
+		{
+			copy: 'くにがまえ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Box, Country'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'くにがまえ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '国境',
@@ -6310,7 +6765,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('門'),
-		'もんがまえ',
+		{
+			copy: 'もんがまえ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Gate'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'もんがまえ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'もん',
@@ -6327,7 +6789,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('宀'),
-		'う かんむり',
+		{
+			copy: 'う かんむり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'ゥ Crown'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'う かんむり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '屋上・カタカナのゥ',
@@ -6344,7 +6813,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('亠'),
-		'なべぶた',
+		{
+			copy: 'なべぶた',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Pot Lid'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'なべぶた')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$Top,
@@ -6353,7 +6829,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('廴'),
-		'えんにょう',
+		{
+			copy: 'えんにょう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Stretch'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'えんにょう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '伸ばす・長いステップ',
@@ -6370,7 +6853,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼚'),
-		'がんだれ',
+		{
+			copy: 'がんだれ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Cliff'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'がんだれ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '崖',
@@ -6387,7 +6877,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('勹'),
-		'つつみがまえ',
+		{
+			copy: 'つつみがまえ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Wrapping'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'つつみがまえ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '包装',
@@ -6404,7 +6901,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼐'),
-		'かんにょう',
+		{
+			copy: 'かんにょう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Box'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'かんにょう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '受け箱',
@@ -6421,7 +6925,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('匚'),
-		'はこがまえ',
+		{
+			copy: 'はこがまえ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Box on Side'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'はこがまえ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '箱',
@@ -6438,7 +6949,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('丶'),
-		'てん',
+		{
+			copy: 'てん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Dot'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'てん')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6447,7 +6965,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺍'),
-		'つ かんむり',
+		{
+			copy: 'つ かんむり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'ツ Crown'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'つ かんむり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'カタカナのツ',
@@ -6464,7 +6989,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('冖'),
-		'わかんむり',
+		{
+			copy: 'わかんむり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'ワ Crown'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'わかんむり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '覆う・冠',
@@ -6481,7 +7013,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('丿'),
-		'の',
+		{
+			copy: 'の',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Katana ノ'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'の')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'カタカナのノ',
@@ -6498,7 +7037,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('亅'),
-		'はねぼう',
+		{
+			copy: 'はねぼう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Feather, Stick'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'はねぼう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '釣り針',
@@ -6515,7 +7061,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('言'),
-		'げん',
+		{
+			copy: 'げん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Speech'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'げん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '話している',
@@ -6532,7 +7085,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('食'),
-		'しょく',
+		{
+			copy: 'しょく',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Meal'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しょく')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -6544,7 +7104,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('飠'),
-		'しょくへん',
+		{
+			copy: 'しょくへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Meal (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しょくへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '食べ物',
@@ -6564,7 +7131,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('示'),
-		'しめす',
+		{
+			copy: 'しめす',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Altar, Festival'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しめす')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -6576,7 +7150,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('礻'),
-		'しめすへん',
+		{
+			copy: 'しめすへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Alter, Festival (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しめすへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '示す',
@@ -6596,7 +7177,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('又'),
-		'また',
+		{
+			copy: 'また',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Again, Right Hand'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'また')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'また・右の手',
@@ -6613,7 +7201,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('立'),
-		'たつ',
+		{
+			copy: 'たつ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Stand'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'たつ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6622,7 +7217,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('止'),
-		'とめる',
+		{
+			copy: 'とめる',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Stop'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'とめる')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6631,7 +7233,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('工'),
-		'たくみ',
+		{
+			copy: 'たくみ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Skillful'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'たくみ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '働く・カタカナのエ',
@@ -6648,7 +7257,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⾒'),
-		'みる',
+		{
+			copy: 'みる',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'See'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'みる')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6657,7 +7273,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('走'),
-		'はしる',
+		{
+			copy: 'はしる',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Run'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'はしる')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6666,7 +7289,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('干'),
-		'かん',
+		{
+			copy: 'かん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'To Dry, Shield'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'かん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '干した',
@@ -6683,7 +7313,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('曰'),
-		'ひらび',
+		{
+			copy: 'ひらび',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Weekday'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひらび')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '言う',
@@ -6700,7 +7337,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('比'),
-		'くらべる',
+		{
+			copy: 'くらべる',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Compare'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'くらべる')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6709,7 +7353,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('生'),
-		'うまれる',
+		{
+			copy: 'うまれる',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Birth'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'うまれる')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'うまれる・住む',
@@ -6726,7 +7377,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('非'),
-		'あらず',
+		{
+			copy: 'あらず',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Not'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あらず')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '違う・反対・カタカナのヒ',
@@ -6743,7 +7401,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⾏'),
-		'ぎょうがまえ',
+		{
+			copy: 'ぎょうがまえ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Going'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ぎょうがまえ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'いく',
@@ -6760,7 +7425,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('竹'),
-		'たけ',
+		{
+			copy: 'たけ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Bamboo'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'たけ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6769,7 +7441,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('糸'),
-		'いと',
+		{
+			copy: 'いと',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Thread'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'いと')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -6781,7 +7460,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('幺'),
-		'いとへん',
+		{
+			copy: 'いとへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Thread (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'いとへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '織物',
@@ -6801,7 +7487,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('金'),
-		'かね',
+		{
+			copy: 'かね',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Money'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'かね')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6810,7 +7503,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('巾'),
-		'はば',
+		{
+			copy: 'はば',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Width'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'はば')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '布',
@@ -6827,7 +7527,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('衣'),
-		'ころも',
+		{
+			copy: 'ころも',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Clothes'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ころも')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -6839,7 +7546,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('衤'),
-		'ころもへん',
+		{
+			copy: 'ころもへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Clothes (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ころもへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '衣服',
@@ -6859,7 +7573,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('麻'),
-		'あさ',
+		{
+			copy: 'あさ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Hemp'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あさ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6868,7 +7589,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('韋'),
-		'なめしがわ',
+		{
+			copy: 'なめしがわ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Leather'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'なめしがわ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '鞣皮',
@@ -6885,7 +7613,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⽦'),
-		'ひき',
+		{
+			copy: 'ひき',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Roll of Cloth'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひき')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -6897,7 +7632,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺪'),
-		'ひきへん',
+		{
+			copy: 'ひきへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Roll of Cloth (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひきへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '⽦',
@@ -6917,7 +7659,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('一'),
-		'いち',
+		{
+			copy: 'いち',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'One'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'いち')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '一つ',
@@ -6934,7 +7683,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('二'),
-		'に',
+		{
+			copy: 'に',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Two'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'に')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '二つ',
@@ -6951,7 +7707,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('八'),
-		'はち',
+		{
+			copy: 'はち',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Eight'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'はち')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '八つ',
@@ -6968,7 +7731,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('十'),
-		'じゅう',
+		{
+			copy: 'じゅう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Ten'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'じゅう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '十つ',
@@ -6985,7 +7755,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('寸'),
-		'すん',
+		{
+			copy: 'すん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Measurement'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'すん')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -6994,7 +7771,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('大'),
-		'だい',
+		{
+			copy: 'だい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Big'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'だい')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '大きい',
@@ -7011,7 +7795,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('小'),
-		'しょう',
+		{
+			copy: 'しょう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Small'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しょう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '小さい',
@@ -7028,7 +7819,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('長'),
-		'ながい',
+		{
+			copy: 'ながい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Long'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ながい')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7040,7 +7838,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('镸'),
-		'ながいへん',
+		{
+			copy: 'ながいへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Long (Length)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ながいへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '長い',
@@ -7060,7 +7865,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('高'),
-		'たかい',
+		{
+			copy: 'たかい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Tall, Expensive'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'たかい')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7069,7 +7881,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('乙'),
-		'おつ',
+		{
+			copy: 'おつ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Second'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おつ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7081,7 +7900,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('乚'),
-		'おつ',
+		{
+			copy: 'おつ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Second'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おつ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '乙',
@@ -7101,7 +7927,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('片'),
-		'かた',
+		{
+			copy: 'かた',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Template'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'かた')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '切った木',
@@ -7118,7 +7951,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('釆'),
-		'のごめ',
+		{
+			copy: 'のごめ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Field'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'のごめ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '分割する',
@@ -7135,7 +7975,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('面'),
-		'めん',
+		{
+			copy: 'めん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Face'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'めん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '面',
@@ -7152,7 +7999,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('方'),
-		'ほう',
+		{
+			copy: 'ほう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Direction'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ほう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '方向',
@@ -7169,7 +8023,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('西'),
-		'にし',
+		{
+			copy: 'にし',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'West'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'にし')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7182,7 +8043,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⾑'),
-		'にしへん',
+		{
+			copy: 'にしへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'West (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'にしへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '西',
@@ -7203,7 +8071,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⻃'),
-		'にしへん',
+		{
+			copy: 'にしへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'West (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'にしへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '西',
@@ -7224,7 +8099,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('艮'),
-		'こん',
+		{
+			copy: 'こん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'This'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'こん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '境界',
@@ -7241,7 +8123,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('斉'),
-		'せい',
+		{
+			copy: 'せい',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Blue'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'せい')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: 'らしい',
@@ -7258,7 +8147,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('夂'),
-		'ふゆ がしら',
+		{
+			copy: 'ふゆ がしら',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Winter'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ふゆ がしら')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '冬',
@@ -7275,7 +8171,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼣'),
-		'ゆうべ',
+		{
+			copy: 'ゆうべ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Evening'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ゆうべ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '夕べ',
@@ -7292,7 +8195,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('米'),
-		'こめ',
+		{
+			copy: 'こめ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Rice'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'こめ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7301,7 +8211,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('禾'),
-		'のぎへん',
+		{
+			copy: 'のぎへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Grain Stalk (Left)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'のぎへん')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '粒',
@@ -7318,7 +8235,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('皿'),
-		'さら',
+		{
+			copy: 'さら',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Plate'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'さら')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7327,7 +8251,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('匕'),
-		'さじのひ',
+		{
+			copy: 'さじのひ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Spoon'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'さじのひ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '匙',
@@ -7344,7 +8275,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('酉'),
-		'ひよみのとり',
+		{
+			copy: 'ひよみのとり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Bird of the Zodiac'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひよみのとり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '酒',
@@ -7361,7 +8299,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('麦'),
-		'むぎ',
+		{
+			copy: 'むぎ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Wheat'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'むぎ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7370,7 +8315,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('豆'),
-		'まめ',
+		{
+			copy: 'まめ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Beans'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'まめ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7379,7 +8331,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('馬'),
-		'うま',
+		{
+			copy: 'うま',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Horse'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'うま')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7388,7 +8347,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('犬'),
-		'いぬ',
+		{
+			copy: 'いぬ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Dog'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'いぬ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7400,7 +8366,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('虫'),
-		'むし',
+		{
+			copy: 'むし',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Insect'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'むし')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7409,7 +8382,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺨'),
-		'いぬ',
+		{
+			copy: 'いぬ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Dog'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'いぬ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '犬',
@@ -7429,7 +8409,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('羊'),
-		'ひつじ',
+		{
+			copy: 'ひつじ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Sheep'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ひつじ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7438,7 +8425,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('鳥'),
-		'とり',
+		{
+			copy: 'とり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Bird'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'とり')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7447,7 +8441,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('隹'),
-		'ふるとり',
+		{
+			copy: 'ふるとり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Old Bird'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ふるとり')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7456,7 +8457,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('羽'),
-		'はね',
+		{
+			copy: 'はね',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Wing, Feather'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'はね')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7465,7 +8473,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('牛'),
-		'うし',
+		{
+			copy: 'うし',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Cow'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'うし')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7474,7 +8489,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('禾'),
-		'のぎ',
+		{
+			copy: 'のぎ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Grain'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'のぎ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7483,7 +8505,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('魚'),
-		'うお',
+		{
+			copy: 'うお',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Fish'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'うお')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7492,7 +8521,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('毛'),
-		'け',
+		{
+			copy: 'け',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Fur'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'け')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7501,7 +8537,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('牙'),
-		'きばへん',
+		{
+			copy: 'きばへん',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Tusk, Fang'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'きばへん')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$Left,
@@ -7510,7 +8553,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('刀'),
-		'かたな',
+		{
+			copy: 'かたな',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Katana, Blade'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'かたな')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7522,7 +8572,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('刂'),
-		'りっとう',
+		{
+			copy: 'りっとう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Katana, Blade (Right)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'りっとう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '刀',
@@ -7542,7 +8599,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⽁'),
-		'ぼくずくり',
+		{
+			copy: 'ぼくづくり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Strike'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ぼくづくり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '殴る',
@@ -7562,7 +8626,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺙'),
-		'ぼくずくり',
+		{
+			copy: 'ぼくづくり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Strike'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ぼくづくり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '殴る',
@@ -7582,7 +8653,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('力'),
-		'ちから',
+		{
+			copy: 'ちから',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Power'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ちから')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7594,7 +8672,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('弓'),
-		'ゆみ',
+		{
+			copy: 'ゆみ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Bow'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ゆみ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7603,7 +8688,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('矢'),
-		'や',
+		{
+			copy: 'や',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Arrow'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'や')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7612,7 +8704,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼽'),
-		'ほこ',
+		{
+			copy: 'ほこ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Spear, Weapon'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ほこ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7624,7 +8723,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('矛'),
-		'ほこ',
+		{
+			copy: 'ほこ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Halbeard, Weapon'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ほこ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7636,7 +8742,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('斤'),
-		'おの',
+		{
+			copy: 'おの',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Axe'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おの')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7645,7 +8758,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('丨'),
-		'ぼう',
+		{
+			copy: 'ぼう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Stick'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ぼう')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7654,7 +8774,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('戸'),
-		'と',
+		{
+			copy: 'と',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Door'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'と')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7663,7 +8790,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('罒'),
-		'あみがしら',
+		{
+			copy: 'あみがしら',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Net'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あみがしら')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '網目',
@@ -7684,7 +8818,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⺳'),
-		'あみがしら',
+		{
+			copy: 'あみがしら',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Net'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あみがしら')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '網目',
@@ -7705,7 +8846,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('网'),
-		'あみめ',
+		{
+			copy: 'あみめ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Net'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あみめ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7718,7 +8866,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('耒'),
-		'らいすき',
+		{
+			copy: 'らいすき',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Spade, Plough, Three-branched Tree'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'らいすき')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '鋤',
@@ -7735,7 +8890,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('几'),
-		'つくえ',
+		{
+			copy: 'つくえ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Desk'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'つくえ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7744,7 +8906,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⼙'),
-		'ふし ずくり',
+		{
+			copy: 'ふしづくり',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Stamp, Seal (Right)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ふしづくり')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '印鑑',
@@ -7761,7 +8930,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('車'),
-		'くるま',
+		{
+			copy: 'くるま',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Car, Chariot'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'くるま')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7770,7 +8946,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('白'),
-		'しろ',
+		{
+			copy: 'しろ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'White'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しろ')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7779,7 +8962,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('青'),
-		'あお',
+		{
+			copy: 'あお',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Blue'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あお')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7791,7 +8981,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('⾭'),
-		'あお',
+		{
+			copy: 'あお',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Blue'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'あお')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '青',
@@ -7811,7 +9008,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('音'),
-		'おと',
+		{
+			copy: 'おと',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Sound'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おと')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7820,7 +9024,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('辰'),
-		'しんのたつ',
+		{
+			copy: 'しんのたつ',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Fifth Zodia Sign'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'しんのたつ')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '竜',
@@ -7837,7 +9048,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('竜'),
-		'りゅう',
+		{
+			copy: 'りゅう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Dragon'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'りゅう')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_fromArray(
 			[
@@ -7849,7 +9067,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('龍'),
-		'りゅう',
+		{
+			copy: 'りゅう',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Dragon'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'りゅう')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '竜',
@@ -7869,7 +9094,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('鬼'),
-		'おに',
+		{
+			copy: 'おに',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Oni (Japanese Demon)'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'おに')
+				])
+		},
 		$author$project$Meaning$Same,
 		_List_Nil,
 		$author$project$Part$None,
@@ -7878,7 +9110,14 @@ var $author$project$Radicals$radicals = _List_fromArray(
 		A7(
 		$author$project$Radical$Radical,
 		_Utils_chr('ト'),
-		'ぼくのと',
+		{
+			copy: 'ぼく',
+			translations: _List_fromArray(
+				[
+					_Utils_Tuple2($author$project$Multilingual$En, 'Fortune Telling'),
+					_Utils_Tuple2($author$project$Multilingual$Ja, 'ぼく')
+				])
+		},
 		$author$project$Meaning$Different(
 			{
 				copy: '占い・カタカナのト',
@@ -15525,7 +16764,7 @@ var $author$project$Desktop$viewSelectedRadical = F2(
 									A2(
 									$author$project$Desktop$viewRadicalAttribute,
 									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalName),
-									radical.name),
+									A2($author$project$Multilingual$toString, language, radical.name)),
 									A2(
 									$author$project$Desktop$viewRadicalAttribute,
 									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalMeaning),
@@ -16370,7 +17609,7 @@ var $author$project$Phone$viewSelectedRadical = F2(
 									A2(
 									$author$project$Phone$viewRadicalAttribute,
 									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalName),
-									radical.name),
+									A2($author$project$Multilingual$toString, language, radical.name)),
 									A2(
 									$author$project$Phone$viewRadicalAttribute,
 									A2($author$project$Multilingual$toString, language, $author$project$Copy$radicalMeaning),
