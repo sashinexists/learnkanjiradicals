@@ -1,6 +1,7 @@
 module Desktop exposing (view)
 
 import Browser
+import Copy
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border exposing (roundEach, rounded)
@@ -9,6 +10,7 @@ import Element.Input exposing (button)
 import Html.Attributes
 import Markdown
 import Meaning exposing (displayMeaning)
+import Multilingual
 import Pages exposing (Page, pages)
 import Part exposing (Part, getJapanesePartName)
 import Radical exposing (Radical)
@@ -44,7 +46,7 @@ view model =
                     [ paddingEach { top = 10, bottom = 10, left = 60, right = 50 }, width fill ]
 
                 content =
-                    [ viewHeader model.display
+                    [ viewHeader model.language model.display
                     , case model.route of
                         Home ->
                             viewHomeRoute model
@@ -73,13 +75,13 @@ viewHomeRoute model =
         ]
         [ case model.display of
             ListBySubject ->
-                viewRadicalsBySubject model.selected model.radicals
+                viewRadicalsBySubject model.language model.selected model.radicals
 
             ListByPart ->
-                viewRadicalsByPart model.selected model.radicals
+                viewRadicalsByPart model.language model.selected model.radicals
 
             NoCategories ->
-                viewRadicals model.selected model.radicals
+                viewRadicals model.language model.selected model.radicals
         ]
 
 
@@ -102,38 +104,63 @@ viewPage page =
         ]
 
 
-viewHeader : Display -> Element Msg
-viewHeader display =
+viewHeader : Multilingual.Code -> Display -> Element Msg
+viewHeader language display =
     let
         styles =
             [ centerY, Font.size 25, spaceEvenly, Font.light, Font.alignRight, width fill, alignRight, height <| px <| 70 ]
 
         content =
-            [ viewFilterButtons display
-            , viewSiteTitle
-            , viewHeaderLinks
+            [ viewFilterButtons language display
+            , viewSiteTitle language
+            , viewHeaderLinks language
             ]
     in
     Element.row styles content
 
 
-viewFilterButtons : Display -> Element Msg
-viewFilterButtons display =
+viewFilterButtons : Multilingual.Code -> Display -> Element Msg
+viewFilterButtons language display =
     Element.row [ spacing 20 ]
-        [ displayHeaderButton "主題" (DisplayBy ListBySubject) display
-        , displayHeaderButton "部分" (DisplayBy ListByPart) display
-        , displayHeaderButton "全部" (DisplayBy NoCategories) display
-        , displayHeaderButton "混合" Randomise display
+        [ displayHeaderButton (Multilingual.toString language Copy.subjectsButton) (DisplayBy ListBySubject) display
+        , displayHeaderButton (Multilingual.toString language Copy.partsButton) (DisplayBy ListByPart) display
+        , displayHeaderButton (Multilingual.toString language Copy.allButton) (DisplayBy NoCategories) display
+        , displayHeaderButton (Multilingual.toString language Copy.randomiseButton) Randomise display
         ]
 
 
-viewHeaderLinks : Element Msg
-viewHeaderLinks =
-    Element.row [ spacing 20, alpha 0 ]
-        (List.map
-            (\p -> viewHeaderLink p.title (Routes.getUrlFromRoute p.route))
-            pages
-        )
+viewHeaderLinks : Multilingual.Code -> Element Msg
+viewHeaderLinks currentLanguage =
+    Element.row [ spacing 20 ]
+        --List.map
+        -- (\p -> viewHeaderLink p.title (Routes.getUrlFromRoute p.route))
+        --pages
+        --++
+        [ viewChangeLanguageButton currentLanguage ]
+
+
+viewChangeLanguageButton : Multilingual.Code -> Element Msg
+viewChangeLanguageButton currentLanguage =
+    button
+        [ Background.color theme.buttonBgColorAlt
+        , rounded 10
+        , padding 15
+        , Font.size 18
+        , Font.center
+        , mouseOver [ Background.color theme.buttonBgHoverAlt, Font.color theme.fontColorLighter ]
+        ]
+        { label = Element.text (Multilingual.toString currentLanguage Copy.languageButton)
+        , onPress = Just (ChangeLanguage (switchLanguage currentLanguage))
+        }
+
+
+switchLanguage : Multilingual.Code -> Multilingual.Code
+switchLanguage currentLanguage =
+    if currentLanguage == Multilingual.Ja then
+        Multilingual.En
+
+    else
+        Multilingual.Ja
 
 
 displayHeaderButton : String -> Msg -> Display -> Element Msg
@@ -221,9 +248,9 @@ viewInactiveHeaderButton label =
         (Element.text label)
 
 
-viewSiteTitle : Element Msg
-viewSiteTitle =
-    Element.text "漢字の部首学ぶ教室へようこそ！！"
+viewSiteTitle : Multilingual.Code -> Element Msg
+viewSiteTitle language =
+    Element.text (Multilingual.toString language Copy.siteTitle)
 
 
 viewTitle : String -> Element Msg
@@ -231,11 +258,11 @@ viewTitle title =
     Element.el [ Font.extraLight, Font.size 50, paddingEach { top = 20, bottom = 20, right = 0, left = 10 } ] (Element.text title)
 
 
-viewRadicals : List Radical -> List Radical -> Element Msg
-viewRadicals selected radicals =
+viewRadicals : Multilingual.Code -> List Radical -> List Radical -> Element Msg
+viewRadicals language selected radicals =
     let
         content =
-            List.map (viewRadical selected) radicals
+            List.map (viewRadical language selected) radicals
     in
     Element.wrappedRow
         [ spacing 20
@@ -244,44 +271,44 @@ viewRadicals selected radicals =
         content
 
 
-viewRadicalsBySubject : List Radical -> List Radical -> Element Msg
-viewRadicalsBySubject selected radicals =
+viewRadicalsBySubject : Multilingual.Code -> List Radical -> List Radical -> Element Msg
+viewRadicalsBySubject language selected radicals =
     Element.column []
         (List.map
-            (viewSubjectRadicals selected radicals)
+            (viewSubjectRadicals language selected radicals)
             Subject.all
         )
 
 
-viewRadicalsByPart : List Radical -> List Radical -> Element Msg
-viewRadicalsByPart selected radicals =
+viewRadicalsByPart : Multilingual.Code -> List Radical -> List Radical -> Element Msg
+viewRadicalsByPart language selected radicals =
     Element.column []
         (List.map
-            (viewPartRadicals selected radicals)
+            (viewPartRadicals language selected radicals)
             Part.all
         )
 
 
-viewSubjectRadicals : List Radical -> List Radical -> Subject -> Element Msg
-viewSubjectRadicals selected radicals subject =
+viewSubjectRadicals : Multilingual.Code -> List Radical -> List Radical -> Subject -> Element Msg
+viewSubjectRadicals language selected radicals subject =
     Element.column [ paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
-        [ viewTitle (getJapaneseSubjectName subject)
-        , viewRadicals selected (List.filter (\r -> r.subject == subject) radicals)
+        [ viewTitle (Multilingual.toString language (Copy.getSubjectName subject))
+        , viewRadicals language selected (List.filter (\r -> r.subject == subject) radicals)
         ]
 
 
-viewPartRadicals : List Radical -> List Radical -> Part -> Element Msg
-viewPartRadicals selected radicals part =
+viewPartRadicals : Multilingual.Code -> List Radical -> List Radical -> Part -> Element Msg
+viewPartRadicals language selected radicals part =
     Element.column [ paddingEach { top = 10, bottom = 20, left = 0, right = 0 } ]
-        [ viewTitle (getJapanesePartName part)
-        , viewRadicals selected (List.filter (\r -> r.part == part) radicals)
+        [ viewTitle (Multilingual.toString language (Copy.getPartName part))
+        , viewRadicals language selected (List.filter (\r -> r.part == part) radicals)
         ]
 
 
-viewRadical : List Radical -> Radical -> Element Msg
-viewRadical selected radical =
+viewRadical : Multilingual.Code -> List Radical -> Radical -> Element Msg
+viewRadical language selected radical =
     if List.any (\selectedRadical -> selectedRadical == radical) selected then
-        viewSelectedRadical radical
+        viewSelectedRadical language radical
 
     else
         viewUnselectedRadical radical
@@ -306,8 +333,8 @@ viewUnselectedRadical radical =
         }
 
 
-viewSelectedRadical : Radical -> Element Msg
-viewSelectedRadical radical =
+viewSelectedRadical : Multilingual.Code -> Radical -> Element Msg
+viewSelectedRadical language radical =
     button
         [ Background.color theme.contentBgColor
         , rounded 10
@@ -321,9 +348,9 @@ viewSelectedRadical radical =
             Element.row [ Font.center, centerX, centerY, spacing 20 ]
                 [ Element.el [ Font.center, Font.light, centerX, centerY ] (text (String.fromChar radical.radical))
                 , Element.column [ spacing 10 ]
-                    [ viewRadicalAttribute "名前" radical.name
-                    , viewRadicalAttribute "意味" (displayMeaning radical.meaning)
-                    , viewRadicalAttribute "部分" (getJapanesePartName radical.part)
+                    [ viewRadicalAttribute (Multilingual.toString language Copy.radicalName) (Multilingual.toString language radical.name)
+                    , viewRadicalAttribute (Multilingual.toString language Copy.radicalMeaning) (Multilingual.toString language (displayMeaning  radical.meaning))
+                    , viewRadicalAttribute (Multilingual.toString language Copy.radicalPart) (Multilingual.toString language (Copy.getPartName radical.part))
                     ]
                 ]
         , onPress = Just (DeselectRadical radical)

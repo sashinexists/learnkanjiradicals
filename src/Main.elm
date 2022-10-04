@@ -10,6 +10,7 @@ import Desktop
 import Element exposing (..)
 import Html.Attributes exposing (class)
 import Json.Decode as D
+import Multilingual
 import Pages exposing (..)
 import Phone
 import Radical exposing (Radical)
@@ -62,6 +63,7 @@ type alias Flags =
 init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
     let
+        model : Model
         model =
             { key = key
             , url = url
@@ -69,7 +71,12 @@ init flags url key =
             , selected = []
             , display = ListBySubject
             , route = getRouteFromPath url.path
-            , device = classifyDevice { height = flags.y, width = flags.x }
+            , device =
+                classifyDevice
+                    { height = flags.y
+                    , width = flags.x
+                    }
+            , language = Multilingual.Ja
             }
     in
     ( model
@@ -173,6 +180,9 @@ update msg model =
 
         NewRadicalsList radicals ->
             ( { model | radicals = radicals }, Cmd.none )
+
+        ChangeLanguage language ->
+            ( { model | language = language }, Cmd.none )
 
 
 handleKeyDown : String -> Model -> ( Model, Cmd Msg )

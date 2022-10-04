@@ -1,16 +1,23 @@
 module Meaning exposing (..)
-
+import Multilingual exposing (..)
 
 type Meaning
     = Same
-    | Different String
+    | Different Multilingual
 
 
-displayMeaning : Meaning -> String
+
+--you need to turn string here to a multilingual
+
+
+displayMeaning : Meaning -> Multilingual
 displayMeaning meaning =
     case meaning of
         Same ->
-            "名前と同じ"
+            {
+                copy= "名前と同じ",
+                translations = [(En, "Same as name"), (Ja, "名前と同じ")]
+            }
 
         Different m ->
             m

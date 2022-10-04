@@ -4,6 +4,7 @@ import Browser
 import Browser.Dom as Dom exposing (Viewport)
 import Browser.Navigation as Nav
 import Element exposing (Device)
+import Multilingual exposing (Code)
 import Radical exposing (..)
 import Routes exposing (..)
 import Url exposing (Url)
@@ -17,6 +18,7 @@ type alias Model =
     , display : Display
     , route : Route
     , device : Device
+    , language : Code
     }
 
 
@@ -31,6 +33,7 @@ type Msg
     | GotViewport Viewport
     | Randomise
     | NewRadicalsList (List Radical)
+    | ChangeLanguage Multilingual.Code
 
 
 type Display

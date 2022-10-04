@@ -1,5 +1,5 @@
 module Phone exposing (view)
-
+import Copy
 import Browser
 import Element exposing (..)
 import Element.Background as Background
@@ -16,7 +16,7 @@ import Routes exposing (Route(..))
 import Shared exposing (..)
 import Subject exposing (Subject, getJapaneseSubjectName)
 import Theme exposing (..)
-
+import Multilingual exposing (..)
 
 view : Model -> Browser.Document Msg
 view model =
@@ -75,13 +75,13 @@ viewHomeRoute model =
         ]
         [ case model.display of
             ListBySubject ->
-                viewRadicalsBySubject model.selected model.radicals
+                viewRadicalsBySubject model.language model.selected model.radicals
 
             ListByPart ->
-                viewRadicalsByPart model.selected model.radicals
+                viewRadicalsByPart model.language model.selected model.radicals
 
             NoCategories ->
-                viewRadicals model.selected model.radicals
+                viewRadicals model.language model.selected model.radicals
         ]
 
 
@@ -228,11 +228,11 @@ viewTitle title =
     Element.el [ width fill, Font.extraLight, Font.size 40, Font.alignLeft, paddingEach { top = 20, bottom = 20, right = 0, left = 10 } ] (Element.text title)
 
 
-viewRadicals : List Radical -> List Radical -> Element Msg
-viewRadicals selected radicals =
+viewRadicals : Code -> List Radical -> List Radical -> Element Msg
+viewRadicals language selected radicals =
     let
         content =
-            List.map (viewRadical selected) radicals
+            List.map (viewRadical language selected) radicals
     in
     Element.column
         [ spacing 20
@@ -243,48 +243,48 @@ viewRadicals selected radicals =
         content
 
 
-viewRadicalsBySubject : List Radical -> List Radical -> Element Msg
-viewRadicalsBySubject selected radicals =
+viewRadicalsBySubject : Code -> List Radical -> List Radical -> Element Msg
+viewRadicalsBySubject language selected radicals =
     Element.column [ width fill , centerX
         , centerY]
         (List.map
-            (viewSubjectRadicals selected radicals)
+            (viewSubjectRadicals language selected radicals)
             Subject.all
         )
 
 
-viewRadicalsByPart : List Radical -> List Radical -> Element Msg
-viewRadicalsByPart selected radicals =
+viewRadicalsByPart : Code -> List Radical -> List Radical -> Element Msg
+viewRadicalsByPart language selected radicals =
     Element.column [ width fill, centerX
         , centerY ]
         (List.map
-            (viewPartRadicals selected radicals)
+            (viewPartRadicals language selected radicals)
             Part.all
         )
 
 
-viewSubjectRadicals : List Radical -> List Radical -> Subject -> Element Msg
-viewSubjectRadicals selected radicals subject =
+viewSubjectRadicals : Code ->List Radical -> List Radical -> Subject -> Element Msg
+viewSubjectRadicals language selected radicals subject =
     Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 }, centerX
         , centerY ]
         [ viewTitle (getJapaneseSubjectName subject)
-        , viewRadicals selected (List.filter (\r -> r.subject == subject) radicals)
+        , viewRadicals language selected (List.filter (\r -> r.subject == subject) radicals)
         ]
 
 
-viewPartRadicals : List Radical -> List Radical -> Part -> Element Msg
-viewPartRadicals selected radicals part =
+viewPartRadicals : Code ->List Radical -> List Radical -> Part -> Element Msg
+viewPartRadicals language selected radicals part =
     Element.column [ width fill, paddingEach { top = 10, bottom = 20, left = 0, right = 0 } , centerX
         , centerY]
         [ viewTitle (getJapanesePartName part)
-        , viewRadicals selected (List.filter (\r -> r.part == part) radicals)
+        , viewRadicals language selected (List.filter (\r -> r.part == part) radicals)
         ]
 
 
-viewRadical : List Radical -> Radical -> Element Msg
-viewRadical selected radical =
+viewRadical : Code -> List Radical -> Radical -> Element Msg
+viewRadical language selected radical =
     if List.any (\selectedRadical -> selectedRadical == radical) selected then
-        viewSelectedRadical radical
+        viewSelectedRadical language radical
 
     else
         viewUnselectedRadical radical
@@ -311,8 +311,8 @@ viewUnselectedRadical radical =
         }
 
 
-viewSelectedRadical : Radical -> Element Msg
-viewSelectedRadical radical =
+viewSelectedRadical :Code -> Radical -> Element Msg
+viewSelectedRadical language radical =
     button
         [ Background.color theme.contentBgColor
         , rounded 10
@@ -328,9 +328,9 @@ viewSelectedRadical radical =
             Element.row [ Font.center, centerX, centerY, spacing 20 ]
                 [ Element.el [ Font.center, Font.light, centerX, centerY ] (text (String.fromChar radical.radical))
                 , Element.column [ spacing 10 ]
-                    [ viewRadicalAttribute "名前" radical.name
-                    , viewRadicalAttribute "意味" (displayMeaning radical.meaning)
-                    , viewRadicalAttribute "部分" (getJapanesePartName radical.part)
+                    [ viewRadicalAttribute (Multilingual.toString language Copy.radicalName) (Multilingual.toString language radical.name)
+                    , viewRadicalAttribute (Multilingual.toString language Copy.radicalMeaning) (Multilingual.toString language (displayMeaning  radical.meaning))
+                    , viewRadicalAttribute (Multilingual.toString language Copy.radicalPart) (Multilingual.toString language (Copy.getPartName radical.part))
                     ]
                 ]
         , onPress = Just (DeselectRadical radical)
